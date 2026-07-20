@@ -2,6 +2,8 @@
 
 **Discover Istanbul with someone who is already waiting for you.**
 
+**Live demo:** [https://szeifftimea-sudo.github.io/ali-turkish-companion/](https://szeifftimea-sudo.github.io/ali-turkish-companion/)
+
 Ali is a Hungarian-first, story-led Turkish learning experience for adults
 preparing for a trip to Türkiye. It replaces the feeling of completing a
 course with the feeling of being welcomed by a local friend. Language appears
@@ -72,6 +74,15 @@ http://localhost:8080/index.html
 
 Do not open the application through `file://`; browser security and navigation
 behaviour are more reliable through `http://localhost`.
+
+## Online demo
+
+The submission is deployed directly from the repository's `main` branch using
+GitHub Pages:
+
+```text
+https://szeifftimea-sudo.github.io/ali-turkish-companion/
+```
 
 ## Suggested judge path
 
