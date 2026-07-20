@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fedezd fel Isztambult Ali hangulati térképén: ikonikus helyek, élő negyedek, egy sultanahmeti séta és egy saját délután Kadıköyben." />
+  <title>Isztambul helyei · Ali várostérképe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="isztambul-helyei.css?v=15" />
+  <link rel="stylesheet" href="story-caption-safe.css?v=2" />
+  <link rel="stylesheet" href="story-learning-layer.css?v=1" />
+  <link rel="stylesheet" href="navigation.css?v=4" />
+</head>
+<body data-section="fedezd-fel">
+  <a class="skip-link" href="#varosterkep">Ugrás Isztambul térképéhez</a>
+
+  <header class="site-header global-header header-solid">
+    <a class="brand" href="index.html" aria-label="Vissza Ali kezdőoldalára">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg></span>
+      <span><strong>Ali</strong><small>A török útitárs</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span><b>Menü</b></button>
+    <nav class="site-navigation" id="site-navigation" aria-label="Főmenü">
+      <a class="nav-item" data-nav-section="kalandok" href="index.html#journey">Kalandok</a>
+      <div class="nav-group" data-nav-section="ali-zsebeben">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="false">Ali zsebében <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover">
+          <p><strong>Amit már együtt megtaláltunk</strong><small>A mondatok, amelyek útközben veled maradtak.</small></p>
+          <a href="zseb.html"><span>Merre menjünk tovább?</span><small>A közös kiindulópontunk</small></a>
+          <a href="szavak.html#szotar"><span>Az első út szavai</span><small>10 állomás · egyedi kifejezések</small></a>
+          <a href="helyzetek.html#helyzetek"><span>Mit szeretnél elmondani?</span><small>Élethelyzetek szerint</small></a>
+          <a href="zseb.html#sajat-szavaim"><span>Saját szavaim</span><small>Gyakorlás és tanulókártyák</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-nav-section="fedezd-fel">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="true">Fedezd fel <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover nav-popover-small">
+          <p><strong>Törökország Ali szemével</strong><small>Ízek, helyek és történetek.</small></p>
+          <a href="torok-konyha.html?v=20260719-5"><span>Török konyha</span><small>Ali már megterített</small></a>
+          <a class="current" href="isztambul-helyei.html" aria-current="page"><span>Isztambul helyei</span><small>A város, amely visszahív</small></a>
+        </div>
+      </div>
+      <a class="nav-item nav-journal-link" href="index.html?panel=journal">Útinaplóm <b data-pocket-count>0</b></a>
+      <a class="nav-cta" href="index.html?start=1" data-journey-nav>Folytassuk <span aria-hidden="true">→</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="places-hero" id="varosterkep" aria-labelledby="places-title">
+      <div class="places-intro">
+        <p class="eyebrow">Ali várostérképe</p>
+        <h1 id="places-title">Isztambulnak nincs egyetlen bejárata.</h1>
+        <p class="hero-lead">Van, ahol először nézel fel. Van, ahol már együtt sétálunk. És van egy hely, amelyhez csak akkor indulunk el, ha maradt még egy délutánunk.</p>
+        <div class="ali-map-note"><span aria-hidden="true">A</span><p><strong>Gyere.</strong> Mutatok egy helyet. Utána te választasz.</p></div>
+        <p class="map-disclaimer">Ez hangulati térkép, nem navigáció. A távolságoknál fontosabb, hogyan hív vissza egy hely.</p>
+      </div>
+
+      <div class="map-board">
+        <div class="map-topline"><div><span>İstanbul</span><strong>Hol álljunk meg?</strong></div><small data-layer-count>8 hely · 1 kapcsolódó · 17 összesen</small></div>
+        <div class="layer-tabs" role="tablist" aria-label="Isztambul felfedezési rétegei">
+          <button type="button" role="tab" aria-selected="true" data-layer="first"><strong>Először nézz fel</strong><small>8 ikonikus hely</small></button>
+          <button type="button" role="tab" aria-selected="false" data-layer="walk" tabindex="-1"><strong>Sétáljunk tovább</strong><small>5 városi megálló</small></button>
+          <button type="button" role="tab" aria-selected="false" data-layer="afternoon" tabindex="-1"><strong>Maradt egy délután</strong><small>4 különleges kitérő</small></button>
+        </div>
+
+        <div class="journey-thread" aria-live="polite">
+          <span data-journey-number>Történet 01</span>
+          <strong data-journey-name>A csendes udvar</strong>
+          <small data-journey-count>4 megálló · számok = sorrend</small>
+          <span class="journey-thread-dots" data-journey-dots aria-hidden="true"></span>
+        </div>
+
+        <div class="map-stage">
+          <div class="map-canvas" aria-label="Isztambul hangulati térképe">
+            <svg viewBox="0 0 1000 620" role="img" aria-label="Isztambul európai és ázsiai oldalának stilizált térképe a Boszporusszal">
+              <rect width="1000" height="620" class="map-water" />
+              <path class="map-land" d="M-20-20H600c-10 74 18 122 4 184-15 70-89 104-110 158-27 72 3 171-32 318H-20Z" />
+              <path class="map-land map-land-asia" d="M718-20H1020V640H610c34-109 7-193 45-278 28-63 90-103 78-184-8-56-30-111-15-198Z" />
+              <path class="golden-horn" d="M80 315c125-38 229-35 346 10 55 21 101 19 151-9-55 55-112 73-184 52-111-32-208-33-313-8Z" />
+              <path class="coast-line" d="M598-10c-14 89 25 135 3 210-18 63-84 102-98 167-18 83 13 163-20 273" />
+              <path class="coast-line" d="M718-10c-6 72 25 129 13 194-12 67-79 110-92 177-17 85 13 170-15 279" />
+              <path class="ferry-line" d="M515 390c62-28 125-17 188 31" />
+              <path class="ferry-line" d="M560 260c54-11 98 7 139 52" />
+              <g class="map-ripples"><circle cx="650" cy="130" r="25" /><circle cx="650" cy="130" r="42" /><circle cx="740" cy="515" r="28" /></g>
+              <text x="255" y="540">AVRUPA</text><text x="795" y="240">ASYA</text><text x="616" y="330" transform="rotate(-72 616 330)">BOĞAZİÇİ</text><text x="220" y="345">HALİÇ</text>
+            </svg>
+            <svg class="journey-route-layer" viewBox="0 0 1000 620" aria-hidden="true" preserveAspectRatio="none">
+              <path data-journey-route></path>
+            </svg>
+            <div class="map-pins" id="map-pins"></div>
+          </div>
+
+          <article class="map-detail" id="map-detail" aria-live="polite">
+            <span data-place-zone>Sultanahmet · történelmi félsziget</span>
+            <h2 data-place-name>Kék Mecset</h2>
+            <p data-place-turkish lang="tr">Sultanahmet Camii</p>
+            <p class="map-journey" data-place-journey>Történet 01 · A csendes udvar · 1/4. megálló</p>
+            <blockquote data-place-invitation>„Előbb maradjunk egy percet az udvaron. A város belül is megvár.”</blockquote>
+            <p data-place-summary>Működő imahely, ezért nem látnivalóként, hanem vendégként érkezünk.</p>
+            <div class="place-knowledge" aria-label="A hely legfontosabb tudnivalói">
+              <p class="knowledge-fact"><span>Ali mesél · ezt vidd magaddal</span><strong data-place-fact>A Kék Mecset nevét a belső teret díszítő, főként kék izniki csempékről kapta.</strong></p>
+              <p class="knowledge-notice"><span>Mire figyelj ott?</span><span data-place-notice>Ez ma is működő mecset. Az imaidő és a helyszíni rend mindig fontosabb a fényképnél.</span></p>
+              <p class="knowledge-word"><span>Törökül</span><strong lang="tr" data-place-word>çini</strong><span data-place-meaning>díszes kerámiacsempe</span></p>
+            </div>
+            <a href="#sultanahmet" data-place-cta>Belépünk Sultanahmetbe <span aria-hidden="true">↓</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="place-invitations" id="meghivasok" aria-labelledby="invitations-title">
+      <header><div><p class="eyebrow" data-layer-kicker>Amikor először nézel fel</p><h2 id="invitations-title" data-layer-title>A város nagy sziluettjei.</h2></div><p data-layer-copy>Nem azért fontosak, mert egy listán elöl állnak. Hanem mert utánuk másképp nézed Isztambul vonalait.</p></header>
+      <div class="place-grid" id="place-grid"></div>
+    </section>
+
+    <section class="sultanahmet-pilot" id="sultanahmet" aria-labelledby="sultanahmet-title">
+      <figure class="sultanahmet-scene">
+        <img src="assets/web/ALI-SCN-009-blue-mosque-courtyard.webp?v=1" alt="Ali kíváncsian felfelé néz a Kék Mecset napfényes udvarában" loading="eager" decoding="async" />
+        <figcaption><span>Sultanahmet · 10:10</span><strong>Nem kell mindent egyszerre megértenünk.</strong></figcaption>
+        <span class="scene-stamp" aria-hidden="true"><strong>Sultanahmet</strong><small>Saygıyla gel</small></span>
+      </figure>
+      <div class="sultanahmet-opening">
+        <p class="eyebrow">A sultanahmeti történet nyitánya</p>
+        <h2 id="sultanahmet-title">A csendes udvar a küszöbnél kezdődik.</h2>
+        <p class="section-lead">Néhány lépésen belül több korszak találkozik. Ali nem próbál mindent elmagyarázni. Segít úgy érkezni, hogy legyen helyed észrevenni őket.</p>
+        <div class="ali-map-note light"><span aria-hidden="true">A</span><p>Előbb nézzük meg, merre mennek a többiek. Utána kérdezünk.</p></div>
+        <a class="sultanahmet-start" href="#doors-title">Maradjunk egy percet az udvaron <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="four-doors" aria-labelledby="doors-title">
+      <header><p class="eyebrow">Egy tér, négy ajtó</p><h2 id="doors-title">Nem kell mindegyiken bemennünk.</h2><p>Nézd meg, melyikhez van ma figyelmed. Ali nem siettet végig egy ellenőrzőlistán.</p></header>
+      <div class="door-grid">
+        <article id="door-blue" data-map-entry="A Kék Mecsettől érkeztél"><span>01 · İbadet</span><h3>Kék Mecset</h3><p>Működő imahely. A helyszíni jelzések, az imaidők és a csend mindig fontosabbak a saját útitervünknél.</p><small>Sultanahmet Camii</small></article>
+        <article id="door-hagia" data-map-entry="A Hagia Szophiától érkeztél"><span>02 · Katmanok</span><h3>Hagia Szophia</h3><p>Egy épületben több korszak emlékezete él. Itt nem kell gyorsan eldöntened, melyik történetet nézed.</p><small>Ayasofya</small></article>
+        <article id="door-topkapi" data-map-entry="A Topkapı Palotától érkeztél"><span>03 · Avlular</span><h3>Topkapı Palota</h3><p>Nem egyetlen terem, hanem udvarok egymás után. Hagyjunk neki időt, és az aktuális látogatási rendet indulás előtt ellenőrizzük.</p><small>Topkapı Sarayı</small></article>
+        <article id="door-binbirdirek" data-map-entry="A föld alatti Isztambultól érkeztél"><span>04 · Şehrin altı</span><h3>A város alatt</h3><p>A Binbirdirek-ciszterna és más föld alatti terek látogathatósága változhat. Csak akkor térünk le, ha az ajtó valóban nyitva áll.</p><small>Binbirdirek Sarnıcı</small></article>
+      </div>
+    </section>
+
+    <aside class="story-insight" aria-label="Egy megjegyezhető helyi részlet Sultanahmetről">
+      <div class="story-insight-heading"><span>Ali mesél</span><strong>Ezt vidd magaddal</strong></div>
+      <p class="story-insight-fact">A Kék Mecset nevét nem a homlokzata, hanem a belső teret díszítő, főként kék árnyalatú izniki csempék tették ismertté.</p>
+      <div class="story-insight-note"><span>Mire figyelj ott?</span><p>Ez ma is működő mecset. Az imaidő, a ruházat és a helyszíni rend mindig fontosabb a fényképnél.</p></div>
+      <div class="story-insight-word"><span>Egy szó hozzá</span><strong lang="tr">çini</strong><small>díszes kerámiacsempe</small></div>
+    </aside>
+
+    <section class="sultanahmet-chapters" aria-label="Hagia Szophia és Topkapı történetmegállói">
+      <article class="place-chapter" id="chapter-hagia" data-map-entry="A Hagia Szophiától érkeztél">
+        <figure class="chapter-visual">
+          <img src="assets/web/sultanahmet/ALI-SUL-002-hagia-sophia-interior-v2.webp" alt="Ali a Hagia Szophia monumentális belső terében csendesen felfelé figyel" width="1672" height="941" loading="lazy" decoding="async" />
+          <figcaption>Ayasofya · a fény több korszakon halad át</figcaption>
+        </figure>
+        <div class="chapter-copy">
+          <p class="eyebrow">02 · Ayasofya</p>
+          <h2>Itt a korszakok nem váltják le egymást.</h2>
+          <p>A falakon és a kupolák alatt többféle múlt maradt egymás mellett. Ali nem sorolja az évszámokat. Megáll melletted, és hagyja, hogy előbb te nézz fel.</p>
+          <div class="ali-map-note"><span aria-hidden="true">A</span><p>Nézd csak. Nem kell most eldöntenünk, melyik részlet a legfontosabb.</p></div>
+          <a href="#chapter-topkapi">Menjünk tovább az udvarok felé <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="place-chapter place-chapter-reverse" id="chapter-topkapi" data-map-entry="A Topkapı Palotától érkeztél">
+        <figure class="chapter-visual">
+          <img src="assets/web/sultanahmet/ALI-SUL-003-topkapi-inner-garden-v2.webp" alt="Ali lassan sétál a Topkapı Palota csendes belső kertjében" width="1672" height="941" loading="lazy" decoding="async" />
+          <figcaption>Topkapı Sarayı · a belső kertben marad időnk</figcaption>
+        </figure>
+        <div class="chapter-copy">
+          <p class="eyebrow">03 · Topkapı Sarayı</p>
+          <h2>A palota nem egyetlen ajtó mögött kezdődik.</h2>
+          <p>Egy udvar után újabb kapu nyílik, aztán megint változik a fény és a város hangja. Nem próbáljuk egyetlen pillantással befogni. Rétegről rétegre haladunk.</p>
+          <div class="ali-map-note"><span aria-hidden="true">A</span><p>Ne siessünk át rajta. Minden udvar másféle csendet tart.</p></div>
+          <a href="#route-title">Rakjuk össze Ali lassú útvonalát <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="quiet-route" aria-labelledby="route-title">
+      <header><div><p class="eyebrow">Ali lassú útvonala</p><h2 id="route-title">Egy nap, amelyben marad levegő.</h2></div><p>Ez nem kötelező sorrend. Inkább annak a ritmusa, hogyan lehet egy sűrű környéket rohanás nélkül bejárni.</p></header>
+      <ol>
+        <li><span>Kora reggel</span><strong>Megállunk a Kék Mecset udvarán.</strong><p>Mielőtt belépnénk, figyeljük meg a hely rendjét.</p></li>
+        <li><span>Délelőtt</span><strong>Átsétálunk a Hagia Szophia felé.</strong><p>Nem adatokat gyűjtünk. Együtt nézzük, mit őrzött meg az épület.</p></li>
+        <li><span>Ha még van figyelmünk</span><strong>Belépünk Topkapı udvaraiba.</strong><p>A palotát nem préseljük két másik program közé.</p></li>
+        <li><span>Ha nyitva találjuk</span><strong>Lenézünk a város felszíne alá.</strong><p>A föld alatti kitérő lehet ráadás, nem kötelező pipa.</p></li>
+      </ol>
+    </section>
+
+    <section class="respect-phrases" id="sultanahmet-mondatok" aria-labelledby="respect-title" data-story-outcome>
+      <header><div><p class="eyebrow">A mondatok, amelyeknek itt helyük van</p><h2 id="respect-title">Nem kell sokat beszélni.</h2></div><p>Négy rövid mondat elég ahhoz, hogy kérdezni, figyelni és tisztelettel jelen lenni tudj.</p></header>
+      <div class="respect-grid">
+        <article><span>Bejárat</span><strong lang="tr">Giriş nerede?</strong><p>Hol van a bejárat?</p><button type="button" data-save-place-phrase data-story-save data-phrase="Giriş nerede?" data-translation="Hol van a bejárat?" aria-pressed="false">Elteszem Ali zsebébe</button></article>
+        <article><span>A küszöbnél</span><strong lang="tr">Ayakkabılarımı burada mı çıkarayım?</strong><p>Itt vegyem le a cipőmet?</p><button type="button" data-save-place-phrase data-story-save data-phrase="Ayakkabılarımı burada mı çıkarayım?" data-translation="Itt vegyem le a cipőmet?" aria-pressed="false">Elteszem Ali zsebébe</button></article>
+        <article><span>Engedélykérés</span><strong lang="tr">Fotoğraf çekebilir miyim?</strong><p>Fényképezhetek?</p><button type="button" data-save-place-phrase data-story-save data-phrase="Fotoğraf çekebilir miyim?" data-translation="Fényképezhetek?" aria-pressed="false">Elteszem Ali zsebébe</button></article>
+        <article><span>Ha most csak figyelnél</span><strong lang="tr">Sadece bakacağım.</strong><p>Csak körülnézek.</p><button type="button" data-save-place-phrase data-story-save data-phrase="Sadece bakacağım." data-translation="Csak körülnézek." aria-pressed="false">Elteszem Ali zsebébe</button></article>
+      </div>
+      <div class="phrase-handoff"><p><strong>Ali zsebe megőrzi, amit kiválasztasz.</strong> A többi mondat továbbra is a kalandban vár.</p><div><a href="zseb.html?from=helyek#mentett-mondatok">Megnézem, mit tettem el →</a><a href="index.html?adventure=6">Sétáljuk végig együtt →</a></div></div>
+    </section>
+
+    <aside class="live-info" aria-labelledby="live-title">
+      <div><p class="eyebrow">Mielőtt valóban elindulsz</p><h2 id="live-title">A történet időtálló. A látogatási rend nem.</h2><p>Indulás előtt mindig ellenőrizd a hivatalos tájékoztatást. Az imaidő, a látogatói útvonal, a nyitvatartás és a jegyrend változhat.</p></div>
+      <div class="official-links">
+        <a href="https://istanbul.goturkiye.com/tr/osmanli-imparatorluk-mirasi" target="_blank" rel="noopener noreferrer"><strong>Kék Mecset</strong><small>GoTürkiye ↗</small></a>
+        <a href="https://istanbul.goturkiye.com/es/hagia-sophia" target="_blank" rel="noopener noreferrer"><strong>Hagia Szophia</strong><small>GoTürkiye ↗</small></a>
+        <a href="https://www.millisaraylar.gov.tr/Lokasyon/2/topkapi" target="_blank" rel="noopener noreferrer"><strong>Topkapı Palota</strong><small>Milli Saraylar ↗</small></a>
+      </div>
+    </aside>
+
+    <section class="sultanahmet-closing" aria-labelledby="sultanahmet-closing-title">
+      <div>
+        <p class="eyebrow">Amit nem egy útikönyvből viszel haza</p>
+        <h2 id="sultanahmet-closing-title">Már tudod, hogyan érkezz.</h2>
+        <p>Nem attól lett ismerősebb ez a hely, hogy mindent megtudtál róla. Hanem attól, hogy tudod, mikor kérdezz, mikor figyelj, és mikor elég csak jelen lenni.</p>
+        <div class="ali-map-note light"><span aria-hidden="true">A</span><p>Nézzünk még egyszer vissza az udvarra. Aztán sétáljunk tovább.</p></div>
+        <div class="sultanahmet-closing-actions">
+          <a href="zseb.html?from=helyek#mentett-mondatok">Megnézem, mit viszek magammal <span aria-hidden="true">→</span></a>
+          <a data-story-more href="helyzetek.html?topic=fordulatok#kifejezesek">További udvarias mondatok</a>
+          <a href="isztambul-helyei.html?place=blue#varosterkep" data-return-to-selected-place data-story-map-return>Vissza a kiválasztott helyhez a térképen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="places-footer">
+    <a class="brand footer-brand" href="#varosterkep"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg></span><span><strong>Ali</strong><small>A török útitárs</small></span></a>
+    <p>Nem mindent láttunk. De már van hová visszatérnünk.</p>
+    <a href="index.html">Vissza Isztambulba <span aria-hidden="true">→</span></a>
+  </footer>
+
+  <script src="navigation.js?v=4"></script>
+  <script src="isztambul-helyei.js?v=20"></script>
+</body>
+</html>

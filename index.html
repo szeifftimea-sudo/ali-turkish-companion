@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ali, a török útitárs – fedezd fel Isztambult valódi történeteken és helyzeteken keresztül." />
+  <meta name="theme-color" content="#f5ead7" />
+  <title>Ali – A török útitárs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=55" />
+  <link rel="stylesheet" href="navigation.css?v=4" />
+</head>
+<body data-section="kalandok">
+  <a class="skip-link" href="#main">Ugrás a tartalomhoz</a>
+  <header class="site-header global-header header-overlay">
+    <a class="brand" href="#top" aria-label="Ali – A török útitárs, kezdőlap">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" focusable="false">
+          <path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" />
+          <path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" />
+        </svg>
+      </span>
+      <span><strong>Ali</strong><small>A török útitárs</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span><b>Menü</b></button>
+    <nav class="site-navigation" id="site-navigation" aria-label="Főmenü">
+      <a class="nav-item" data-nav-section="kalandok" href="#journey">Kalandok</a>
+      <div class="nav-group" data-nav-section="ali-zsebeben">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="false">Ali zsebében <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover">
+          <p><strong>Amit már együtt megtaláltunk</strong><small>A mondatok, amelyek útközben veled maradtak.</small></p>
+          <a href="zseb.html"><span>Merre menjünk tovább?</span><small>Ali közös kiindulópontja</small></a>
+          <a href="szavak.html#szotar"><span>Az első út szavai</span><small>10 állomás · egyedi kifejezések</small></a>
+          <a href="helyzetek.html#helyzetek"><span>Mit szeretnél elmondani?</span><small>Élethelyzetek szerint</small></a>
+          <a href="zseb.html#sajat-szavaim"><span>Saját szavaim</span><small>Gyakorlás és tanulókártyák</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-nav-section="fedezd-fel">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="false">Fedezd fel <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover nav-popover-small">
+          <p><strong>Törökország Ali szemével</strong><small>Ízek, helyek és történetek.</small></p>
+          <a href="torok-konyha.html?v=20260719-5"><span>Török konyha</span><small>Ali már megterített</small></a>
+          <a href="isztambul-helyei.html"><span>Isztambul helyei</span><small>A város, amely visszahív</small></a>
+        </div>
+      </div>
+      <button class="journal-toggle nav-journal" type="button" aria-label="Ali útinaplójának megnyitása"><span aria-hidden="true">✦</span> Útinaplóm <b data-journal-count>0</b></button>
+      <button class="sound-toggle nav-sound" type="button" aria-pressed="false" aria-label="Isztambuli hangulat be- vagy kikapcsolása"><span aria-hidden="true">◌</span> Hangulat</button>
+      <button class="nav-cta" type="button" data-start>Sétáljunk egyet <span aria-hidden="true">→</span></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="sun-disc" aria-hidden="true"></div>
+      <div class="turkish-whispers hero-whispers" aria-hidden="true">
+        <span>Merhaba</span><span>İstanbul</span><span>Yavaş yavaş</span>
+      </div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Az első utazásod már elkezdődött</p>
+        <h1 id="hero-title">Fedezd fel Isztambult Alival.</h1>
+        <p class="lead">Valódi helyzetek, egy helyi barát. A török nyelv pedig útközben ragad rád.</p>
+
+        <div class="ali-note" aria-label="Ali üzenete">
+          <span class="note-dot" aria-hidden="true"></span>
+          <p><strong>Merhaba.</strong> Én Ali vagyok. Isztambul túl érdekes ahhoz, hogy leckékből ismerd meg.</p>
+        </div>
+
+        <div class="hero-actions">
+          <button class="primary-button" type="button" data-start>Sétáljunk egyet <span aria-hidden="true">→</span></button>
+          <span class="microcopy">30 másodperc · regisztráció nélkül</span>
+        </div>
+      </div>
+
+      <div class="hero-portrait reveal" aria-label="Ali Isztambul Nagy Bazárjában">
+        <div class="arch-frame">
+          <img src="assets/web/ALI-SCN-001-galata-sunrise.webp" alt="Ali napfelkeltekor a Galata hídon, a Boszporusz előtt" />
+        </div>
+        <div class="hero-motifs" aria-hidden="true">
+          <span class="motif-tile motif-tulip"></span>
+          <span class="motif-tile motif-saz"></span>
+          <span class="motif-tile motif-chintamani"></span>
+        </div>
+        <span class="postal-stamp stamp-hero" aria-hidden="true"><strong>İstanbul</strong><small>Hoş geldin · 07:12</small></span>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Isztambul erre van <span>↓</span></div>
+    </section>
+
+    <section class="journey-section" id="journey" aria-labelledby="journey-title">
+      <div class="turkish-whispers journey-whispers" aria-hidden="true">
+        <span>Bir çay, lütfen</span><span>Hadi gidelim</span><span>Güzel bir gün</span>
+      </div>
+      <div class="section-intro">
+        <p class="eyebrow">Nem leckék. Egy nap emlékei.</p>
+        <h2 id="journey-title">Isztambul nem fejezetekben történik.</h2>
+        <p>Ali nem végigtanít egy tananyagon. Végigkísér egy napon, amelynek minden helyzete ad egy új mondatot.</p>
+        <div class="day-route" aria-hidden="true">
+          <span><i></i><small>08:20</small>Karaköy</span>
+          <span><i></i><small>11:05</small>Boszporusz</span>
+          <span><i></i><small>15:40</small>Bazár</span>
+        </div>
+        <div class="journey-ticket" aria-hidden="true">
+          <span><small>Ali útinaplója</small><strong>İstanbul · 01</strong></span>
+          <i></i>
+          <span><small>Mai útvonal</small><strong>Karaköy → Üsküdar</strong></span>
+          <b>01 / 10</b>
+        </div>
+      </div>
+      <div class="journey-line" role="list" aria-label="Az első isztambuli utazás állomásai">
+        <article class="journey-card active" role="listitem" data-card-index="0">
+          <img class="journey-image" src="assets/web/ALI-SCN-001-galata-sunrise.webp" alt="Ali a Galata hídnál várja az érkező vendéget" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Galata</strong><small>07:12</small></span>
+          <span class="journey-time">07:12</span><h3>Megérkeztél</h3>
+          <p>Találkozol Alival, köszönsz, és elkészül az első saját török mondatod.</p>
+          <span class="phrase">Merhaba.</span>
+          <button class="journey-card-hit" type="button" data-adventure="0" aria-label="Az 1. kaland megnyitása: Megérkeztél"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="1">
+          <img class="journey-image" src="assets/web/ALI-SCN-002-karakoy-teahouse.webp" alt="Ali egy karaköyi teázóban figyelmesen hallgat" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Karaköy</strong><small>08:20</small></span>
+          <span class="journey-time">08:20</span><h3>Egy tea mellett</h3>
+          <p>Te kéred ki a teát, és pontosan úgy érkezik, ahogy szereted.</p>
+          <span class="phrase">Bir çay, lütfen.</span>
+          <button class="journey-card-hit" type="button" data-adventure="1" aria-label="A 2. kaland megnyitása: Egy tea mellett"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="2">
+          <img class="journey-image" src="assets/web/ALI-SCN-006-nostalgic-tram.webp" alt="Ali a nosztalgikus isztambuli villamosnál" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Taksim</strong><small>10:15</small></span>
+          <span class="journey-time">10:15</span><h3>A piros villamos</h3>
+          <p>Ellenőrzöd a kártyádat, majd udvariasan utat kérsz az ajtóhoz.</p>
+          <span class="phrase">Affedersiniz.</span>
+          <button class="journey-card-hit" type="button" data-adventure="2" aria-label="A 3. kaland megnyitása: A piros villamos"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="3">
+          <img class="journey-image" src="assets/web/ALI-SCN-003-bosphorus-ferry.webp" alt="Ali kíváncsian figyeli a Boszporuszt egy kompon" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Boğaziçi</strong><small>16:40</small></span>
+          <span class="journey-time">16:40</span><h3>Átkelés Üsküdarba</h3>
+          <p>Megkérdezed, jó hajóra szálltok-e, aztán kiválasztod a saját helyeteket.</p>
+          <span class="phrase">Bu vapur Üsküdar'a gidiyor mu?</span>
+          <button class="journey-card-hit" type="button" data-adventure="3" aria-label="A 4. kaland megnyitása: Átkelés Üsküdarba"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="4">
+          <img class="journey-image" src="assets/web/ALI-SCN-007-uskudar-sunset.webp" alt="Ali az üsküdari naplementében" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Üsküdar</strong><small>19:18</small></span>
+          <span class="journey-time">19:18</span><h3>Fények a túlparton</h3>
+          <p>Helyet választasz, megosztod a pillanatot, majd eldöntöd, készüljön-e fénykép.</p>
+          <span class="phrase">Manzara çok güzel.</span>
+          <button class="journey-card-hit" type="button" data-adventure="4" aria-label="Az 5. kaland megnyitása: Fények a túlparton"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="5">
+          <img class="journey-image" src="assets/web/ALI-SCN-008-simit-bakery.webp" alt="Ali friss simitet választ egy pékségben" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Simitçi</strong><small>08:35</small></span>
+          <span class="journey-time">08:35</span><h3>A reggel íze</h3>
+          <p>Másnap te rendeled meg a simitet és döntöd el, kérsz-e mellé teát.</p>
+          <span class="phrase">Bir simit, lütfen.</span>
+          <button class="journey-card-hit" type="button" data-adventure="5" aria-label="A 6. kaland megnyitása: A reggel íze"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="6">
+          <img class="journey-image" src="assets/web/ALI-SCN-009-blue-mosque-courtyard.webp" alt="Ali a Kék mecset csendes udvarában" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Sultanahmet</strong><small>10:10</small></span>
+          <span class="journey-time">10:10</span><h3>A csendes udvar</h3>
+          <p>Útbaigazítást kérsz, Ali pedig csendesen megmutatja a hely szokásait.</p>
+          <span class="phrase">Giriş nerede?</span>
+          <button class="journey-card-hit" type="button" data-adventure="6" aria-label="A 7. kaland megnyitása: A csendes udvar"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="7">
+          <img class="journey-image" src="assets/web/ALI-SCN-004-grand-bazaar.webp" alt="Ali a Nagy Bazár színes textiljei között" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Kapalıçarşı</strong><small>12:30</small></span>
+          <span class="journey-time">12:30</span><h3>Te döntesz a bazárban</h3>
+          <p>Kiválasztasz valamit, árat kérdezel, majd alkuszol vagy továbblépsz.</p>
+          <span class="phrase">Bu ne kadar?</span>
+          <button class="journey-card-hit" type="button" data-adventure="7" aria-label="A 8. kaland megnyitása: Te döntesz a bazárban"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="8">
+          <img class="journey-image" src="assets/web/ALI-SCN-005-gulhane-park.webp" alt="Ali a Gülhane Park egyik padján vár" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Gülhane</strong><small>15:30</small></span>
+          <span class="journey-time">15:30</span><h3>Egy kis pihenő</h3>
+          <p>Te választod meg a tempót, Ali pedig valóban hozzád igazodik.</p>
+          <span class="phrase">Biraz dinlenelim.</span>
+          <button class="journey-card-hit" type="button" data-adventure="8" aria-label="A 9. kaland megnyitása: Egy kis pihenő"></button>
+        </article>
+        <article class="journey-card" role="listitem" data-card-index="9">
+          <img class="journey-image" src="assets/web/ALI-SCN-010-waterfront-promenade.webp" alt="Ali az isztambuli vízparton sétál" loading="lazy" />
+          <span class="postal-stamp stamp-journey" aria-hidden="true"><strong>Sahil</strong><small>17:10</small></span>
+          <span class="journey-time">17:10</span><h3>Most te hívsz</h3>
+          <p>A végén már nem Ali mutatja az utat: te javasolsz közös programot.</p>
+          <span class="phrase">Çay içelim.</span>
+          <button class="journey-card-hit" type="button" data-adventure="9" aria-label="A 10. kaland megnyitása: Most te hívsz"></button>
+        </article>
+      </div>
+      <div class="journey-nav">
+        <button class="journey-prev" type="button" aria-label="Előző kaland"><span aria-hidden="true">←</span></button>
+        <p class="journey-swipe" aria-live="polite"><strong>01</strong> / 10 · Válassz egy kalandot</p>
+        <button class="journey-next" type="button" aria-label="Következő emléklap">
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="companion-section" aria-labelledby="companion-title">
+      <div class="turkish-whispers companion-whispers" aria-hidden="true">
+        <span>Merak etme</span><span>Birlikte deneyelim</span>
+      </div>
+      <div class="companion-visual">
+        <div class="companion-motifs" aria-hidden="true">
+          <span class="park-motif park-leaf"></span>
+          <span class="park-motif park-tulip"></span>
+          <span class="park-motif park-star"></span>
+        </div>
+        <div class="companion-portrait">
+          <img src="assets/web/ALI-SCN-005-gulhane-park.webp" alt="Ali nyugodt figyelemmel ül a Gülhane Park egyik padján" loading="lazy" />
+          <span class="postal-stamp stamp-companion" aria-hidden="true"><strong>Gülhane</strong><small>Biraz dinlenelim</small></span>
+        </div>
+        <p class="companion-note"><span>Ali jegyzete</span>Ha elfáradunk,<br>itt megállunk.<br><strong>Van időnk.</strong></p>
+      </div>
+      <div class="companion-copy">
+        <p class="eyebrow">Egy nap Alival</p>
+        <h2 id="companion-title">Előbb történik valami. A mondat csak utána érkezik.</h2>
+        <p>Teát kérsz Karaköyben. Helyet keresel a kompon. Alkudozol a bazárban. Mire előkerül egy török mondat, már pontosan tudod, miért van rá szükséged.</p>
+        <ul class="promise-list">
+          <li><span>01</span> A helyzet adja a szót.</li>
+          <li><span>02</span> A választásod viszi tovább a történetet.</li>
+          <li><span>03</span> Ami fontossá vált, bekerül az útinaplódba.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mirmir-section" aria-label="Mırmır Cihangirban">
+      <div class="window-light" aria-hidden="true"></div>
+      <div class="turkish-whispers mirmir-whispers" aria-hidden="true">
+        <span>Güneşli bir köşe</span><span>Cihangir</span>
+      </div>
+      <div class="mirmir-copy">
+        <p class="eyebrow">Cihangir hétköznapi lakói</p>
+        <h2>Cihangirben minden utcának megvannak a macskái.</h2>
+        <p>Az egyik a pékség előtt alszik, a másik egy motor ülésén, Mırmır pedig ezt a lépcsőt választotta. A környék ismeri őket. Ők pedig pontosan tudják, hol kerül elő egy tál víz.</p>
+      </div>
+      <div class="mirmir-visual">
+        <div class="mirmir-motifs" aria-hidden="true">
+          <span class="motif-tile motif-tulip"></span>
+          <span class="motif-tile motif-saz"></span>
+          <span class="motif-tile motif-chintamani"></span>
+        </div>
+        <div class="mirmir-postmark" aria-hidden="true"><span>Beyoğlu</span><strong>Hoş geldin</strong><small>İstanbul · 16:42</small></div>
+        <figure class="mirmir-image">
+          <img src="assets/web/mirmir-cihangir-afternoon.png" alt="Mırmır a délutáni napfényben pihen egy cihangiri kőlépcsőn, muskátlik között." width="1344" height="1024">
+          <figcaption><span>Cihangir</span> 16:42 · a délutáni nap</figcaption>
+        </figure>
+        <p class="mirmir-note"><span>Ali jegyzete</span>Őt nem hívtam.<br>Már itt lakott.</p>
+      </div>
+    </section>
+
+    <section class="manifesto-section" aria-labelledby="manifesto-title">
+      <div class="turkish-whispers manifesto-whispers" aria-hidden="true">
+        <span>Yol boyunca</span><span>Evindeymiş gibi</span>
+      </div>
+      <p class="eyebrow">Ali meghívása</p>
+      <h2 id="manifesto-title">Isztambul már vár.</h2>
+      <div class="manifesto-invitation">
+        <p>Nem kell tudnod törökül.</p>
+        <p>Elég, ha kíváncsi vagy.</p>
+      </div>
+      <button class="primary-button light" type="button" data-start>
+        Sétáljunk egyet <span aria-hidden="true">→</span>
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg></span><span><strong>Ali</strong><small>A török útitárs</small></span></a>
+    <p>Fedezd fel Törökországot Alival.</p>
+    <p class="prototype-note">Első élményprototípus · 2026</p>
+  </footer>
+
+  <div class="experience audio-deferred" role="dialog" aria-modal="true" aria-labelledby="experience-title" hidden>
+    <div class="experience-backdrop"></div>
+    <div class="experience-panel adventure-panel">
+      <header class="adventure-header">
+        <button class="adventure-back" type="button" aria-label="Előző pillanat" disabled>←</button>
+        <div class="adventure-progress">
+          <span class="adventure-label">Kaland 01 · Megérkeztél</span>
+          <div class="progress" aria-label="Kaland előrehaladása"></div>
+        </div>
+        <button class="close-button" type="button" aria-label="A kaland bezárása">×</button>
+      </header>
+      <div class="adventure-layout">
+        <figure class="adventure-scene" aria-hidden="true">
+          <img src="assets/web/ALI-SCN-001-galata-sunrise.webp" alt="" />
+          <div class="scene-wash"></div>
+          <span class="adventure-postmark"><strong>Galata</strong><small>07:12 · Hoş geldin</small></span>
+          <figcaption><span id="scene-time">07:12</span><strong id="scene-caption">A város még csak ébredezik.</strong></figcaption>
+        </figure>
+        <section class="adventure-content" aria-live="polite">
+          <p class="eyebrow" id="scene-eyebrow">Galata híd · Első pillanat</p>
+          <h2 id="experience-title" tabindex="-1">Odaállhatok melléd?</h2>
+          <p class="step-lead" id="scene-lead"></p>
+          <div class="ali-presence">
+            <span class="ali-avatar" aria-hidden="true"></span>
+            <p id="ali-line"></p>
+          </div>
+          <div class="adventure-stage" id="adventure-stage"></div>
+          <p class="adventure-whisper" id="adventure-whisper"></p>
+        </section>
+      </div>
+  </div>
+
+  <div class="travel-journal" role="dialog" aria-modal="true" aria-labelledby="journal-title" hidden>
+    <div class="journal-backdrop"></div>
+    <section class="journal-panel">
+      <header class="journal-header">
+        <div><span>Ali útinaplója</span><h2 id="journal-title" tabindex="-1">Ami velünk történt.</h2></div>
+        <button class="journal-close" type="button" aria-label="Az útinapló bezárása">×</button>
+      </header>
+      <p class="journal-intro">Nem teljesített leckék. Helyek, mondatok és pillanatok, amelyek már ismerősek.</p>
+      <section class="memory-shelf" aria-labelledby="memory-shelf-title">
+        <div class="memory-shelf-heading"><div><span>Ali emlékezete</span><h3 id="memory-shelf-title">Amire Ali emlékszik.</h3></div><button class="forget-all" type="button" hidden>Minden emlék törlése</button></div>
+        <p>Csak olyan apróságok, amelyekkel figyelmesebb útitárs lehet. Bármelyiket elfelejtheti, ha kéred.</p>
+        <div class="memory-list"></div>
+      </section>
+      <section class="familiarity-shelf" aria-labelledby="familiarity-title">
+        <span>Útközben visszatér</span>
+        <h3 id="familiarity-title">Ismerősen hangzik.</h3>
+        <div class="familiarity-list"></div>
+      </section>
+      <div class="journal-entries" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+    <script src="adventure-content.js?v=3"></script>
+    <script src="navigation.js?v=4"></script>
+    <script src="script.js?v=91"></script>
+</body>
+</html>

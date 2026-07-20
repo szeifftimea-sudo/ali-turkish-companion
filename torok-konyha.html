@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="description" content="Ülj asztalhoz Alival: török reggeli teával, piac, közös főzés, ayran a vacsora mellett és török kávé az étkezés után." />
+  <title>Van hely az asztalnál · Török konyha Alival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="torok-konyha.css?v=20260720-7" />
+  <link rel="stylesheet" href="navigation.css?v=4" />
+</head>
+<body data-section="fedezd-fel">
+  <a class="skip-link" href="#konyha">Ugrás a török konyha élményhez</a>
+
+  <header class="site-header global-header header-solid">
+    <a class="brand" href="index.html" aria-label="Vissza Ali kezdőoldalára">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" focusable="false"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg>
+      </span>
+      <span><strong>Ali</strong><small>A török útitárs</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span><b>Menü</b></button>
+    <nav class="site-navigation" id="site-navigation" aria-label="Főmenü">
+      <a class="nav-item" data-nav-section="kalandok" href="index.html#journey">Kalandok</a>
+      <div class="nav-group" data-nav-section="ali-zsebeben">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="false">Ali zsebében <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover">
+          <p><strong>Amit már együtt megtaláltunk</strong><small>A mondatok, amelyek útközben veled maradtak.</small></p>
+          <a href="zseb.html"><span>Merre menjünk tovább?</span><small>A közös kiindulópontunk</small></a>
+          <a href="szavak.html#szotar"><span>Az első út szavai</span><small>10 állomás · egyedi kifejezések</small></a>
+          <a href="helyzetek.html#helyzetek"><span>Mit szeretnél elmondani?</span><small>Élethelyzetek szerint</small></a>
+          <a href="zseb.html#sajat-szavaim"><span>Saját szavaim</span><small>Gyakorlás és tanulókártyák</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-nav-section="fedezd-fel">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="false">Fedezd fel <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover nav-popover-small">
+          <p><strong>Törökország Ali szemével</strong><small>Ízek, helyek és történetek.</small></p>
+          <a class="current" href="torok-konyha.html?v=20260719-5" aria-current="page"><span>Török konyha</span><small>Ali már megterített</small></a>
+          <a href="isztambul-helyei.html"><span>Isztambul helyei</span><small>A város, amely visszahív</small></a>
+        </div>
+      </div>
+      <a class="nav-item nav-journal-link" href="index.html?panel=journal">Útinaplóm <b data-pocket-count>0</b></a>
+      <a class="nav-cta" href="index.html?start=1" data-journey-nav>Folytassuk <span aria-hidden="true">→</span></a>
+    </nav>
+  </header>
+
+  <main id="konyha">
+    <section class="kitchen-hero" id="top" aria-labelledby="kitchen-title">
+      <img class="kitchen-hero-image" src="assets/web/kitchen/ALI-KIT-001_breakfast-invitation_16x9_v01.webp?v=20260719-5" alt="Ali teát tesz a megterített reggelizőasztal üres helye mellé" fetchpriority="high" />
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-motif" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="kitchen-hero-copy reveal visible">
+        <p class="eyebrow">Ali meghívása</p>
+        <h1 id="kitchen-title">Van hely az asztalnál.</h1>
+        <p class="hero-lead">Reggel teával kezdünk. Vacsoránál talán ayran kerül a tányér mellé, a török kávé pedig csak utána érkezik.</p>
+        <div class="ali-invitation"><span aria-hidden="true">A</span><p>Gyere. A tea már kész, és hagytam neked helyet.</p></div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#reggel">Üljünk le <span aria-hidden="true">→</span></a>
+          <a class="quiet-link" href="#napunk">Előbb csak körülnézek</a>
+        </div>
+      </div>
+      <div class="hero-seal" aria-hidden="true"><span>İstanbul</span><strong>Hoş geldin</strong><small>Ali’nin sofrası</small></div>
+    </section>
+
+    <nav class="table-route" id="napunk" aria-label="A közös nap állomásai">
+      <p><span>Ma nem étlapot olvasunk.</span><strong>Egy asztalig sétálunk.</strong></p>
+      <ol>
+        <li><a href="#reggel" data-route-link="reggel"><span>08:10</span><strong>Tea</strong></a></li>
+        <li><a href="#pekseg" data-route-link="pekseg"><span>10:25</span><strong>Pékség</strong></a></li>
+        <li><a href="#piac" data-route-link="piac"><span>12:40</span><strong>Piac</strong></a></li>
+        <li><a href="#asztal" data-route-link="asztal"><span>19:30</span><strong>Asztal</strong></a></li>
+        <li><a href="#kave" data-route-link="kave"><span>21:05</span><strong>Kávé</strong></a></li>
+      </ol>
+    </nav>
+
+    <section class="morning section-shell tracked-section" id="reggel" aria-labelledby="morning-title" data-route-section="reggel">
+      <div class="morning-copy reveal">
+        <p class="eyebrow">01 · Kahvaltı</p>
+        <h2 id="morning-title">A reggel nem siet.</h2>
+        <p class="section-lead">A török reggeli nem egyetlen fogás. Közös hely az asztalon — kenyér, sajt, olívabogyó, paradicsom, tea és idő egymás mellett.</p>
+        <p>A tea az alap. Víz mindig lehet mellette; tej vagy friss gyümölcslé inkább egyéni szokás szerint kerül az asztalra. A török kávéval ráérünk a reggeli után.</p>
+        <dl class="morning-notes">
+          <div><dt>kahvaltı</dt><dd>reggeli — szó szerint: kávé előtti</dd></div>
+          <div><dt>çay</dt><dd>tea — a reggel állandó ritmusa</dd></div>
+          <div><dt>su</dt><dd>víz — az étkezés természetes része</dd></div>
+        </dl>
+        <aside class="culture-note culture-note-light">
+          <span>Ali mesél · ezt jegyezd meg</span>
+          <strong>A kahvaltı valóban „kávé előtti”.</strong>
+          <p>A szó a <em>kahve</em> (kávé) és az <em>altı</em> (alatta, előtte) szavakból nőtt össze. A közös reggelit tea kíséri, a kávé pedig gyakran csak utána érkezik.</p>
+        </aside>
+      </div>
+      <figure class="breakfast-photo reveal">
+        <div class="photo-paper photo-paper-wide">
+          <img src="assets/web/kitchen/WRLD-KIT-001_turkish-breakfast-still-life_3x2_v01.webp?v=20260719-5" alt="Török reggeli kenyérrel, sajttal, olívabogyóval, zöldséggel, mézzel és teával" loading="lazy" decoding="async" />
+          <figcaption><strong>Reggel az asztalnál</strong><span>08:10 · a tea már kitöltve</span></figcaption>
+        </div>
+        <span class="paper-flower" aria-hidden="true">✦</span>
+      </figure>
+      <div class="morning-phrase reveal" aria-label="Az első reggeli mondat">
+        <span>Mondd az asztalnál</span>
+        <strong>Bir çay, lütfen.</strong>
+        <p>Egy teát kérek.</p>
+      </div>
+    </section>
+
+    <section class="bakery-break tracked-section" id="pekseg" aria-labelledby="bakery-title" data-route-section="pekseg">
+      <div class="simit-mark" aria-hidden="true"><span></span></div>
+      <div class="bakery-copy reveal">
+        <p class="eyebrow">02 · Fırından sokağa</p>
+        <h2 id="bakery-title">Néha egy illat írja át az útvonalat.</h2>
+        <p>A pékség előtt Ali lassít. Nem azért, mert ez szerepelt a tervben, hanem mert a simit még meleg.</p>
+        <aside class="culture-note culture-note-on-color">
+          <span>Miért látod mindenfelé?</span>
+          <strong>A simit Isztambul kézben vihető reggelije.</strong>
+          <p>A karikát sütés előtt pekmezes folyadékba mártják, majd szezámmal borítják. Egy pohár teával a legegyszerűbb isztambuli párosítások egyike.</p>
+        </aside>
+      </div>
+      <div class="bakery-dialogue reveal">
+        <span>Ali kis zsebszótára</span>
+        <p><strong>Bir simit, lütfen.</strong><small>Egy simitet kérek.</small></p>
+        <p><strong>Taze mi?</strong><small>Friss?</small></p>
+      </div>
+    </section>
+
+    <section class="market-kitchen tracked-section" id="piac" aria-labelledby="market-title" data-route-section="piac">
+      <header class="market-heading reveal">
+        <p class="eyebrow">03 · Pazardan mutfağa</p>
+        <h2 id="market-title">A piacról együtt érkezünk a konyhába.</h2>
+        <p class="market-intro">Ali nem receptet diktál. Megnézitek, mi friss, választotok valamit, aztán közösen eldöntitek, mi legyen belőle.</p>
+        <aside class="culture-note culture-note-market">
+          <span>Egy szó, két kapaszkodó</span>
+          <strong><span lang="tr">Pazar</span> piacot jelent — és vasárnapot is.</strong>
+          <p>A helyi piacokon a szezon mondja meg, mi kerül a konyhába. Ha ezt kérdezed: <em lang="tr">Bu ne kadar?</em>, máris része vagy a helyzetnek.</p>
+        </aside>
+      </header>
+      <div class="market-story">
+        <figure class="portrait-photo market-photo reveal">
+          <div class="photo-paper">
+            <img src="assets/web/kitchen/ALI-KIT-002_market-to-kitchen_4x5_v01.webp?v=20260719-5" alt="Ali paradicsomot választ egy isztambuli piacon" loading="lazy" decoding="async" />
+            <figcaption><strong>Pazar</strong><span>12:40 · azt választjuk, ami ma szép</span></figcaption>
+          </div>
+          <span class="photo-stamp" aria-hidden="true"><strong>Pazar</strong><small>Bu ne kadar?</small></span>
+        </figure>
+        <div class="market-bridge reveal">
+          <span class="bridge-line" aria-hidden="true"></span>
+          <p><strong>Előbb kérdezünk.</strong><span>Bu ne kadar?</span><small>Mennyibe kerül ez?</small></p>
+          <p><strong>Aztán választunk.</strong><span>Bir kilo, lütfen.</span><small>Egy kilót kérek.</small></p>
+          <p><strong>Végül együtt döntünk.</strong><span>Ne yapalım?</span><small>Mit készítsünk?</small></p>
+        </div>
+        <figure class="portrait-photo cooking-photo reveal">
+          <div class="photo-paper">
+            <img src="assets/web/kitchen/ALI-KIT-003_shared-cooking_4x5_v01.webp?v=20260719-5" alt="Ali zöldfűszert szór egy közösen tartott tálba a konyhában" loading="lazy" decoding="async" />
+            <figcaption><strong>Mutfak</strong><span>14:15 · nem tanóra, közös készülődés</span></figcaption>
+          </div>
+          <p class="hand-note"><span>Ali jegyzete</span>Nem baj, ha nem egyformára vágjuk.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="shared-table tracked-section" id="asztal" aria-labelledby="table-title" data-route-section="asztal">
+      <img src="assets/web/kitchen/ALI-KIT-004_place-at-the-table_16x9_v01.webp?v=20260719-5" alt="Ali egy üres széket húz ki a közös esti asztalnál" loading="lazy" decoding="async" />
+      <div class="table-overlay" aria-hidden="true"></div>
+      <div class="table-copy reveal">
+        <p class="eyebrow">04 · Sofrada yer var</p>
+        <h2 id="table-title">Estére már neked is van helyed.</h2>
+        <p>Este kiadósabb, melegebb fogások kerülnek az asztalra: meze, kebab vagy szaftos húsétel, sült és töltött zöldségek. Nem kell mindet felismerned — elég, ha tudsz kérni, elfogadni, megköszönni vagy kedvesen nemet mondani.</p>
+        <p class="table-drink-note"><strong>És mit iszunk hozzá?</strong> Sós vagy húsos fogás mellé gyakran ayrant. Tea később is érkezhet; alkoholos ital pedig családtól, helytől és alkalomtól függ.</p>
+        <aside class="culture-note culture-note-dark">
+          <span>Nem egy fogás, hanem egy forma</span>
+          <strong>A meze közös ritmust ad az asztalnak.</strong>
+          <p>Sok kisebb tál kerül középre, ezért mindenki választ, kínál és beszélget. A <em lang="tr">sofra</em> nemcsak asztalt jelent: a megterített, megosztott étkezés egészét is.</p>
+        </aside>
+        <blockquote>„Tegyünk inkább mindent középre. Így a beszélgetésnek is több helye marad.”</blockquote>
+        <a class="button button-light" href="#mondatok">Mit mondjunk az asztalnál? <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="table-label" aria-hidden="true"><span>Akşam</span><strong>Helyet hagytunk neked.</strong></div>
+    </section>
+
+    <section class="restaurant-stories section-shell" id="asztalok" aria-labelledby="restaurants-title">
+      <header class="restaurant-heading reveal">
+        <div><p class="eyebrow">Asztalok, amelyek történetet mesélnek</p><h2 id="restaurants-title">Nem rangsor. Három ajtó Törökországhoz.</h2></div>
+        <p>Ali nem mondja meg, hol kell enned. Megmutat néhány helyet, ahol egy régi városi emlék, egy mai gondolat vagy egy egész táj kerül az asztalra.</p>
+      </header>
+
+      <div class="restaurant-tabs" role="tablist" aria-label="Éttermi történetek">
+        <button id="door-old" type="button" role="tab" aria-selected="true" aria-controls="panel-old" data-table-door="old"><span>01</span><strong>Régi Isztambul</strong><small>Amit a város megőrzött</small></button>
+        <button id="door-new" type="button" role="tab" aria-selected="false" aria-controls="panel-new" tabindex="-1" data-table-door="new"><span>02</span><strong>Anatólia új nyelve</strong><small>Hagyomány mai mondatokkal</small></button>
+        <button id="door-regions" type="button" role="tab" aria-selected="false" aria-controls="panel-regions" tabindex="-1" data-table-door="regions"><span>03</span><strong>Régiók asztalai</strong><small>Égei parttól Gaziantepig</small></button>
+      </div>
+
+      <div class="restaurant-panels reveal">
+        <div class="restaurant-panel" id="panel-old" role="tabpanel" aria-labelledby="door-old" data-restaurant-panel="old">
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>İstanbul · Eminönü</span><em>Régi isztambuli asztal</em></p>
+            <h3>Pandeli</h3>
+            <blockquote>„A bazárból most nem kifelé megyünk. Előbb felmegyünk egy emeletet.”</blockquote>
+            <p>A Fűszerbazár fölött Isztambul városi emlékezetének egy darabja maradt meg. Akkor lehet érdekes, ha a klasszikus környezet és a történelmi folytonosság vonz.</p>
+            <a href="https://pandeli.com.tr/" target="_blank" rel="noopener noreferrer">Mielőtt elindulsz: hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>İstanbul · Karaköy</span><em>Városi lokanta</em></p>
+            <h3>Karaköy Lokantası</h3>
+            <blockquote>„Itt nem kell egyetlen nagy fogást választanunk. Tegyünk inkább valamit középre.”</blockquote>
+            <p>A lokanta hétköznapi városi ritmusa és a megosztott fogások kultúrája ér össze benne. Jó ajtó lehet a meze és a közös asztal megértéséhez.</p>
+            <a href="https://www.karakoylokantasi.com/" target="_blank" rel="noopener noreferrer">Mielőtt elindulsz: hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+
+        <div class="restaurant-panel" id="panel-new" role="tabpanel" aria-labelledby="door-new" data-restaurant-panel="new" hidden>
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>İstanbul · Şişli</span><em>Kortárs anatóliai konyha</em></p>
+            <h3>TURK Fatih Tutak</h3>
+            <blockquote>„Ugyanaz az emlék egészen másképp nézhet ki egy másik tányéron.”</blockquote>
+            <p>Személyes emlékek és török ízek kapnak kortárs formát. Tudatosan választott, hosszabb különleges alkalomként érdemes gondolni rá.</p>
+            <a href="https://turkft.com/" target="_blank" rel="noopener noreferrer">Mielőtt elindulsz: hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>İstanbul · SALT Galata</span><em>Megőrzés új eszközökkel</em></p>
+            <h3>Neolokal</h3>
+            <blockquote>„Néha úgy őrzünk meg valamit, hogy nem pontosan ugyanúgy készítjük tovább.”</blockquote>
+            <p>Régi receptek, veszélybe kerülő alapanyagok és modern technikák között épít hidat. Annak lehet izgalmas, akit a hagyomány jövője is érdekel.</p>
+            <a href="https://www.neolokal.com/" target="_blank" rel="noopener noreferrer">Mielőtt elindulsz: hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+
+        <div class="restaurant-panel regions" id="panel-regions" role="tabpanel" aria-labelledby="door-regions" data-restaurant-panel="regions" hidden>
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>İzmir · Urla</span><em>Égei táj az asztalon</em></p>
+            <h3>OD Urla</h3>
+            <blockquote>„Itt már az út szélén álló olajfák is elmondják, mi kerül majd az asztalra.”</blockquote>
+            <p>A kert, a szezon és a nyílt tűz nem háttér, hanem az étkezés része. A termőhelyhez kötött, kortárs égei élmény felé nyit ajtót.</p>
+            <a href="https://odurla.com/" target="_blank" rel="noopener noreferrer">Hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>Muğla · Bodrum</span><em>A tenger napi ritmusa</em></p>
+            <h3>Orfoz</h3>
+            <blockquote>„A tenger ma csak annyit ad, amennyit érdemes az asztalra tenni.”</blockquote>
+            <p>Családi történet és napi tengeri alapanyag találkozik a part közelében. A szezonális, ráérősebb tengeri konyhához visz közelebb.</p>
+            <a href="https://www.orfoz.net/en" target="_blank" rel="noopener noreferrer">Hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>Kappadókia · İbrahimpaşa</span><em>Egy ház és a tűz közelsége</em></p>
+            <h3>Babayan Evi</h3>
+            <blockquote>„Ide nem egy fogásért érkezünk. Megvárjuk, amíg a tűz elvégzi a dolgát.”</blockquote>
+            <p>A helyi alapanyagok és egy kappadókiai ház ritmusa ellensúlyozza a nagyvárosi éttermek világát. Lassabb, előre tervezendő vendégség.</p>
+            <a href="https://www.babayanevi.com/" target="_blank" rel="noopener noreferrer">Hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="restaurant-card" data-last-verified="2026-07-19">
+            <p><span>Gaziantep</span><em>Régi városi intézmény</em></p>
+            <h3>İmam Çağdaş</h3>
+            <blockquote>„Gaziantepben nehéz eldönteni, a sós vagy az édes történettel kezdjünk.”</blockquote>
+            <p>A kebab-, pisztácia- és baklavakultúráról egy régi, forgalmas városi helyen keresztül mesél. Akkor jó ajtó, ha a helyi ritmus is érdekel.</p>
+            <a href="https://www.imamcagdas.com/" target="_blank" rel="noopener noreferrer">Hivatalos oldal <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+      <p class="restaurant-note">Az aktuális nyitvatartást, foglalást és kínálatot mindig a hely hivatalos oldalán ellenőrizd. Ez válogatás, nem rangsor.</p>
+    </section>
+
+    <section class="table-phrases" id="mondatok" aria-labelledby="phrases-title">
+      <header class="phrase-heading reveal">
+        <p class="eyebrow">Mondd az asztalnál</p>
+        <h2 id="phrases-title">Nem kell étlapnyi török. Elég a jó mondat.</h2>
+        <p>Válaszd ki, mire van szükséged. Ali csak azt teszi eléd, amit ebben a pillanatban valóban használhatsz.</p>
+      </header>
+      <div class="phrase-tray reveal">
+        <div class="phrase-tabs" role="tablist" aria-label="Asztali mondatok helyzet szerint">
+          <button id="phrase-request" type="button" role="tab" aria-selected="true" aria-controls="phrase-panel-request" data-phrase-tab="request">Kérek</button>
+          <button id="phrase-accept" type="button" role="tab" aria-selected="false" aria-controls="phrase-panel-accept" tabindex="-1" data-phrase-tab="accept">Elfogadok</button>
+          <button id="phrase-decline" type="button" role="tab" aria-selected="false" aria-controls="phrase-panel-decline" tabindex="-1" data-phrase-tab="decline">Kedvesen nemet mondok</button>
+          <button id="phrase-thanks" type="button" role="tab" aria-selected="false" aria-controls="phrase-panel-thanks" tabindex="-1" data-phrase-tab="thanks">Megköszönöm</button>
+        </div>
+        <div class="phrase-panels">
+          <div class="phrase-panel" id="phrase-panel-request" role="tabpanel" aria-labelledby="phrase-request" data-phrase-panel="request">
+            <span>01 · ha vacsorához kérnél valamit</span><strong>Bir ayran, lütfen.</strong><p>Egy ayrant kérek.</p><small>Az ayran hűvös, enyhén sós joghurtital. A „lütfen” teszi udvariasabbá a kérést.</small>
+            <div class="phrase-save-actions"><button type="button" data-save-kitchen-phrase data-phrase="Bir ayran, lütfen." data-translation="Egy ayrant kérek." aria-pressed="false">Elteszem Ali zsebébe</button><a href="zseb.html?from=konyha#mentett-mondatok" hidden>Megnézem a zsebben →</a></div>
+          </div>
+          <div class="phrase-panel" id="phrase-panel-accept" role="tabpanel" aria-labelledby="phrase-accept" data-phrase-panel="accept" hidden>
+            <span>02 · ha szívesen kérsz</span><strong>Evet, lütfen.</strong><p>Igen, kérek.</p><small>Rövid válasz, amikor valaki kínál.</small>
+            <div class="phrase-save-actions"><button type="button" data-save-kitchen-phrase data-phrase="Evet, lütfen." data-translation="Igen, kérek." aria-pressed="false">Elteszem Ali zsebébe</button><a href="zseb.html?from=konyha#mentett-mondatok" hidden>Megnézem a zsebben →</a></div>
+          </div>
+          <div class="phrase-panel" id="phrase-panel-decline" role="tabpanel" aria-labelledby="phrase-decline" data-phrase-panel="decline" hidden>
+            <span>03 · ha most nem kérsz</span><strong>Hayır, teşekkürler.</strong><p>Nem, köszönöm.</p><small>A visszautasítás ettől még kedves marad.</small>
+            <div class="phrase-save-actions"><button type="button" data-save-kitchen-phrase data-phrase="Hayır, teşekkürler." data-translation="Nem, köszönöm." aria-pressed="false">Elteszem Ali zsebébe</button><a href="zseb.html?from=konyha#mentett-mondatok" hidden>Megnézem a zsebben →</a></div>
+          </div>
+          <div class="phrase-panel" id="phrase-panel-thanks" role="tabpanel" aria-labelledby="phrase-thanks" data-phrase-panel="thanks" hidden>
+            <span>04 · ha az ételt készítőnek mondanád</span><strong>Eline sağlık.</strong><p>Köszönöm, nagyon finom lett.</p><small>Szó szerint a készítő kezének és munkájának szóló jókívánság.</small>
+            <div class="phrase-save-actions"><button type="button" data-save-kitchen-phrase data-phrase="Eline sağlık." data-translation="Köszönöm, nagyon finom lett." aria-pressed="false">Elteszem Ali zsebébe</button><a href="zseb.html?from=konyha#mentett-mondatok" hidden>Megnézem a zsebben →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="phrase-next reveal">
+        <p><strong>Több mondatot keresel?</strong> A részletes konyhai szókincs és párbeszédek Ali zsebében várnak.</p>
+        <a class="button button-light" href="helyzetek.html?topic=konyha&amp;from=konyha#kifejezesek">További mondatok főzéshez és rendeléshez <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="coffee-close tracked-section" id="kave" aria-labelledby="coffee-title" data-route-section="kave">
+      <figure class="coffee-photo reveal">
+        <img src="assets/web/kitchen/WRLD-KIT-002_turkish-coffee-after_3x2_v01.webp?v=20260719-5" alt="Török kávé réz cezvével, vízzel és egy szem lokummal egy esti asztalon" loading="lazy" decoding="async" />
+        <figcaption>Türk kahvesi · a beszélgetés még marad</figcaption>
+      </figure>
+      <div class="coffee-copy reveal">
+        <p class="eyebrow">Maradhatunk még</p>
+        <h2 id="coffee-title">Egy kávé mellett már nem kell sietni.</h2>
+        <p>A török kávé nem a reggeli fő itala: inkább az étkezés és a beszélgetés után érkezik. Finomra őrölt kávéból, cezvében készül, szűrés nélkül — ezért a zacc a csésze alján marad.</p>
+        <aside class="culture-note culture-note-coffee">
+          <span>Miért több egy italnál?</span>
+          <strong>A török kávé a vendégszeretet nyelve.</strong>
+          <p>Az UNESCO 2013-ban a szellemi kulturális örökség részévé nyilvánította a hozzá kapcsolódó készítési és közösségi hagyományt. A mellé adott víz felfrissíti a szájat — nem a kávéba kell önteni.</p>
+        </aside>
+        <div class="ali-coffee-note"><span aria-hidden="true">A</span><p>Az <strong lang="tr">Afiyet olsun</strong> jókívánság: nagyjából „váljék egészségedre”. Ha te köszönnéd meg annak, aki főzött, mondd: <strong lang="tr">Eline sağlık.</strong></p></div>
+        <div class="coffee-actions">
+          <a class="button button-primary" href="helyzetek.html?topic=konyha&amp;from=konyha#kifejezesek">Megnézem a többi konyhai mondatot <span aria-hidden="true">→</span></a>
+          <a class="quiet-link" href="zseb.html?from=konyha#mentett-mondatok">Megnézem, mit tettem el</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="kitchen-footer">
+    <a class="brand footer-brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg></span>
+      <span><strong>Ali</strong><small>A török útitárs</small></span>
+    </a>
+    <p>Nem étlapot olvastunk. Vendégségben voltunk.</p>
+    <a href="index.html">Vissza Isztambulba <span aria-hidden="true">→</span></a>
+  </footer>
+
+  <script src="navigation.js?v=4"></script>
+  <script src="torok-konyha.js?v=20260719-5"></script>
+</body>
+</html>

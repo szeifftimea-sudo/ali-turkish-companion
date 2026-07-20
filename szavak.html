@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ali útiszótára: további török szavak és kifejezések az első tíz isztambuli állomáshoz." />
+  <title>Ali útiszótára – További szavak Isztambulhoz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="szavak.css?v=3" />
+  <link rel="stylesheet" href="navigation.css?v=4" />
+</head>
+<body data-section="ali-zsebeben">
+  <a class="skip-link" href="#szotar">Ugrás a szótárhoz</a>
+  <header class="site-header global-header header-solid">
+    <a class="brand" href="index.html" aria-label="Vissza Ali kezdőoldalára">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" focusable="false"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg>
+      </span>
+      <span><strong>Ali</strong><small>A török útitárs</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span><b>Menü</b></button>
+    <nav class="site-navigation" id="site-navigation" aria-label="Főmenü">
+      <a class="nav-item" data-nav-section="kalandok" href="index.html#journey">Kalandok</a>
+      <div class="nav-group" data-nav-section="ali-zsebeben">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="false">Ali zsebében <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover">
+          <p><strong>Amit már együtt megtaláltunk</strong><small>A mondatok, amelyek útközben veled maradtak.</small></p>
+          <a href="zseb.html"><span>Merre menjünk tovább?</span><small>Ali közös kiindulópontja</small></a>
+          <a class="current" href="#szotar" aria-current="page"><span>Az első út szavai</span><small>10 állomás · egyedi kifejezések</small></a>
+          <a href="helyzetek.html#helyzetek"><span>Mit szeretnél elmondani?</span><small>Élethelyzetek szerint</small></a>
+          <a href="zseb.html#sajat-szavaim"><span>Saját szavaim</span><small>Gyakorlás és tanulókártyák</small></a>
+        </div>
+      </div>
+      <div class="nav-group" data-nav-section="fedezd-fel">
+        <button class="nav-item nav-group-trigger" type="button" aria-expanded="false">Fedezd fel <span aria-hidden="true">⌄</span></button>
+        <div class="nav-popover nav-popover-small">
+          <p><strong>Törökország Ali szemével</strong><small>Ízek, helyek és történetek.</small></p>
+          <a href="torok-konyha.html?v=20260719-5"><span>Török konyha</span><small>Ali már megterített</small></a>
+          <a href="isztambul-helyei.html"><span>Isztambul helyei</span><small>A város, amely visszahív</small></a>
+        </div>
+      </div>
+      <a class="nav-item nav-journal-link" href="index.html?panel=journal">Útinaplóm</a>
+      <a class="nav-cta" href="index.html?start=1">Sétáljunk egyet <span aria-hidden="true">→</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="dictionary-hero" aria-labelledby="dictionary-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Ali útiszótára</p>
+        <h1 id="dictionary-title">A mondatok megvártak.</h1>
+        <p>Az első utazásban csak annyit vittél magaddal, amennyi az élményhez kellett. Itt megtalálod a tíz állomás további szavait és kifejezéseit.</p>
+        <div class="ali-note"><span>Ali jegyzete</span><strong>Nem kell mindet egyszerre megtanulnod. Nézz körül, és tedd el azt, amelyik ma megszólít.</strong></div>
+      </div>
+      <div class="hero-postcard" aria-hidden="true">
+        <div class="hero-arch"><img src="assets/web/ALI-SCN-010-waterfront-promenade.webp" alt="" /></div>
+        <span class="hero-stamp"><strong>İstanbul</strong><small>10 állomás</small></span>
+        <span class="hero-caption">Yol boyunca · útközben</span>
+      </div>
+    </section>
+
+    <section class="dictionary-tools" aria-label="Szótár szűrése">
+      <label class="search-field" for="phrase-search"><span>Keresés törökül vagy magyarul</span><input id="phrase-search" type="search" autocomplete="off" placeholder="például: tea, köszönöm, vapur…" /></label>
+      <div class="route-filters" id="route-filters" aria-label="Szűrés állomás szerint"></div>
+    </section>
+
+    <section class="dictionary-section" id="szotar" aria-labelledby="results-title">
+      <div class="results-heading"><div><p class="eyebrow">A tíz állomás nyomában</p><h2 id="results-title">Ami még veled jöhet</h2></div><p id="result-count" aria-live="polite"></p></div>
+      <div class="station-grid" id="station-grid"></div>
+      <div class="empty-state" id="empty-state" hidden><strong>Ez a szó most nincs Ali zsebében.</strong><p>Próbáld rövidebben, vagy válassz egy állomást.</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html" aria-label="Ali – A török útitárs kezdőoldala"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg></span><span><strong>Ali</strong><small>A török útitárs</small></span></a>
+    <p>Nem kell mindet tudnod. Elég, ha legközelebb eggyel többet ismersz fel.</p>
+    <a href="index.html#journey">Vissza Isztambulba Alival <span aria-hidden="true">→</span></a>
+  </footer>
+
+  <script src="navigation.js?v=4"></script>
+  <script src="adventure-content.js?v=3"></script>
+  <script src="szavak.js?v=2"></script>
+</body>
+</html>

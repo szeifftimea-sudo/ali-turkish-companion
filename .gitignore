@@ -1,0 +1,35 @@
+# Local tooling and generated working files
+.tools/
+.artifact/
+.agents/
+tmp/
+
+# Keep final knowledge maps/specifications, not generated previews or inspectors
+outputs/**
+!outputs/**/
+!outputs/**/*.xlsx
+!outputs/**/*.docx
+!outputs/**/*.md
+_qa_character_bible/
+audit_structure.txt
+assets/**/_working/
+
+# Local/editor state
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
+
+# Python and Node caches
+__pycache__/
+*.py[cod]
+node_modules/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
