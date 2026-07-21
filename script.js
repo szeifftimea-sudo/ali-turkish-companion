@@ -3178,14 +3178,17 @@ let journeyCursor = 0;
 
 function journeyVisibleCards() { return window.matchMedia('(max-width: 900px)').matches ? 1 : 3; }
 function updateJourneyControls() {
-  const maxCursor = Math.max(0, journeyCards.length - journeyVisibleCards());
+  const visibleCards = journeyVisibleCards();
+  const maxCursor = Math.max(0, journeyCards.length - visibleCards);
   journeyCursor = Math.min(Math.max(journeyCursor, 0), maxCursor);
   journeyPrev.disabled = journeyCursor === 0;
   journeyNext.disabled = journeyCursor === maxCursor;
-  const position = String(journeyCursor + 1).padStart(2, '0');
-  journeyPosition.textContent = position;
-  journeyTicketPosition.textContent = `${position} / 10`;
-  journeyTicketName.textContent = `İstanbul · ${position}`;
+  const firstPosition = String(journeyCursor + 1).padStart(2, '0');
+  const lastPosition = String(Math.min(journeyCursor + visibleCards, journeyCards.length)).padStart(2, '0');
+  const visibleRange = visibleCards > 1 ? `${firstPosition}–${lastPosition}` : firstPosition;
+  journeyPosition.textContent = visibleRange;
+  journeyTicketPosition.textContent = `${visibleRange} / 10`;
+  journeyTicketName.textContent = `İstanbul · ${visibleRange}`;
   journeyTicketRoute.textContent = journeyCards[journeyCursor].querySelector('h3').textContent;
   journeyCards.forEach((card, index) => card.classList.toggle('active', index === journeyCursor));
 }
