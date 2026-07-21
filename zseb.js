@@ -322,6 +322,17 @@
     return activeLearningFilter === 'all' ? learningItems : learningItems.filter((item) => item.learningState === activeLearningFilter);
   }
 
+  function studyDeckSizeClass(items) {
+    const longestSide = items.reduce((longest, item) => Math.max(
+      longest,
+      String(item.phrase || '').length,
+      String(item.translation || '').length
+    ), 0);
+    if (longestSide > 54) return 'is-very-long';
+    if (longestSide > 28) return 'is-long';
+    return '';
+  }
+
   function renderLearningCollection() {
     if (!learningList || !learningEmpty || !learningToolbar) return;
     const practicing = learningItems.filter((item) => item.learningState !== 'known').length;
@@ -370,7 +381,11 @@
     const translation = document.querySelector('[data-study-translation]');
     const side = document.querySelector('[data-study-side]');
     const flip = document.querySelector('[data-flip-card]');
-    if (card) card.classList.remove('is-back');
+    if (card) {
+      card.classList.remove('is-back', 'is-long', 'is-very-long');
+      const deckSizeClass = studyDeckSizeClass(studyItems);
+      if (deckSizeClass) card.classList.add(deckSizeClass);
+    }
     if (phrase) phrase.hidden = false;
     if (translation) translation.hidden = true;
     if (side) side.textContent = 'Türkçe';

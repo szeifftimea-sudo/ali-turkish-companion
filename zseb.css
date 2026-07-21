@@ -154,6 +154,8 @@ blockquote p { margin:.3rem 0 0; font:italic 600 1.35rem var(--serif); }
 .study-card > header span { position:absolute; top:1rem; left:1rem; padding:.38rem .58rem; border-radius:999px; color:#fffaf1; background:rgba(24,59,56,.86); font-size:.62rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
 .study-card > strong,.study-card > p { max-width:17ch; margin:auto 0; color:var(--teal-dark); font:600 clamp(2rem,4.5vw,3.7rem)/1.06 var(--serif); overflow-wrap:anywhere; }
 .study-card > p { color:#8f3d2b; }
+.study-card.is-long > strong,.study-card.is-long > p { max-width:20ch; font-size:clamp(1.55rem,2.75vw,2.25rem); line-height:1.08; }
+.study-card.is-very-long > strong,.study-card.is-very-long > p { max-width:22ch; font-size:clamp(1.3rem,2.25vw,1.85rem); line-height:1.12; }
 .study-card > [hidden] { display:none!important; }
 .study-card > small { color:#6d7772; font:italic 600 .78rem/1.2 var(--serif); }
 .study-card > button { width:100%; flex:0 0 auto; }
