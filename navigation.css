@@ -41,15 +41,15 @@ footer.story-footer { display:flex; align-items:center; justify-content:space-be
 .nav-popover > p { display:grid; gap:.18rem; margin:0 0 .35rem; padding:.7rem .8rem .85rem; border-bottom:1px solid rgba(31,102,95,.1); }
 .nav-popover > p strong { color:#254e49; font:600 1.05rem 'Playfair Display',serif; }
 .nav-popover > p small,.nav-popover a small,.nav-coming small { color:#747d78; font-size:.68rem; line-height:1.35; }
-.nav-popover a,.nav-coming { position:relative; display:grid; gap:.12rem; padding:.68rem 3rem .68rem .78rem; border-radius:12px; text-decoration:none; }
+.nav-popover a,.nav-coming { position:relative; display:grid; gap:.12rem; padding:.68rem .78rem; border-radius:12px; text-decoration:none; }
 .nav-popover a { border:1px solid rgba(31,102,95,.09); color:#1c514c; background:rgba(255,255,255,.28); cursor:pointer; transition:background .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease; }
 .nav-popover a + a { margin-top:.24rem; }
 .nav-popover a:hover,.nav-popover a:focus-visible { border-color:rgba(31,102,95,.2); background:#eaf3ec; box-shadow:0 7px 18px rgba(31,77,71,.1); transform:translateX(3px); }
-.nav-popover a.current { padding-right:5.7rem; border-color:rgba(31,102,95,.14); background:#eaf3ec; }
-.nav-popover a:not(.current)::after { content:'→'; position:absolute; right:.72rem; top:50%; width:1.65rem; height:1.65rem; display:grid; place-items:center; border:1px solid rgba(31,102,95,.15); border-radius:50%; color:#25645e; background:#fffaf0; font-size:.82rem; font-weight:800; transform:translateY(-50%); transition:color .18s ease,background .18s ease,transform .18s ease; }
-.nav-popover a:not(.current):hover::after,.nav-popover a:not(.current):focus-visible::after { color:#fffaf0; background:#25645e; transform:translate(2px,-50%); }
-.nav-popover a.current::after { content:'Most itt · →'; position:absolute; right:.72rem; top:50%; color:#a64c35; font-size:.54rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; transform:translateY(-50%); }
+.nav-popover a.current { border-color:rgba(31,102,95,.14); background:#eaf3ec; }
 .nav-popover a > span,.nav-coming > span { font-size:.78rem; font-weight:700; }
+.nav-popover a:not(.current) > span::after { content:' →'; display:inline-block; margin-left:.2rem; color:#a64c35; font-size:.72rem; transition:transform .18s ease; }
+.nav-popover a:not(.current):hover > span::after,.nav-popover a:not(.current):focus-visible > span::after { transform:translateX(2px); }
+.nav-popover a.current > span::after { content:' · most itt'; color:#a64c35; font-size:.54rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
 .nav-coming { color:#68736e; }
 .nav-coming::after { content:'Hamarosan'; position:absolute; right:.7rem; top:.68rem; color:#a05b47; font-size:.52rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
 .nav-coming.compact { padding-block:.5rem; }

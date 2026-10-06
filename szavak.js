@@ -14,6 +14,7 @@
   const pocketToast = document.querySelector('#pocket-toast');
   const PHRASE_KEY = 'ali-phrase-progress-v2';
   const KNOWN_KEY = 'ali-a1-known-v1';
+  const MAX_PRINT_CARDS = 80;
   let activeSection = 'all';
   const alphabet = ['a','b','c','ç','d','e','f','g','ğ','h','ı','i','j','k','l','m','n','o','ö','p','r','s','ş','t','u','ü','v','y','z'];
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, character => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[character]));
@@ -51,7 +52,10 @@
   }
   function wordActions(entry) {
     const key = entryId(entry.tr); const known = isKnown(entry); const saved = isPocketed(entry);
-    return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button><button class="pocket-action${saved ? ' is-active' : ''}" type="button" data-pocket-entry="${escapeHtml(key)}" aria-pressed="${saved}" ${saved ? 'disabled' : ''}><span aria-hidden="true">${saved ? '✓' : '+'}</span>${saved ? 'Ali zsebében' : 'Zsebbe'}</button></div>`;
+    const pocketAction = saved
+      ? '<a class="pocket-action is-active" href="zseb.html#sajat-szavaim"><span aria-hidden="true">✓</span>Megnézem a zsebben</a>'
+      : `<button class="pocket-action" type="button" data-pocket-entry="${escapeHtml(key)}" aria-pressed="false"><span aria-hidden="true">+</span>Zsebbe</button>`;
+    return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function sectionMarkup(section, entries) {
     const learned = knownCount(entries); const progress = entries.length ? Math.round((learned / entries.length) * 100) : 0;
@@ -110,6 +114,18 @@
     for (let offset = 0; offset < cards.length; offset += 4) { const batch = cards.slice(offset, offset + 4); while (batch.length < 4) batch.push(null); const backs = [batch[1], batch[0], batch[3], batch[2]]; deck.insertAdjacentHTML('beforeend', `<section class="print-card-page">${batch.map(card => printableCardMarkup(card, 'front')).join('')}</section><section class="print-card-page">${backs.map(card => printableCardMarkup(card, 'back')).join('')}</section>`); }
     document.body.append(deck); return deck;
   }
+  async function waitForPrintAssets(deck) {
+    const images = [...deck.querySelectorAll('img')];
+    await Promise.all(images.map((image) => {
+      if (image.complete) return image.decode ? image.decode().catch(() => {}) : Promise.resolve();
+      return new Promise((resolve) => {
+        image.addEventListener('load', resolve, { once:true });
+        image.addEventListener('error', resolve, { once:true });
+      });
+    }));
+    if (document.fonts?.ready) await document.fonts.ready;
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  }
   filters.addEventListener('click', event => { const button = event.target.closest('[data-section]'); if (!button) return; activeSection = button.dataset.section; search.value = ''; render(); });
   search.addEventListener('input', () => { if (search.value.trim()) activeSection = 'all'; render(); });
   grid.addEventListener('click', event => {
@@ -119,6 +135,19 @@
     if (knownButton) toggleKnown(entry); else if (pocketButton && !pocketButton.disabled) saveEntryToPocket(entry);
     render();
   });
-  document.querySelector('[data-print-cards]').addEventListener('click', () => { const items = uniqueEntries(visibleRows()); if (!items.length) return; document.body.classList.add('printing-pocket'); const deck = buildPrintableDeck(items); const restore = () => { document.body.classList.remove('printing-pocket'); deck.remove(); window.removeEventListener('afterprint', restore); }; window.addEventListener('afterprint', restore); window.print(); });
+  document.querySelector('[data-print-cards]').addEventListener('click', async () => {
+    const items = uniqueEntries(visibleRows());
+    if (!items.length) return;
+    if (items.length > MAX_PRINT_CARDS) {
+      showToast(`Most ${items.length} kártya látszik. Válassz egy leckét vagy szűkíts legfeljebb ${MAX_PRINT_CARDS} találatra a biztos előnézethez.`);
+      return;
+    }
+    document.body.classList.add('printing-pocket');
+    const deck = buildPrintableDeck(items);
+    const restore = () => { document.body.classList.remove('printing-pocket'); deck.remove(); window.removeEventListener('afterprint', restore); };
+    window.addEventListener('afterprint', restore);
+    await waitForPrintAssets(deck);
+    window.print();
+  });
   renderAlphabet(); renderFilters(); render();
 })();

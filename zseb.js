@@ -429,6 +429,19 @@
     return deck;
   }
 
+  async function waitForPrintAssets(deck) {
+    const images = [...deck.querySelectorAll('img')];
+    await Promise.all(images.map((image) => {
+      if (image.complete) return image.decode ? image.decode().catch(() => {}) : Promise.resolve();
+      return new Promise((resolve) => {
+        image.addEventListener('load', resolve, { once:true });
+        image.addEventListener('error', resolve, { once:true });
+      });
+    }));
+    if (document.fonts?.ready) await document.fonts.ready;
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  }
+
   document.querySelectorAll('[data-learning-filter]').forEach((button) => button.addEventListener('click', () => {
     activeLearningFilter = button.dataset.learningFilter;
     document.querySelectorAll('[data-learning-filter]').forEach((candidate) => {
@@ -472,7 +485,7 @@
   });
   document.querySelector('[data-study-prev]')?.addEventListener('click', () => { studyIndex = (studyIndex - 1 + studyItems.length) % studyItems.length; renderStudyCard(); });
   document.querySelector('[data-study-next]')?.addEventListener('click', () => { studyIndex = (studyIndex + 1) % studyItems.length; renderStudyCard(); });
-  document.querySelectorAll('[data-print-cards]').forEach((button) => button.addEventListener('click', () => {
+  document.querySelectorAll('[data-print-cards]').forEach((button) => button.addEventListener('click', async () => {
       document.body.classList.add('printing-pocket');
       const printDeck = buildPrintableDeck();
       const restore = () => {
@@ -481,6 +494,7 @@
         window.removeEventListener('afterprint', restore);
       };
       window.addEventListener('afterprint', restore);
+      await waitForPrintAssets(printDeck);
       window.print();
     }));
 
