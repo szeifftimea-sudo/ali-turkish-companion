@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '6C') return `<aside class="lesson-companion flat-companion" aria-labelledby="flat-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali lakást keres Isztambulban</p><h4 id="flat-companion-title">Hangi ev daha iyi? – Melyik lakás jobb?</h4><small>Ali három környéket és három lakást hasonlít össze. Az egyik közelebb van, a másik olcsóbb, a harmadik tágasabb – a törökben a viszonyítási pont <b lang="tr">-dan/-den</b> ragot kap, a tulajdonság elé pedig <b lang="tr">daha</b> kerül.</small></div></header>
+      <div class="flat-grid" aria-label="Négy isztambuli lakáskeresési példa">
+        <article><span class="flat-scene is-spacious" aria-hidden="true"><i></i></span><strong lang="tr">Çamlıca'daki ev, Kandilli'deki evden daha ferah.</strong><small>A çamlıcai lakás tágasabb a kandillinél.</small><b>-den + daha</b></article>
+        <article><span class="flat-scene is-quiet" aria-hidden="true"><i></i></span><strong lang="tr">Kandilli, Çamlıca'dan daha sakin.</strong><small>Kandilli nyugodtabb Çamlıcánál.</small><b>-dan + daha</b></article>
+        <article><span class="flat-scene is-cheap" aria-hidden="true"><i></i></span><strong lang="tr">Beşiktaş'taki daire daha ucuz.</strong><small>A beşiktaşi lakás olcsóbb.</small><b>daha ucuz</b></article>
+        <article><span class="flat-scene is-best" aria-hidden="true"><i></i></span><strong lang="tr">Kandilli, İstanbul'un en güzel mahallelerinden biri.</strong><small>Kandilli Isztambul egyik legszebb városnegyede.</small><b>en + tulajdonság</b></article>
+      </div>
+      <p class="flat-note"><span aria-hidden="true">₺</span><strong>Ali mérlegel:</strong> <i lang="tr">Benim için kira konumdan daha önemli.</i> – Nekem a lakbér fontosabb az elhelyezkedésnél. <b lang="tr">Bu ev daha büyük ve daha ucuz.</b> – Ez a lakás nagyobb és olcsóbb.</p>
+      <div class="companion-notes flat-notes">
+        <article class="is-word-story"><span>Mihez képest?</span><h5><strong lang="tr">-dan/-den/-tan/-ten + (daha) + melléknév</strong></h5><p><i lang="tr">Bu ev ötekinden daha ucuz.</i><br>Ez a lakás olcsóbb a másiknál.<br><i lang="tr">Ahmet, Selin'den uzun.</i><br>A <b lang="tr">daha</b> el is maradhat, a jelentés ugyanaz.</p></article>
+        <article class="is-tip"><span>Kevésbé</span><h5><strong lang="tr">daha az + melléknév</strong></h5><p><i lang="tr">daha az kalabalık</i> – kevésbé zsúfolt<br><i lang="tr">daha az pahalı</i> – kevésbé drága<br>Beszédben természetesebb lehet: <i lang="tr">Bu ev o kadar pahalı değil.</i> – Ez a lakás nem olyan drága.</p></article>
+        <article class="is-native"><span>A leg…</span><h5><strong lang="tr">en + melléknév (+ főnév)</strong></h5><p><i lang="tr">en ucuz daire</i> – a legolcsóbb lakás<br><i lang="tr">en önemli kriter</i> – a legfontosabb szempont<br><i lang="tr">En sakin mahalle burası.</i><br>Ez a legnyugodtabb városnegyed.</p></article>
+      </div>
+    </aside>`;
     if (section.code === '6B') return `<aside class="lesson-companion places-companion" aria-labelledby="places-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali Kuzguncukban mutat körbe</p><h4 id="places-companion-title">Hangisi? – Melyikre gondolsz?</h4><small>A <b lang="tr">-ki</b> rámutat arra, ami egy helyen vagy időben van: a sarkon lévő házra, a kertben élő macskákra vagy a holnapi programra. Ha már tudjuk, miről beszélünk, a főnevet teljesen ki is válthatja.</small></div></header>
       <div class="places-grid" aria-label="Négy kuzguncuki jelenet a ki toldalékkal">

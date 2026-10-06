@@ -4850,12 +4850,12 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "kriter",
-          "hu": "szempont",
+          "hu": "szempont / kritérium",
           "en": "criteria"
         },
         {
           "tr": "kiralık",
-          "hu": "bérbeadás",
+          "hu": "kiadó / bérelhető",
           "en": "rental"
         },
         {
@@ -4870,12 +4870,12 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "ücret",
-          "hu": "díj",
+          "hu": "díj / költség",
           "en": "fee"
         },
         {
           "tr": "şehrin göbeği",
-          "hu": "városközpont",
+          "hu": "a város szíve / belváros",
           "en": "city center"
         },
         {
