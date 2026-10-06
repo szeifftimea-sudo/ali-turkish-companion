@@ -16,7 +16,6 @@ const scenePostmarkMeta = document.querySelector('.adventure-postmark small');
 const adventureLabel = document.querySelector('.adventure-label');
 const sceneFrame = document.querySelector('.adventure-scene');
 const toast = document.querySelector('.toast');
-const soundToggle = document.querySelector('.sound-toggle');
 const journal = document.querySelector('.travel-journal');
 const journalToggle = document.querySelector('.journal-toggle');
 const journalClose = document.querySelector('.journal-close');
@@ -29,8 +28,6 @@ const forgetAllButton = document.querySelector('.forget-all');
 let lastFocused = null;
 let journalLastFocused = null;
 let journalOpenedExperience = false;
-let audioContext = null;
-let ambienceTimer = null;
 
 const initialState = () => ({ index: 0, name: '', city: 'Budapest', nationality: 'hungarian', discoveredPocket: [], adaptiveReturns: {}, adaptiveHints: {}, adaptiveRouteSelections: {}, rhythmCaptured: {}, arrival: '', greeting: '', heardGreeting: false, question: '', savedCulture: false, seat: '', tea: '', heardTea: false, sugar: '', wellbeing: '', savedTeaCulture: false, ferryRoute: '', ferryPlace: '', observed: '', aliFeature: '', company: '', personality: '', savedFerryCulture: false, bazaarItem: '', bazaarColor: '', bazaarSize: '', tryOn: '', priceReaction: '', bargain: '', purchase: '', savedBazaarCulture: false, parkPace: '', parkFeeling: '', bodyPart: '', needsWater: '', parkPlan: '', savedParkCulture: false, tramChoice: '', ticketChoice: '', tramSeat: '', tramApology: '', tramNotice: '', tramStop: '', savedTramCulture: false, uskudarSpot: '', sunsetView: '', sunsetCompany: '', sunsetSibling: '', sunsetFamilyWord: '', sunsetMemory: '', sunsetStay: '', savedSunsetCulture: false, bakerySmell: '', bakeryOrder: '', bakeryDrink: '', simitTaste: '', kitchenAction: '', breakfastCompany: '', savedSimitCulture: false, mosquePace: '', mosqueDirection: '', mosqueShoes: '', mosquePermission: '', mosqueDetail: '', mosqueQuiet: '', mosqueThanks: '', savedMosqueCulture: false, waterfrontWeather: '', waterfrontFruit: '', fruitAmount: '', waterfrontPrice: '', waterfrontPlan: '', favoritePhrase: '', cityFeeling: '', aliFarewell: '', savedWaterfrontCulture: false });
 let adventure = initialState();
@@ -3157,14 +3154,6 @@ if (launchParams.has('adventure') && Number.isInteger(requestedAdventure) && req
   openSelectedAdventure(requestedAdventure);
 } else if (launchParams.get('start') === '1') openExperience();
 else if (launchParams.get('panel') === 'journal') openJournal();
-
-function startAmbience() {
-  audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
-  const playTone = () => { const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain(); oscillator.frequency.value = 180 + Math.random() * 70; oscillator.type = 'sine'; gain.gain.setValueAtTime(0, audioContext.currentTime); gain.gain.linearRampToValueAtTime(.018, audioContext.currentTime + .6); gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + 2.8); oscillator.connect(gain).connect(audioContext.destination); oscillator.start(); oscillator.stop(audioContext.currentTime + 3); };
-  playTone(); ambienceTimer = setInterval(playTone, 4800); soundToggle.setAttribute('aria-pressed', 'true'); soundToggle.querySelector('span:last-child').textContent = 'Hangulat hangja: be';
-}
-function stopAmbience() { clearInterval(ambienceTimer); ambienceTimer = null; soundToggle.setAttribute('aria-pressed', 'false'); soundToggle.querySelector('span:last-child').textContent = 'Hangulat hangja'; }
-soundToggle?.addEventListener('click', () => ambienceTimer ? stopAmbience() : startAmbience());
 
 const journeyLine = document.querySelector('.journey-line');
 const journeyCards = [...document.querySelectorAll('.journey-card')];
