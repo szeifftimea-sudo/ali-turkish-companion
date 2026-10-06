@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '4B') return `<aside class="lesson-companion passport-companion" aria-labelledby="passport-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali útlevele</p><h4 id="passport-companion-title">Nerelisin? Hangi dili konuşuyorsun?</h4><small>Honnan jöttél, milyen nemzetiségű vagy, és milyen nyelven beszélsz? Négy útvonalon látod ugyanazt a mintát, aztán már csak az országneveket kell cserélned.</small></div></header>
+      <div class="passport-grid" aria-label="Négy ország, nemzetiség és nyelv">
+        <article><span class="passport-stamp is-turkiye" aria-hidden="true"><i>TR</i></span><strong lang="tr">Türkiye → Türk → Türkçe</strong><small>Törökország → török → törökül</small></article>
+        <article><span class="passport-stamp is-hungary" aria-hidden="true"><i>HU</i></span><strong lang="tr">Macaristan → Macar → Macarca</strong><small>Magyarország → magyar → magyarul</small></article>
+        <article><span class="passport-stamp is-germany" aria-hidden="true"><i>DE</i></span><strong lang="tr">Almanya → Alman → Almanca</strong><small>Németország → német → németül</small></article>
+        <article><span class="passport-stamp is-japan" aria-hidden="true"><i>JP</i></span><strong lang="tr">Japonya → Japon → Japonca</strong><small>Japán → japán → japánul</small></article>
+      </div>
+      <p class="passport-note"><span aria-hidden="true">✦</span><strong>Mondd el magadról:</strong> <i lang="tr">Ben Macaristanlıyım.</i> – Magyarországról jöttem. <b lang="tr">Macarım.</b> – Magyar vagyok. <i lang="tr">Macarca konuşuyorum, Türkçe öğreniyorum.</i> – Magyarul beszélek, törökül tanulok.</p>
+      <div class="companion-notes passport-notes">
+        <article class="is-word-story"><span>Honnan való?</span><h5><strong lang="tr">-lı · -li · -lu · -lü</strong></h5><p><i lang="tr">İsviçreli</i> – svájci<br><i lang="tr">Türkiyeli</i> – törökországi<br><i lang="tr">Macaristanlı</i> – magyarországi<br>A négyalakú magánhangzó-harmónia választ.</p></article>
+        <article class="is-tip"><span>Milyen nyelven?</span><h5><strong lang="tr">-ca · -ce · -ça · -çe</strong></h5><p><i lang="tr">İtalyanca</i> – olaszul<br><i lang="tr">İngilizce</i> – angolul<br><i lang="tr">Türkçe</i> – törökül<br>A zöngétlen mássalhangzó után <b>ç</b> érkezik.</p></article>
+        <article class="is-native"><span>Magam és mind</span><h5><strong lang="tr">kendi · hep</strong></h5><p><i lang="tr">Kendim Türkçe öğreniyorum.</i><br>Magam tanulok törökül.<br><i lang="tr">Hepimiz Türkçe öğreniyoruz.</i><br>Mindannyian törökül tanulunk.</p></article>
+      </div>
+    </aside>`;
     if (section.code === '4A') return `<aside class="lesson-companion family-companion" aria-labelledby="family-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali családi albuma</p><h4 id="family-companion-title">Kim kimin nesi? – Ki kicsoda a családban?</h4><small>A török rokonságnevek azt is elárulják, hogy valaki az anya vagy az apa családjához tartozik. Nézd végig a két ágat, aztán mondd el, neked kik vannak a családodban.</small></div></header>
       <div class="family-tree" aria-label="Az anyai és az apai családi ág török elnevezései">

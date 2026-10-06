@@ -2823,7 +2823,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "Filistin",
-          "hu": "Palesztin Autonómia",
+          "hu": "Palesztina",
           "en": "Palestine"
         },
         {
@@ -3563,17 +3563,17 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "hepiniz",
-          "hu": "mindannyian",
+          "hu": "mindannyiótok, ti mind",
           "en": "all of you"
         },
         {
           "tr": "hepimiz",
-          "hu": "mindannyian",
+          "hu": "mindannyian, mi mind",
           "en": "all of us"
         },
         {
           "tr": "kendim",
-          "hu": "magamat",
+          "hu": "én magam, saját magam",
           "en": "myself"
         },
         {
