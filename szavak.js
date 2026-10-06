@@ -72,9 +72,27 @@
       : `<button class="pocket-action" type="button" data-pocket-entry="${escapeHtml(key)}" aria-pressed="false"><span aria-hidden="true">+</span>Zsebbe</button>`;
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
+  function lessonCompanionMarkup(section) {
+    if (section.code !== '1A') return '';
+    return `<aside class="lesson-companion" aria-labelledby="greeting-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali súg</p><h4 id="greeting-companion-title">Nemcsak azt számít, mit mondasz – az is, mikor és kinek.</h4><small>A török köszönések mögött napszak, szóalkotás és egy kis udvariassági koreográfia bújik meg.</small></div></header>
+      <div class="greeting-clock" aria-label="Török köszönések napszakok szerint">
+        <article><time>08:00</time><span class="day-scene is-morning" aria-hidden="true"><i></i></span><strong lang="tr">Günaydın</strong><small>Jó reggelt</small></article>
+        <article><time>12:00</time><span class="day-scene is-noon" aria-hidden="true"><i></i></span><strong lang="tr">İyi günler</strong><small>Jó napot</small></article>
+        <article><time>20:00</time><span class="day-scene is-evening" aria-hidden="true"><i></i></span><strong lang="tr">İyi akşamlar</strong><small>Jó estét</small></article>
+        <article><time>22:00</time><span class="day-scene is-night" aria-hidden="true"><i></i></span><strong lang="tr">İyi geceler</strong><small>Jó éjszakát</small></article>
+      </div>
+      <p class="clock-note"><span aria-hidden="true">☀</span> A <strong lang="tr">Tünaydın</strong> létezik, de a hétköznapokban délután is sokkal természetesebb az <strong lang="tr">İyi günler</strong>.</p>
+      <div class="companion-notes">
+        <article class="is-word-story"><span>Szóboncoló</span><h5><i lang="tr">gün</i> + <i lang="tr">aydın</i> = <strong lang="tr">Günaydın</strong></h5><p>A <i lang="tr">gün</i> jelentése „nap”, az <i lang="tr">aydın</i> pedig „világos”. Mintha azt mondanád: legyen fényes a napod.</p></article>
+        <article class="is-tip"><span>Ki marad, ki indul?</span><h5><strong lang="tr">Hoşça kal</strong> ↔ <strong lang="tr">Güle güle</strong></h5><p>A távozó mondja: <i lang="tr">Hoşça kal</i>. A maradó válasza: <i lang="tr">Güle güle</i>. Így nem kevered össze őket.</p></article>
+        <article class="is-native"><span>Beszélj természetesebben</span><h5>Egy apró <strong lang="tr">Hadi</strong> sokat segít.</h5><p><i lang="tr">Hadi görüşürüz.</i><br><i lang="tr">Hadi bay bay.</i><br><i lang="tr">Hadi hoşça kal.</i></p></article>
+      </div>
+    </aside>`;
+  }
   function sectionMarkup(section, entries) {
     const learned = knownCount(entries); const progress = entries.length ? Math.round((learned / entries.length) * 100) : 0;
-    return `<article class="vocabulary-card"><header><span>${lessonLabel(section.code)}</span><div><p>Ali ${lessonNumberByCode.get(section.code)}. leckéje</p><h3>${escapeHtml(section.title)}</h3><small>${learned ? `${learned} már megy · ${entries.length - learned} még gyakorolható` : `${entries.length} szó és kifejezés vár rád`}</small><div class="lesson-progress" aria-label="${learned} megtanult szó ${entries.length} közül"><i style="width:${progress}%"></i></div></div></header><div class="vocabulary-columns" aria-hidden="true"><span>Törökül</span><span>Magyarul</span><span>Saját jelöléseim</span></div><dl>${entries.map(entry => `<div class="${isKnown(entry) ? 'is-known' : ''}"><dt lang="tr">${escapeHtml(entry.tr)}</dt><dd>${escapeHtml(entry.hu)}</dd>${wordActions(entry)}</div>`).join('')}</dl></article>`;
+    return `<article class="vocabulary-card"><header><span>${lessonLabel(section.code)}</span><div><p>Ali ${lessonNumberByCode.get(section.code)}. leckéje</p><h3>${escapeHtml(section.title)}</h3><small>${learned ? `${learned} már megy · ${entries.length - learned} még gyakorolható` : `${entries.length} szó és kifejezés vár rád`}</small><div class="lesson-progress" aria-label="${learned} megtanult szó ${entries.length} közül"><i style="width:${progress}%"></i></div></div></header>${lessonCompanionMarkup(section)}<div class="vocabulary-columns" aria-hidden="true"><span>Törökül</span><span>Magyarul</span><span>Saját jelöléseim</span></div><dl>${entries.map(entry => `<div class="${isKnown(entry) ? 'is-known' : ''}"><dt lang="tr">${escapeHtml(entry.tr)}</dt><dd>${escapeHtml(entry.hu)}</dd>${wordActions(entry)}</div>`).join('')}</dl></article>`;
   }
   function render() {
     const rows = visibleRows(); const query = searchable(search.value);
