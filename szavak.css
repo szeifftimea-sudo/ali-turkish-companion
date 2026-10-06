@@ -28,10 +28,10 @@ h1 { margin:0; font-size:clamp(3.6rem,7vw,7.2rem); line-height:.87; letter-spaci
 .hero-pocket strong { font:600 1.05rem/1.45 var(--serif); }
 .alphabet-section { padding:clamp(3.5rem,6vw,6rem) clamp(1rem,6vw,7rem); scroll-margin-top:90px; background:#edf5ef; }
 .alphabet-heading { max-width:1500px; display:flex; justify-content:space-between; align-items:end; gap:2rem; margin:0 auto 2rem; }
-.alphabet-heading h2 { margin:0; font-size:clamp(2.8rem,5vw,5rem); line-height:.95; }.alphabet-heading > p { max-width:520px; margin:0; color:#60706a; line-height:1.65; }
+.alphabet-heading h2 { margin:0; font-size:clamp(2.8rem,5vw,5rem); line-height:.95; }.alphabet-heading h2 small { display:block; margin-top:.55rem; color:#60706a; font:700 .72rem/1 var(--sans); letter-spacing:.14em; text-transform:uppercase; }.alphabet-heading > p { max-width:520px; margin:0; color:#60706a; line-height:1.65; }
 .alphabet-grid { max-width:1500px; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.7rem; margin:auto; }
 .alphabet-card { min-height:105px; display:grid; grid-template-columns:auto 1fr; align-items:center; gap:.8rem; padding:.85rem; border:1px solid rgba(34,107,100,.16); border-radius:4px 4px 18px 4px; background:#fffdf8; box-shadow:0 8px 24px rgba(43,72,67,.05); }
-.alphabet-card > span { width:42px; height:42px; display:grid; place-items:center; border-radius:50%; color:white; background:var(--terra); font:600 1.3rem var(--serif); }.alphabet-card div { min-width:0; display:grid; gap:.2rem; }.alphabet-card strong { min-width:0; color:var(--teal); overflow-wrap:anywhere; }.alphabet-card small { color:#77817d; }
+.alphabet-card > span { width:42px; height:42px; display:grid; place-items:center; border-radius:50%; color:white; background:var(--terra); font:600 1.55rem var(--serif); text-transform:none; }.alphabet-card div { min-width:0; display:grid; gap:.2rem; }.alphabet-card strong { min-width:0; color:var(--teal); overflow-wrap:anywhere; }.alphabet-card small { color:#77817d; }
 .dictionary-tools { position:sticky; z-index:5; top:76px; display:grid; gap:.9rem; padding:1rem clamp(1rem,5vw,5rem); border-block:1px solid var(--line); background:rgba(251,246,236,.96); backdrop-filter:blur(16px); }
 .tool-row { display:grid; grid-template-columns:minmax(240px,1fr) auto auto; align-items:end; gap:1rem; }
 .search-field,.direction-field { display:grid; gap:.3rem; color:#65716c; font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }

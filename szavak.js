@@ -8,7 +8,7 @@
   const direction = document.querySelector('#card-direction');
   const alphabetGrid = document.querySelector('#alphabet-grid');
   let activeSection = 'all';
-  const alphabet = ['A','B','C','Ç','D','E','F','G','Ğ','H','I','İ','J','K','L','M','N','O','Ö','P','R','S','Ş','T','U','Ü','V','Y','Z'];
+  const alphabet = ['a','b','c','ç','d','e','f','g','ğ','h','ı','i','j','k','l','m','n','o','ö','p','r','s','ş','t','u','ü','v','y','z'];
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, character => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[character]));
   const searchable = (value = '') => String(value).toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i').replace(/[’'".?!…]+/g, '').replace(/\s+/g, ' ').trim();
   const canonicalKey = (value) => searchable(value);
@@ -23,8 +23,8 @@
   const lessonLabel = (code) => String(lessonNumberByCode.get(code) || '').padStart(2, '0');
   const allRows = lessonSections.flatMap(section => section.entries.map(entry => ({ ...entry, section:section.code, title:section.title })));
   const allUnique = uniqueEntries(allRows);
-  function renderAlphabet() { alphabetGrid.innerHTML = alphabet.map((letter, index) => { const entry = alphabetSection?.entries[index]; return `<article class="alphabet-card"><span>${letter}</span><div>${entry ? `<strong lang="tr">${escapeHtml(entry.tr)}</strong><small>${escapeHtml(entry.hu)}</small>` : ''}</div></article>`; }).join(''); }
-  function renderFilters() { filters.innerHTML = `<a class="alphabet-shortcut" href="#abc">ABC <small>29 betű</small></a><button type="button" class="active" data-section="all">Minden Ali-lecke <small>${allUnique.length}</small></button>${lessonSections.map((section, index) => `<button type="button" data-section="${escapeHtml(section.code)}"><b>${String(index + 1).padStart(2, '0')}</b><span>${escapeHtml(section.title)}</span><small>${section.entries.length}</small></button>`).join('')}`; }
+  function renderAlphabet() { alphabetGrid.innerHTML = alphabet.map((letter, index) => { const entry = alphabetSection?.entries[index]; return `<article class="alphabet-card"><span lang="tr">${letter}</span><div>${entry ? `<strong lang="tr">${escapeHtml(entry.tr)}</strong><small>${escapeHtml(entry.hu)}</small>` : ''}</div></article>`; }).join(''); }
+  function renderFilters() { filters.innerHTML = `<a class="alphabet-shortcut" href="#abc"><span lang="tr">Alfabe</span> <small>29 betű</small></a><button type="button" class="active" data-section="all">Minden Ali-lecke <small>${allUnique.length}</small></button>${lessonSections.map((section, index) => `<button type="button" data-section="${escapeHtml(section.code)}"><b>${String(index + 1).padStart(2, '0')}</b><span>${escapeHtml(section.title)}</span><small>${section.entries.length}</small></button>`).join('')}`; }
   function visibleRows() { const query = searchable(search.value); const source = activeSection === 'all' ? allUnique : allRows.filter(entry => entry.section === activeSection); return source.filter(entry => !query || searchable(`${entry.tr} ${entry.hu}`).includes(query)); }
   function sectionMarkup(section, entries) { return `<article class="vocabulary-card"><header><span>${lessonLabel(section.code)}</span><div><p>Ali-lecke ${lessonNumberByCode.get(section.code)}</p><h3>${escapeHtml(section.title)}</h3><small>${entries.length} szó és kifejezés</small></div></header><div class="vocabulary-columns" aria-hidden="true"><span>Törökül</span><span>Magyarul</span></div><dl>${entries.map(entry => `<div><dt lang="tr">${escapeHtml(entry.tr)}</dt><dd>${escapeHtml(entry.hu)}</dd>${activeSection === 'all' && entry.sections.length > 1 ? `<small class="lesson-tags">${entry.sections.map(code => `${lessonLabel(code)}. lecke`).join(' · ')}</small>` : ''}</div>`).join('')}</dl></article>`; }
   function render() {
