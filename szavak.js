@@ -73,6 +73,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '2A') return `<aside class="lesson-companion city-companion" aria-labelledby="city-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali megmutatja a környéket</p><h4 id="city-companion-title">Ali'yle şehirde – négy megálló, egy új nyelvi térkép.</h4><small>Ismerd fel a helyet, mondd meg, hol van, aztán kérdezd meg, mi található ott.</small></div></header>
+      <div class="city-tour" aria-label="Négy városi hely Ali környékén">
+        <article><span class="city-scene is-pharmacy" aria-hidden="true"><i></i></span><strong lang="tr">eczane</strong><small>gyógyszertár</small></article>
+        <article><span class="city-scene is-mosque" aria-hidden="true"><i></i></span><strong lang="tr">cami</strong><small>mecset</small></article>
+        <article><span class="city-scene is-pastry" aria-hidden="true"><i></i></span><strong lang="tr">pastane</strong><small>cukrászda</small></article>
+        <article><span class="city-scene is-school" aria-hidden="true"><i></i></span><strong lang="tr">okul</strong><small>iskola</small></article>
+      </div>
+      <p class="city-note"><span aria-hidden="true">⌖</span><strong>Ali fülel:</strong> a szabályos <i lang="tr">Nerede?</i> a gyors hétköznapi beszédben gyakran <i lang="tr">Nerde?</i>-ként hangzik.</p>
+      <div class="companion-notes city-notes">
+        <article class="is-word-story"><span>Mini nyelvtan · hol?</span><h5><strong lang="tr">-da/-de</strong> vagy <strong lang="tr">-ta/-te</strong></h5><p><i lang="tr">müzede</i> – a múzeumban<br><i lang="tr">parkta</i> – a parkban<br>Az <strong>f, s, t, k, ç, ş, h, p</strong> után a <i lang="tr">d</i> hang <i lang="tr">t</i>-vé válik.</p></article>
+        <article class="is-tip"><span>Mi van ott?</span><h5>hely + dolog + <strong lang="tr">var / yok</strong></h5><p><i lang="tr">Okulda kantin var.</i><br>Az iskolában van büfé.<br><i lang="tr">Sokakta banka yok.</i><br>Az utcán nincs bank.</p></article>
+        <article class="is-native"><span>Mondd ki Isztambulban</span><h5>Két kérdés, amely utat nyit.</h5><p><i lang="tr">Eczane nerede?</i><br>Hol van a gyógyszertár?<br><i lang="tr">Yakında banka var mı?</i><br>Van bank a közelben?</p></article>
+      </div>
+    </aside>`;
     if (section.code === '1B') return `<aside class="lesson-companion home-companion" aria-labelledby="home-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali körbevezet</p><h4 id="home-companion-title">Ali'nin evi – lépj be, és nevezd nevén.</h4><small>Egy isztambuli otthon négy kis állomása: előbb felismered a helyet, aztán már mondatba is teszed.</small></div></header>
       <div class="home-tour" aria-label="Ali otthonának helyiségei">
