@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '5C') return `<aside class="lesson-companion goals-companion" aria-labelledby="goals-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali célfala</p><h4 id="goals-companion-title">Ne zamandır? – Mióta tart?</h4><small>Az időtartam azt mondja meg, mennyi ideje csinálsz valamit; a kezdőpont pedig azt, hogy pontosan mikor indult. Ali négy kis célon mutatja meg a különbséget.</small></div></header>
+      <div class="goals-grid" aria-label="Négy cél és időtartam törökül">
+        <article><span class="goal-scene is-calendar" aria-hidden="true"><i></i></span><strong lang="tr">İki haftadır Türkçe öğreniyorum.</strong><small>Két hete tanulok törökül.</small><b>mennyi ideje?</b></article>
+        <article><span class="goal-scene is-savings" aria-hidden="true"><i></i></span><strong lang="tr">Şubattan beri para biriktiriyorum.</strong><small>Február óta pénzt teszek félre.</small><b>mióta?</b></article>
+        <article><span class="goal-scene is-yoga" aria-hidden="true"><i></i></span><strong lang="tr">Üç gündür yoga yapıyorum.</strong><small>Három napja jógázom.</small><b>mennyi ideje?</b></article>
+        <article><span class="goal-scene is-dream" aria-hidden="true"><i></i></span><strong lang="tr">Yıllardır İstanbul hayali kuruyorum.</strong><small>Évek óta Isztambulról álmodom.</small><b>régen kezdődött</b></article>
+      </div>
+      <p class="goals-note"><span aria-hidden="true">◎</span><strong>Ali kérdez:</strong> <i lang="tr">Ne zamandır Türkçe öğreniyorsun?</i> – Mióta tanulsz törökül? <b lang="tr">Kaç aydır para biriktiriyorsun?</b> – Hány hónapja gyűjtesz pénzt?</p>
+      <div class="companion-notes goals-notes">
+        <article class="is-word-story"><span>Időtartam</span><h5><strong lang="tr">idő + -dır / -dir / -dur / -dür</strong></h5><p><i lang="tr">iki haftadır</i> – két hete<br><i lang="tr">üç gündür</i> – három napja<br><i lang="tr">sekiz yıldır</i> – nyolc éve<br>Zöngétlen hang után <b>d → t</b>: <i lang="tr">üç saattir</i>.</p></article>
+        <article class="is-tip"><span>Kezdőpont</span><h5><strong lang="tr">-dan / -den / -tan / -ten beri</strong></h5><p><i lang="tr">şubattan beri</i> – február óta<br><i lang="tr">sabahtan beri</i> – reggel óta<br><i lang="tr">1943'ten beri</i> – 1943 óta<br>Itt tudjuk, mikor kezdődött.</p></article>
+        <article class="is-native"><span>Álomból cél</span><h5><strong lang="tr">hayal → hedef → amaç</strong></h5><p><i lang="tr">hayal</i> – amit elképzelsz<br><i lang="tr">hedef</i> – konkrét, elérhető cél<br><i lang="tr">amaç</i> – amiért teszed<br><b lang="tr">Hedefim Türkçe konuşmak.</b></p></article>
+      </div>
+    </aside>`;
     if (section.code === '5B') return `<aside class="lesson-companion travel-companion" aria-labelledby="travel-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali veled indul Isztambulba</p><h4 id="travel-companion-title">Yolculuk planı – Mi történik előtte és utána?</h4><small>Az utazás egymást követő apró lépésekből áll. A törökben az ige vége mutatja meg, hogy valami egy másik esemény előtt vagy után történik.</small></div></header>
       <div class="travel-route" aria-label="Négy állomás Budapesttől Isztambulig">

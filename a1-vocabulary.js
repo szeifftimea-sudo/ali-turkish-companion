@@ -4307,7 +4307,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "hizmet vermek",
-          "hu": "szolgálni",
+          "hu": "szolgáltatást nyújtani",
           "en": "serve"
         },
         {
@@ -4322,7 +4322,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "para biriktirmek",
-          "hu": "pénzt megtakarítani",
+          "hu": "pénzt félretenni / gyűjteni",
           "en": "save money"
         },
         {
@@ -4412,7 +4412,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "daha iyi",
-          "hu": "jobban",
+          "hu": "jobb / jobban",
           "en": "better"
         },
         {
