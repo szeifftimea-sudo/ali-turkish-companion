@@ -408,7 +408,7 @@
         <small>${front ? 'TÜRKÇE' : 'MAGYARUL'}</small>
         <strong${front ? ' lang="tr"' : ''}>${escapeHTML(text)}</strong>
       </div>
-      <footer><span class="print-card-brand"><svg viewBox="-4 -4 56 56" aria-hidden="true"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18"/><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11"/></svg><em>Ali</em></span><b>${String(card.number).padStart(2, '0')}</b></footer>
+      <footer><span class="print-card-brand"><svg viewBox="-4 -4 56 56" aria-hidden="true"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18"/><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11"/></svg><span class="print-card-brand-copy"><em>Ali</em><small>A török útitárs</small></span></span><b>${String(card.number).padStart(2, '0')}</b></footer>
     </article>`;
   }
 
