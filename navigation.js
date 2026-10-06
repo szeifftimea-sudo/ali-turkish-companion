@@ -2,13 +2,6 @@
   const header = document.querySelector('.global-header');
   const navigation = header?.querySelector('.site-navigation');
   const menuToggle = header?.querySelector('.menu-toggle');
-  const pocketMenu = header?.querySelector('[data-nav-section="ali-zsebeben"] .nav-popover');
-  if (pocketMenu && !pocketMenu.querySelector('a[href^="arfolyam.html"]')) {
-    const exchangeLink = document.createElement('a');
-    exchangeLink.href = 'arfolyam.html';
-    exchangeLink.innerHTML = '<span>Líra–forint kalkulátor</span><small>Gyors átváltás utazáshoz</small>';
-    pocketMenu.append(exchangeLink);
-  }
   const groups = [...(header?.querySelectorAll('.nav-group') || [])];
   if (!header || !navigation || !menuToggle) return;
 

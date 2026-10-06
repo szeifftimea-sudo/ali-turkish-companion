@@ -2267,8 +2267,8 @@ function writeJournal(entries) {
 }
 
 function updateJournalCount(entries = readJournal()) {
-  journalCount.textContent = entries.length;
-  journalToggle.classList.toggle('has-memories', entries.length > 0);
+  if (journalCount) journalCount.textContent = entries.length;
+  journalToggle?.classList.toggle('has-memories', entries.length > 0);
   if (journeyTicketCount) journeyTicketCount.textContent = `${String(entries.length).padStart(2,'0')} / 10`;
   document.querySelectorAll('[data-adventure]').forEach(button => button.closest('.journey-card')?.classList.toggle('remembered', entries.some(entry => entry.id === Number(button.dataset.adventure) + 1)));
 }
@@ -2894,7 +2894,7 @@ function closeExperience() { experience.hidden = true; document.body.classList.r
 
 document.querySelectorAll('[data-start], [data-open-experience]').forEach(button => button.addEventListener('click', openExperience));
 document.querySelectorAll('[data-adventure]').forEach(button => button.addEventListener('click', () => openSelectedAdventure(Number(button.dataset.adventure))));
-journalToggle.addEventListener('click', openJournal);
+journalToggle?.addEventListener('click', openJournal);
 journalClose.addEventListener('click', closeJournal);
 document.querySelector('.journal-backdrop').addEventListener('click', closeJournal);
 journalEntries.addEventListener('click', event => {
