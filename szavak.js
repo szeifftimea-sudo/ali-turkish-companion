@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '6B') return `<aside class="lesson-companion places-companion" aria-labelledby="places-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali Kuzguncukban mutat körbe</p><h4 id="places-companion-title">Hangisi? – Melyikre gondolsz?</h4><small>A <b lang="tr">-ki</b> rámutat arra, ami egy helyen vagy időben van: a sarkon lévő házra, a kertben élő macskákra vagy a holnapi programra. Ha már tudjuk, miről beszélünk, a főnevet teljesen ki is válthatja.</small></div></header>
+      <div class="places-grid" aria-label="Négy kuzguncuki jelenet a ki toldalékkal">
+        <article><span class="place-scene is-kuzguncuk" aria-hidden="true"><i></i></span><strong lang="tr">Kuzguncuk'taki evler renkli.</strong><small>A kuzguncuki házak színesek.</small><b>hely + -ki</b></article>
+        <article><span class="place-scene is-ferry" aria-hidden="true"><i></i></span><strong lang="tr">Denizdeki vapurları görüyorum.</strong><small>Látom a tengeren lévő kompokat.</small><b>hol lévő?</b></article>
+        <article><span class="place-scene is-cats" aria-hidden="true"><i></i></span><strong lang="tr">Bahçedeki kediler çok tatlı.</strong><small>A kertben lévő macskák nagyon aranyosak.</small><b>hely + -ki</b></article>
+        <article><span class="place-scene is-tomorrow" aria-hidden="true"><i></i></span><strong lang="tr">Yarınki gezi saat onda.</strong><small>A holnapi séta tíz órakor lesz.</small><b>idő + -ki</b></article>
+      </div>
+      <p class="places-note"><span aria-hidden="true">⌖</span><strong>Ali rövidít:</strong> <i lang="tr">Bu kitabevi güzel, ama benimki Taksim'de.</i> – Ez a könyvesbolt szép, de az enyém Taksimban van. <b lang="tr">Sağdaki sokak daha sakin.</b> – A jobb oldali utca nyugodtabb.</p>
+      <div class="companion-notes places-notes">
+        <article class="is-word-story"><span>Hol lévő?</span><h5><strong lang="tr">hely + -de/-da/-te/-ta + ki</strong></h5><p><i lang="tr">odadaki adam</i> – a szobában lévő férfi<br><i lang="tr">sokaktaki kafe</i> – az utcában lévő kávézó<br><i lang="tr">İstanbul'daki arkadaşım</i> – az Isztambulban lévő barátom</p></article>
+        <article class="is-tip"><span>Mikor lévő?</span><h5><strong lang="tr">időszó + -ki</strong></h5><p><i lang="tr">yarınki toplantı</i> – a holnapi találkozó<br><i lang="tr">sonraki otobüs</i> – a következő busz<br><i lang="tr">dünkü yemek · bugünkü ders</i><br>A <b lang="tr">dün</b> és <b lang="tr">gün</b> alaknál működik a hangrend.</p></article>
+        <article class="is-native"><span>Ne ismételd meg</span><h5><strong lang="tr">benimki · seninki · Ayşe'ninki</strong></h5><p>A <b lang="tr">-ki</b> az előző főnév helyére áll.<br><i lang="tr">Benim çantam yeşil, seninki siyah.</i><br>Az én táskám zöld, a tiéd fekete.<br><i lang="tr">Bizimki</i> – a miénk · <i lang="tr">onlarınki</i> – az övék</p></article>
+      </div>
+    </aside>`;
     if (section.code === '6A') return `<aside class="lesson-companion neighborhood-companion" aria-labelledby="neighborhood-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali isztambuli városnegyede</p><h4 id="neighborhood-companion-title">Burası Ali'nin mahallesi – Mi mihez tartozik?</h4><small>Két főnév együtt új, pontosabb jelentést ad. Néha konkrétan megmondjuk, kié vagy mié valami; máskor csak a hely vagy tárgy típusát nevezzük meg.</small></div></header>
       <div class="neighborhood-grid" aria-label="Négy isztambuli hely és török szókapcsolat">

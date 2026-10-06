@@ -4664,7 +4664,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "apartman",
-          "hu": "lakás",
+          "hu": "társasház",
           "en": "apartment"
         },
         {
@@ -4699,7 +4699,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "esnaf",
-          "hu": "mesterember",
+          "hu": "kereskedő / boltos",
           "en": "craftsman"
         },
         {
@@ -4789,7 +4789,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "tanımak",
-          "hu": "felismerni",
+          "hu": "ismerni / felismerni",
           "en": "recognize"
         },
         {
