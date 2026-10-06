@@ -402,13 +402,16 @@
     if (!card) return '<div class="print-learning-card is-blank" aria-hidden="true"></div>';
     const front = side === 'front';
     const text = front ? card.item.phrase : card.item.translation;
+    const footerMark = front
+      ? '<img class="print-card-qr" src="assets/ali-site-qr.png" alt="Ali weboldala QR-kód" />'
+      : `<b>${String(card.number).padStart(2, '0')}</b>`;
     return `<article class="print-learning-card ${front ? 'is-front' : 'is-back'} ${printCardSizeClass(text)}">
-      <div class="print-card-ali"><img src="assets/ali.png" alt="Ali" /></div>
+      <div class="print-card-ali"><span class="print-card-portrait"><img src="assets/ali.png" alt="Ali" /></span></div>
       <div class="print-card-copy">
         <small>${front ? 'TÜRKÇE' : 'MAGYARUL'}</small>
         <strong${front ? ' lang="tr"' : ''}>${escapeHTML(text)}</strong>
       </div>
-      <footer><span class="print-card-brand"><svg viewBox="-4 -4 56 56" aria-hidden="true"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18"/><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11"/></svg><span class="print-card-brand-copy"><em>Ali</em><small>A török útitárs</small></span></span><b>${String(card.number).padStart(2, '0')}</b></footer>
+      <footer><span class="print-card-brand"><svg viewBox="-4 -4 56 56" aria-hidden="true"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18"/><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11"/></svg><span class="print-card-brand-copy"><em>Ali</em><small>A török útitárs</small></span></span>${footerMark}</footer>
     </article>`;
   }
 
