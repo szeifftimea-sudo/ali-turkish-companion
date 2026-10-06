@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '3A') return `<aside class="lesson-companion routine-companion" aria-labelledby="routine-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali egy napja Isztambulban</p><h4 id="routine-companion-title">Bugün ne yapıyorsun? – Mit csinálsz ma?</h4><small>A török jelen idő egyszerre mesél arról, ami most történik, ami rendszeresen ismétlődik, és arról is, amit a közeljövőre már elterveztél.</small></div></header>
+      <div class="routine-tour" aria-label="Ali napjának négy állomása">
+        <article><span class="routine-scene is-waking" aria-hidden="true"><i></i></span><strong lang="tr">Uyanıyorum.</strong><small>Felébredek.</small></article>
+        <article><span class="routine-scene is-breakfast" aria-hidden="true"><i></i></span><strong lang="tr">Kahvaltı yapıyorum.</strong><small>Reggelizek.</small></article>
+        <article><span class="routine-scene is-ferry" aria-hidden="true"><i></i></span><strong lang="tr">Vapura biniyorum.</strong><small>Felszállok a kompra.</small></article>
+        <article><span class="routine-scene is-evening" aria-hidden="true"><i></i></span><strong lang="tr">Kitap okuyorum.</strong><small>Könyvet olvasok.</small></article>
+      </div>
+      <p class="routine-note"><span aria-hidden="true">İ</span><strong>Ali ritmusa:</strong> keresd meg az ige utolsó magánhangzóját, és abból válaszd ki a <b>-ıyor / -iyor / -uyor / -üyor</b> alakot: <i lang="tr">yazıyor, geliyor, oturuyor, gülüyor</i>.</p>
+      <div class="companion-notes routine-notes">
+        <article class="is-word-story"><span>Most, szokás, terv</span><h5>Egyetlen alak, három időérzet.</h5><p><i lang="tr">Şimdi Türkçe çalışıyorum.</i><br>Most törökül tanulok.<br><i lang="tr">Her gün yürüyorum.</i><br>Mindennap sétálok.<br><i lang="tr">Yarın buluşuyoruz.</i><br>Holnap találkozunk.</p></article>
+        <article class="is-tip"><span>Ali figyelmeztet</span><h5>A szó vége néha átalakul.</h5><p>Magánhangzó után csak <b>-yor</b>: <i lang="tr">uyu-yor</i>.<br><b>a/e</b> eltűnhet: <i lang="tr">bekle-yor → bekliyor</i>.<br><b>t</b> néha <b>d</b> lesz: <i lang="tr">git-iyor → gidiyor</i>.</p></article>
+        <article class="is-native"><span>m vagy mu?</span><h5>A helye elárulja.</h5><p><i lang="tr">İçmiyorum.</i> – Nem iszom.<br>A tagadó <b>-m</b> az igéhez tapad.<br><i lang="tr">İçiyor musun?</i> – Iszol?<br>A kérdő <b>mu</b> külön szó.</p></article>
+      </div>
+    </aside>`;
     if (section.code === '2C') return `<aside class="lesson-companion people-companion" aria-labelledby="people-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali bemutatja a társaságot</p><h4 id="people-companion-title">Biz böyleyiz – ilyenek vagyunk.</h4><small>Nézd meg, ki milyen, aztán cseréld a személyt: a török szó végén rögtön megmutatkozik, kiről beszélsz.</small></div></header>
       <div class="people-tour" aria-label="Négy ember és négy személyrag">
