@@ -77,10 +77,10 @@
     return `<aside class="lesson-companion" aria-labelledby="greeting-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali súg</p><h4 id="greeting-companion-title">Nemcsak azt számít, mit mondasz – az is, mikor és kinek.</h4><small>A török köszönések mögött napszak, szóalkotás és egy kis udvariassági koreográfia bújik meg.</small></div></header>
       <div class="greeting-clock" aria-label="Török köszönések napszakok szerint">
-        <article><time>08:00</time><span class="day-scene is-morning" aria-hidden="true"><i></i></span><strong lang="tr">Günaydın</strong><small>Jó reggelt</small></article>
-        <article><time>12:00</time><span class="day-scene is-noon" aria-hidden="true"><i></i></span><strong lang="tr">İyi günler</strong><small>Jó napot</small></article>
-        <article><time>20:00</time><span class="day-scene is-evening" aria-hidden="true"><i></i></span><strong lang="tr">İyi akşamlar</strong><small>Jó estét</small></article>
-        <article><time>22:00</time><span class="day-scene is-night" aria-hidden="true"><i></i></span><strong lang="tr">İyi geceler</strong><small>Jó éjszakát</small></article>
+        <article><time>08:00</time><span class="day-scene is-morning" aria-hidden="true"><i class="celestial"></i><i class="landmark"></i><i class="detail"></i></span><strong lang="tr">Günaydın</strong><small>Boszporuszi reggel</small></article>
+        <article><time>12:00</time><span class="day-scene is-noon" aria-hidden="true"><i class="celestial"></i><i class="landmark"></i><i class="detail"></i></span><strong lang="tr">İyi günler</strong><small>Isztambul délben</small></article>
+        <article><time>20:00</time><span class="day-scene is-evening" aria-hidden="true"><i class="celestial"></i><i class="landmark"></i><i class="detail"></i></span><strong lang="tr">İyi akşamlar</strong><small>Esti ezan idején</small></article>
+        <article><time>22:00</time><span class="day-scene is-night" aria-hidden="true"><i class="celestial"></i><i class="landmark"></i><i class="detail"></i></span><strong lang="tr">İyi geceler</strong><small>Kız Kulesi éjjel</small></article>
       </div>
       <p class="clock-note"><span aria-hidden="true">☀</span> A <strong lang="tr">Tünaydın</strong> létezik, de a hétköznapokban délután is sokkal természetesebb az <strong lang="tr">İyi günler</strong>.</p>
       <div class="companion-notes">
