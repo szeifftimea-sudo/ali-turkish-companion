@@ -22,7 +22,7 @@
   const PHRASE_KEY = 'ali-phrase-progress-v2';
   const KNOWN_KEY = 'ali-a1-known-v1';
   const MAX_PRINT_CARDS = 80;
-  let activeSection = 'all';
+  let activeSection = new URLSearchParams(window.location.search).get('lesson') || 'all';
   let printMode = '';
   const selectedPrintSections = new Set();
   const alphabet = ['a','b','c','ç','d','e','f','g','ğ','h','ı','i','j','k','l','m','n','o','ö','p','r','s','ş','t','u','ü','v','y','z'];
@@ -42,6 +42,7 @@
   }
   const alphabetSection = data.sections.find(section => section.code === '0A');
   const lessonSections = data.sections.filter(section => section.code !== '0A');
+  if (activeSection !== 'all' && !lessonSections.some(section => section.code === activeSection)) activeSection = 'all';
   const lessonNumberByCode = new Map(lessonSections.map((section, index) => [section.code, index + 1]));
   const lessonLabel = (code) => String(lessonNumberByCode.get(code) || '').padStart(2, '0');
   const allRows = lessonSections.flatMap(section => section.entries.map(entry => ({ ...entry, section:section.code, title:section.title })));
@@ -73,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '2C') return `<aside class="lesson-companion people-companion" aria-labelledby="people-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali bemutatja a társaságot</p><h4 id="people-companion-title">Biz böyleyiz – ilyenek vagyunk.</h4><small>Nézd meg, ki milyen, aztán cseréld a személyt: a török szó végén rögtön megmutatkozik, kiről beszélsz.</small></div></header>
+      <div class="people-tour" aria-label="Négy ember és négy személyrag">
+        <article><span class="person-scene is-happy" aria-hidden="true"><i></i></span><strong lang="tr">Ben mutluyum.</strong><small>Én boldog vagyok.</small></article>
+        <article><span class="person-scene is-energetic" aria-hidden="true"><i></i></span><strong lang="tr">Sen enerjiksin.</strong><small>Te energikus vagy.</small></article>
+        <article><span class="person-scene is-calm" aria-hidden="true"><i></i></span><strong lang="tr">O sakin.</strong><small>Ő nyugodt.</small></article>
+        <article><span class="person-scene is-hardworking" aria-hidden="true"><i></i></span><strong lang="tr">Biz çalışkanız.</strong><small>Mi szorgalmasak vagyunk.</small></article>
+      </div>
+      <p class="people-note"><span aria-hidden="true">K</span><strong>Ali ketçapja:</strong> ha a szó <b>k, t, ç, p</b> hangra végződik, a magánhangzóval kezdődő rag előtt gyakran <b>ğ, d, c, b</b> lesz belőle: <i lang="tr">genç + im → gencim</i>, <i lang="tr">komik + im → komiğim</i>.</p>
+      <div class="companion-notes people-notes">
+        <article class="is-word-story"><span>Ki vagyok?</span><h5>A személy a szó végére költözik.</h5><p><i lang="tr">Ben yorgunum.</i> – Fáradt vagyok.<br><i lang="tr">Sen yorgunsun.</i> – Fáradt vagy.<br><i lang="tr">O yorgun.</i> – Fáradt.</p></article>
+        <article class="is-tip"><span>Nem ilyen vagyok</span><h5><strong lang="tr">değil</strong> + személyrag</h5><p><i lang="tr">Tembel değilim.</i><br>Nem vagyok lusta.<br><i lang="tr">Biz üzgün değiliz.</i><br>Nem vagyunk szomorúak.</p></article>
+        <article class="is-native"><span>Kérdezd meg</span><h5><strong lang="tr">mı / mi / mu / mü</strong> külön szó.</h5><p><i lang="tr">Mutlu musun?</i> – Boldog vagy?<br><i lang="tr">Yorgun musunuz?</i> – Fáradtak?<br><i lang="tr">Sakin değil mi?</i> – Nem nyugodt?</p></article>
+      </div>
+    </aside>`;
     if (section.code === '2B') return `<aside class="lesson-companion shopping-companion" aria-labelledby="shopping-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali bevásárol</p><h4 id="shopping-companion-title">Ali'yle pazarda – számolj úgy, ahogy a kosár telik.</h4><small>Négy hétköznapi mennyiség segít összekötni a számokat azzal, amit Isztambulban valóban kérni fogsz.</small></div></header>
       <div class="shopping-tour" aria-label="Négy bevásárlási mennyiség Ali kosarából">
