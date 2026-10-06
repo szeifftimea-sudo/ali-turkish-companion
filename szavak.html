@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ali A1-es török–magyar szókincse: 18 fejezet, keresés és nyomtatható tanulókártyák." />
+  <meta name="description" content="Ali A1-es török–magyar szókincse: 17 lecke, keresés és nyomtatható tanulókártyák." />
   <title>A1 szókincs Ali zsebében</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="szavak.css?v=12" />
+  <link rel="stylesheet" href="szavak.css?v=13" />
   <link rel="stylesheet" href="navigation.css?v=6" />
 </head>
 <body data-section="ali-zsebeben">
@@ -31,9 +31,16 @@
     <section class="alphabet-section" id="abc" aria-labelledby="alphabet-title"><div class="alphabet-heading"><div><p class="eyebrow">Az első lépés · törökül</p><h2 id="alphabet-title"><span lang="tr">Alfabe</span><small>A török ábécé</small></h2></div><p>29 kisbetű, 29 kapaszkodó. Minden betűhöz tartozik egy példaszó; a <span lang="tr">ğ</span> szó elején nem áll, ezért annál egy olyan szót mutatunk, amelyben szerepel.</p></div><div class="alphabet-grid" id="alphabet-grid"></div></section>
     <section class="dictionary-tools" aria-label="Szókincs szűrése">
       <div class="tool-intro"><span aria-hidden="true">⌕</span><div><strong>A teljes <span class="a1-accent">A1</span>-ben keresel</strong><p>Ali 17 leckéjének 835 egyedi szava között, törökül és magyarul. Ez nem általános török szótár.</p></div></div>
-      <div class="tool-row"><label class="search-field" for="phrase-search"><span>Keresés a teljes A1-szókincsben</span><input id="phrase-search" type="search" autocomplete="off" placeholder="például: merhaba, család, utazás…" /><small>A keresés minden leckét átnéz, akkor is, ha előtte kiválasztottál egyet.</small></label><label class="direction-field" for="card-direction"><span>Kártyák iránya</span><select id="card-direction"><option value="tr-hu">Török → magyar</option><option value="hu-tr">Magyar → török</option></select></label><button class="print-button" type="button" data-print-cards><span aria-hidden="true">⌁</span> Kis tanulókártyák nyomtatása</button></div>
+      <div class="tool-row"><label class="search-field" for="phrase-search"><span>Keresés a teljes A1-szókincsben</span><input id="phrase-search" type="search" autocomplete="off" placeholder="például: merhaba, család, utazás…" /><small>A keresés minden leckét átnéz, akkor is, ha előtte kiválasztottál egyet.</small></label><label class="direction-field" for="card-direction"><span>Kártyák iránya</span><select id="card-direction"><option value="tr-hu">Török → magyar</option><option value="hu-tr">Magyar → török</option></select></label><button class="print-button" type="button" data-print-planner-toggle aria-expanded="false" aria-controls="print-planner"><span aria-hidden="true">⌁</span> Kártyacsomag összeállítása</button></div>
       <div class="chapter-filters" id="chapter-filters" aria-label="Szűrés Ali-lecke szerint"></div>
-      <p class="print-note">A jelenlegi találatokból · legfeljebb 80 kártya egyszerre · 4 kártya / A4 · 63 × 88 mm · kétoldalas, hosszú él mentén · QR-kód az előlapokon</p>
+      <p class="print-note">Állíts össze legfeljebb 80 kártyás csomagot · 4 kártya / A4 · 63 × 88 mm · kétoldalas, hosszú él mentén · QR-kód az előlapokon</p>
+      <section class="print-planner" id="print-planner" data-print-planner aria-labelledby="print-planner-title" hidden>
+        <div class="print-planner-heading"><div><p class="eyebrow">Ali pakol veled</p><h2 id="print-planner-title" tabindex="-1">Melyik kártyák jöjjenek?</h2><p>Válassz egy kész csomagot, vagy jelölj ki több leckét. Ali rögtön megmutatja, hány kétoldalas A4-es lapra lesz szükséged.</p></div><button class="print-planner-close" type="button" data-print-planner-close aria-label="Kártyacsomag-összeállító bezárása">×</button></div>
+        <div class="print-preset-row" aria-label="Gyors kártyacsomagok"><button class="print-preset is-featured" type="button" data-print-preset="flight"><span aria-hidden="true">✈</span><strong>Repülős válogatás</strong><small>64 utazós kártya</small></button><button class="print-preset" type="button" data-print-preset="current"><span aria-hidden="true">⌕</span><strong>A mostani találatok</strong><small data-current-print-count></small></button></div>
+        <div class="print-lesson-picker"><div><strong>Vagy válogass leckénként</strong><small>Többet is kijelölhetsz.</small></div><div class="print-lesson-choices" data-print-lessons></div></div>
+        <div class="print-plan-review"><div class="print-plan-status" data-print-summary aria-live="polite"></div><div class="print-preview-wrap"><span>Az első négy kártya előnézete</span><div class="print-preview-grid" data-print-preview></div></div></div>
+        <div class="print-plan-actions"><button class="print-plan-clear" type="button" data-print-clear>Kijelölés törlése</button><button class="print-plan-start" type="button" data-print-start disabled><span aria-hidden="true">⌁</span> Nyomtatási előnézet</button></div>
+      </section>
     </section>
     <section class="dictionary-section" id="szotar" aria-labelledby="results-title"><div class="results-heading"><div><p class="eyebrow" id="results-kicker">Szóról szóra, a saját tempódban</p><h2 id="results-title">Ali <span class="a1-accent">A1</span>-es szókincse</h2><p id="result-count" aria-live="polite"></p></div><aside class="learning-summary" aria-label="Saját haladás"><img src="assets/ali.png" alt="" /><div><span>Ali veled számol</span><strong data-known-summary>Még egy szó sincs megjelölve.</strong><div class="summary-track" aria-hidden="true"><i data-known-track></i></div><a href="zseb.html#sajat-szavaim">Megnézem, mi van Ali zsebében →</a></div></aside></div><div class="vocabulary-grid" id="vocabulary-grid"></div><div class="empty-state" id="empty-state" hidden><strong>Erre most nem találtam szót.</strong><p>Próbáld rövidebben, vagy keress egy másik magyar vagy török alakra.</p></div></section>
     <p class="pocket-toast" id="pocket-toast" role="status" aria-live="polite" hidden></p>
@@ -41,6 +48,6 @@
   <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18" /><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11" /></svg></span><span><strong>Ali</strong><small>A török útitárs</small></span></a><p>Fejezetről fejezetre, szóról szóra.</p><a href="zseb.html#sajat-szavaim">Saját szavaim <span aria-hidden="true">→</span></a></footer>
 <script src="navigation.js?v=7"></script>
   <script src="a1-vocabulary.js?v=1"></script>
-  <script src="szavak.js?v=12"></script>
+  <script src="szavak.js?v=13"></script>
 </body>
 </html>

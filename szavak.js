@@ -12,10 +12,19 @@
   const knownSummary = document.querySelector('[data-known-summary]');
   const knownTrack = document.querySelector('[data-known-track]');
   const pocketToast = document.querySelector('#pocket-toast');
+  const printPlanner = document.querySelector('[data-print-planner]');
+  const printPlannerToggle = document.querySelector('[data-print-planner-toggle]');
+  const printLessonChoices = document.querySelector('[data-print-lessons]');
+  const printSummary = document.querySelector('[data-print-summary]');
+  const printPreview = document.querySelector('[data-print-preview]');
+  const printStart = document.querySelector('[data-print-start]');
+  const currentPrintCount = document.querySelector('[data-current-print-count]');
   const PHRASE_KEY = 'ali-phrase-progress-v2';
   const KNOWN_KEY = 'ali-a1-known-v1';
   const MAX_PRINT_CARDS = 80;
   let activeSection = 'all';
+  let printMode = '';
+  const selectedPrintSections = new Set();
   const alphabet = ['a','b','c','ç','d','e','f','g','ğ','h','ı','i','j','k','l','m','n','o','ö','p','r','s','ş','t','u','ü','v','y','z'];
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, character => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[character]));
   const searchable = (value = '') => String(value).toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i').replace(/[’'".?!…]+/g, '').replace(/\s+/g, ' ').trim();
@@ -37,6 +46,12 @@
   const lessonLabel = (code) => String(lessonNumberByCode.get(code) || '').padStart(2, '0');
   const allRows = lessonSections.flatMap(section => section.entries.map(entry => ({ ...entry, section:section.code, title:section.title })));
   const allUnique = uniqueEntries(allRows);
+  const FLIGHT_PACK_TERMS = [
+    'Merhaba!','Günaydın!','İyi günler!','İyi akşamlar!','İyi geceler!','Teşekkür ederim./Teşekkürler.','Hoş bulduk!','Hoşça kal!/Güle güle!','Görüşürüz!','Afiyet olsun!','Lütfen!','İyi yolculuklar!','Özür dilerim.','Affedersiniz!','Tamam!','Evet.','Hayır.','Geçmiş olsun.',
+    'eczane','hastane','havaalanı','karakol/emniyet','otel','restoran/lokanta','market','banka','klozet/tuvalet','harita','cami','müze','bilet','cüzdan','gar','kimlik','otobüs','pasaport','tren','uçak','valiz/bavul','bir sonraki','inmek','varmak','yola çıkmak','tabii ki',
+    'su','çay','kahve','ayran','menü','sipariş','hesap','kahvaltı','öğle yemeği','akşam yemeği','fiyat','kredi kartı','kasiyer','indirim','poşet','adet','yakın','uzak','ucuz','pahalı'
+  ];
+  const flightPackEntries = FLIGHT_PACK_TERMS.map(term => allUnique.find(entry => canonicalKey(entry.tr) === canonicalKey(term))).filter(Boolean);
   function renderAlphabet() { alphabetGrid.innerHTML = alphabet.map((letter, index) => { const entry = alphabetSection?.entries[index]; return `<article class="alphabet-card"><span lang="tr">${letter}</span><div>${entry ? `<strong lang="tr">${escapeHtml(entry.tr)}</strong><small>${escapeHtml(entry.hu)}</small>` : ''}</div></article>`; }).join(''); }
   const isKnown = (entry) => knownWords.has(entryId(entry.tr));
   const isPocketed = (entry) => pocketItems.some(item => item.id === entryId(entry.tr));
@@ -77,6 +92,7 @@
     knownSummary.textContent = learned ? `${learned} szót már biztosnak jelöltél a ${allUnique.length}-ből.` : 'Még egy szó sincs megjelölve – az első pipa is haladás.';
     knownTrack.style.width = `${percentage}%`;
     renderFilters();
+    if (!printPlanner.hidden) renderPrintPlanner();
   }
   function showToast(message) {
     clearTimeout(toastTimer); pocketToast.textContent = message; pocketToast.hidden = false;
@@ -129,6 +145,73 @@
     if (document.fonts?.ready) await document.fonts.ready;
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   }
+  function selectedPrintItems() {
+    if (printMode === 'flight') return flightPackEntries;
+    if (printMode === 'current') return uniqueEntries(visibleRows());
+    if (printMode === 'lessons') return uniqueEntries(allRows.filter(entry => selectedPrintSections.has(entry.section)));
+    return [];
+  }
+  function printPreviewMarkup(entry) {
+    if (!entry) return '<div class="print-preview-card is-empty" aria-hidden="true"><span>+</span></div>';
+    const showTurkish = direction.value === 'tr-hu';
+    const term = showTurkish ? entry.tr : entry.hu;
+    const answer = showTurkish ? 'Törökül' : 'Magyarul';
+    return `<article class="print-preview-card"><div class="print-preview-ali"><img src="assets/ali.png" alt="" /></div><small>${answer}</small><strong${showTurkish ? ' lang="tr"' : ''}>${escapeHtml(term)}</strong><i aria-hidden="true">✦</i></article>`;
+  }
+  function renderPrintLessons() {
+    printLessonChoices.innerHTML = lessonSections.map((section, index) => {
+      const selected = selectedPrintSections.has(section.code);
+      return `<button type="button" class="${selected ? 'is-selected' : ''}" data-print-section="${escapeHtml(section.code)}" aria-pressed="${selected}"><b>${String(index + 1).padStart(2, '0')}</b><span>${escapeHtml(section.title)}</span><small>${section.entries.length}</small></button>`;
+    }).join('');
+  }
+  function renderPrintPlanner() {
+    const items = selectedPrintItems();
+    const sheets = Math.ceil(items.length / 4);
+    const overLimit = items.length > MAX_PRINT_CARDS;
+    const currentItems = uniqueEntries(visibleRows());
+    currentPrintCount.textContent = `${currentItems.length} kártya`;
+    document.querySelectorAll('[data-print-preset]').forEach(button => {
+      button.classList.toggle('is-selected', button.dataset.printPreset === printMode);
+      button.setAttribute('aria-pressed', String(button.dataset.printPreset === printMode));
+    });
+    renderPrintLessons();
+    if (!items.length) {
+      printSummary.innerHTML = '<strong>Még üres a csomagod.</strong><p>Válaszd a repülős válogatást, a mostani találatokat vagy legalább egy leckét.</p>';
+    } else if (overLimit) {
+      printSummary.innerHTML = `<strong>${items.length} kártya már túl nagy egy csomaghoz.</strong><p>Vegyél ki még legalább ${items.length - MAX_PRINT_CARDS} kártyát: egyszerre legfeljebb ${MAX_PRINT_CARDS} fér a biztos nyomtatási előnézetbe.</p>`;
+    } else {
+      const sourceLabel = printMode === 'flight' ? 'Repülős válogatás' : printMode === 'current' ? 'Mostani találatok' : `${selectedPrintSections.size} kijelölt lecke`;
+      printSummary.innerHTML = `<span>${escapeHtml(sourceLabel)}</span><strong>${items.length} kártya · ${sheets} kétoldalas A4-es lap</strong><p>Előlap és hátlap párokban, hosszú él mentén fordítva.</p>`;
+    }
+    const previewItems = items.slice(0, 4);
+    while (previewItems.length < 4) previewItems.push(null);
+    printPreview.innerHTML = previewItems.map(printPreviewMarkup).join('');
+    printStart.disabled = !items.length || overLimit;
+    printStart.textContent = items.length && !overLimit ? `⌁ ${items.length} kártya nyomtatási előnézete` : '⌁ Nyomtatási előnézet';
+  }
+  function openPrintPlanner() {
+    if (!printMode) printMode = 'flight';
+    printPlanner.hidden = false;
+    printPlanner.closest('.dictionary-tools')?.classList.add('has-open-planner');
+    printPlannerToggle.setAttribute('aria-expanded', 'true');
+    renderPrintPlanner();
+    document.querySelector('#print-planner-title')?.focus({ preventScroll:true });
+    printPlanner.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+  function closePrintPlanner() {
+    printPlanner.hidden = true;
+    printPlanner.closest('.dictionary-tools')?.classList.remove('has-open-planner');
+    printPlannerToggle.setAttribute('aria-expanded', 'false');
+    printPlannerToggle.focus();
+  }
+  async function printSelectedItems(items) {
+    document.body.classList.add('printing-pocket');
+    const deck = buildPrintableDeck(items);
+    const restore = () => { document.body.classList.remove('printing-pocket'); deck.remove(); window.removeEventListener('afterprint', restore); };
+    window.addEventListener('afterprint', restore);
+    await waitForPrintAssets(deck);
+    window.print();
+  }
   filters.addEventListener('click', event => { const button = event.target.closest('[data-section]'); if (!button) return; activeSection = button.dataset.section; search.value = ''; render(); });
   search.addEventListener('input', () => { if (search.value.trim()) activeSection = 'all'; render(); });
   grid.addEventListener('click', event => {
@@ -138,19 +221,31 @@
     if (knownButton) toggleKnown(entry); else if (pocketButton && !pocketButton.disabled) saveEntryToPocket(entry);
     render();
   });
-  document.querySelector('[data-print-cards]').addEventListener('click', async () => {
-    const items = uniqueEntries(visibleRows());
-    if (!items.length) return;
-    if (items.length > MAX_PRINT_CARDS) {
-      showToast(`Most ${items.length} kártya látszik. Válassz egy leckét vagy szűkíts legfeljebb ${MAX_PRINT_CARDS} találatra a biztos előnézethez.`);
-      return;
-    }
-    document.body.classList.add('printing-pocket');
-    const deck = buildPrintableDeck(items);
-    const restore = () => { document.body.classList.remove('printing-pocket'); deck.remove(); window.removeEventListener('afterprint', restore); };
-    window.addEventListener('afterprint', restore);
-    await waitForPrintAssets(deck);
-    window.print();
+  printPlannerToggle.addEventListener('click', () => printPlanner.hidden ? openPrintPlanner() : closePrintPlanner());
+  document.querySelector('[data-print-planner-close]').addEventListener('click', closePrintPlanner);
+  document.querySelectorAll('[data-print-preset]').forEach(button => button.addEventListener('click', () => {
+    printMode = button.dataset.printPreset;
+    selectedPrintSections.clear();
+    renderPrintPlanner();
+  }));
+  printLessonChoices.addEventListener('click', event => {
+    const button = event.target.closest('[data-print-section]');
+    if (!button) return;
+    printMode = 'lessons';
+    const code = button.dataset.printSection;
+    selectedPrintSections.has(code) ? selectedPrintSections.delete(code) : selectedPrintSections.add(code);
+    renderPrintPlanner();
+  });
+  document.querySelector('[data-print-clear]').addEventListener('click', () => {
+    printMode = '';
+    selectedPrintSections.clear();
+    renderPrintPlanner();
+  });
+  direction.addEventListener('change', () => { if (!printPlanner.hidden) renderPrintPlanner(); });
+  printStart.addEventListener('click', async () => {
+    const items = selectedPrintItems();
+    if (!items.length || items.length > MAX_PRINT_CARDS) return;
+    await printSelectedItems(items);
   });
   renderAlphabet(); renderFilters(); render();
 })();
