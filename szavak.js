@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '3B') return `<aside class="lesson-companion hobby-companion" aria-labelledby="hobby-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali mozgó térképe</p><h4 id="hobby-companion-title">Nereden nereye? – Honnan, hová?</h4><small>A törökben az irány nem külön szó: a hely nevének végére költözik. Ali egyik programból a másikba visz, hogy lásd a két irányt működés közben.</small></div></header>
+      <div class="hobby-route" aria-label="Négy program két irányraggal">
+        <article><span class="hobby-scene is-theater" aria-hidden="true"><i></i></span><strong lang="tr">Tiyatroya gidiyorum.</strong><small>Színházba megyek.</small><b>hová? → -ya</b></article>
+        <article><span class="hobby-scene is-course" aria-hidden="true"><i></i></span><strong lang="tr">Kurstan geliyorum.</strong><small>Tanfolyamról jövök.</small><b>honnan? → -tan</b></article>
+        <article><span class="hobby-scene is-sea" aria-hidden="true"><i></i></span><strong lang="tr">Denize giriyorum.</strong><small>Bemegyek a tengerbe.</small><b>hová? → -e</b></article>
+        <article><span class="hobby-scene is-ferry-off" aria-hidden="true"><i></i></span><strong lang="tr">Vapurdan iniyorum.</strong><small>Leszállok a kompról.</small><b>honnan? → -dan</b></article>
+      </div>
+      <p class="hobby-note"><span aria-hidden="true">↔</span><strong>Ali iránytűje:</strong> <i lang="tr">Nereye?</i> a célt kérdezi, <i lang="tr">Nereden?</i> a kiindulást. <b>İstanbul'a gidiyorum.</b> ↔ <b>İstanbul'dan geliyorum.</b></p>
+      <div class="companion-notes hobby-notes">
+        <article class="is-word-story"><span>A cél felé</span><h5><strong lang="tr">-(y)a / -(y)e</strong></h5><p><i lang="tr">parka</i> – a parkba<br><i lang="tr">müzeye</i> – a múzeumba<br>Magánhangzó után a <b>y</b> hidat épít: <i lang="tr">araba + ya</i>.</p></article>
+        <article class="is-tip"><span>A forrástól</span><h5><strong lang="tr">-dan / -den / -tan / -ten</strong></h5><p><i lang="tr">evden</i> – otthonról<br><i lang="tr">manavdan</i> – a zöldségestől<br>Az <b>f, s, t, k, ç, ş, h, p</b> után a <b>d</b> hang <b>t</b>-vé válik: <i lang="tr">otobüsten</i>.</p></article>
+        <article class="is-native"><span>Tanuld párban</span><h5>Az ige megválasztja a ragot.</h5><p><i lang="tr">birine bakmak</i> – nézni valakire<br><i lang="tr">birine yardım etmek</i> – segíteni valakinek<br><i lang="tr">bir şeyden hoşlanmak</i> – kedvelni valamit<br><i lang="tr">bir şeyden korkmak</i> – félni valamitől</p></article>
+      </div>
+    </aside>`;
     if (section.code === '3A') return `<aside class="lesson-companion routine-companion" aria-labelledby="routine-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali egy napja Isztambulban</p><h4 id="routine-companion-title">Bugün ne yapıyorsun? – Mit csinálsz ma?</h4><small>A török jelen idő egyszerre mesél arról, ami most történik, ami rendszeresen ismétlődik, és arról is, amit a közeljövőre már elterveztél.</small></div></header>
       <div class="routine-tour" aria-label="Ali napjának négy állomása">
