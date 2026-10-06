@@ -3629,7 +3629,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "çağırmak",
-          "hu": "felhívni",
+          "hu": "hívni, odahívni",
           "en": "to call"
         },
         {
@@ -3649,7 +3649,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "dilek tutmak/dilek dilemek",
-          "hu": "kívánni",
+          "hu": "kívánni, kívánságot tenni",
           "en": "to make a wish"
         },
         {
@@ -3699,7 +3699,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "hazırlamak",
-          "hu": "felkészülni",
+          "hu": "előkészíteni, elkészíteni",
           "en": "to prepare"
         },
         {
@@ -3749,7 +3749,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "kırmak",
-          "hu": "megtörni",
+          "hu": "eltörni, összetörni",
           "en": "to break"
         },
         {
@@ -3794,7 +3794,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "özlemek",
-          "hu": "hiányozni",
+          "hu": "hiányolni",
           "en": "to miss"
         },
         {
@@ -3894,7 +3894,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "tatil",
-          "hu": "ünnep",
+          "hu": "szünet, vakáció; ünnepnap",
           "en": "holiday"
         },
         {

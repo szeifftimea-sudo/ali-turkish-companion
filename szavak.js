@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '4C') return `<aside class="lesson-companion action-companion" aria-labelledby="action-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali cselekvés közben</p><h4 id="action-companion-title">Neyi yapıyorsun? – Mit csinálsz vele?</h4><small>Ha egy konkrét, már ismert dolgot olvasol, nyitsz ki vagy keresel, a török megjelöli a tárgyat. A cselekvés ugyanaz, de a szó vége elárulja: pontosan arról a dologról beszélünk.</small></div></header>
+      <div class="action-grid" aria-label="Négy cselekvés határozott tárggyal">
+        <article><span class="verb-scene is-book" aria-hidden="true"><i></i></span><strong lang="tr">Kitap okuyorum. → Kitabı okuyorum.</strong><small>Könyvet olvasok. → A könyvet olvasom.</small></article>
+        <article><span class="verb-scene is-gift" aria-hidden="true"><i></i></span><strong lang="tr">Hediye açıyorum. → Hediyeyi açıyorum.</strong><small>Ajándékot bontok. → Az ajándékot bontom.</small></article>
+        <article><span class="verb-scene is-phone" aria-hidden="true"><i></i></span><strong lang="tr">Annemi arıyorum.</strong><small>Az anyukámat hívom.</small></article>
+        <article><span class="verb-scene is-candle" aria-hidden="true"><i></i></span><strong lang="tr">Mumu yakıyorum.</strong><small>Meggyújtom a gyertyát.</small></article>
+      </div>
+      <p class="action-note"><span aria-hidden="true">✦</span><strong>Ali születésnapi sorrendje:</strong> <i lang="tr">Önce mumu yak.</i> – Először gyújtsd meg a gyertyát. <b lang="tr">Bir dilek tut.</b> – Kívánj valamit. <i lang="tr">Sonra hediyeyi aç.</i> – Aztán bontsd ki az ajándékot.</p>
+      <div class="companion-notes action-notes">
+        <article class="is-word-story"><span>Egy vagy az a bizonyos?</span><h5><strong lang="tr">tárgy + -(y)ı / -i / -u / -ü</strong></h5><p><i lang="tr">Telefon istiyorum.</i> – Szeretnék egy telefont.<br><i lang="tr">Telefonu istiyorum.</i> – Azt a telefont szeretném.<br>Az ismert, konkrét tárgy kap ragot.</p></article>
+        <article class="is-tip"><span>A szó is változhat</span><h5><strong lang="tr">kitap → kitabı · hediye → hediyeyi</strong></h5><p>A <b>p</b> magánhangzó előtt <b>b</b>-vé lágyulhat.<br>Magánhangzóra végződő szó után kapcsoló <b>y</b> érkezik.</p></article>
+        <article class="is-native"><span>Kit? Mit? Melyik helyet?</span><h5><strong lang="tr">kimi? · neyi? · nereyi?</strong></h5><p><i lang="tr">Beni, seni, onu, bizi, sizi, onları</i><br><i lang="tr">Bunu istiyorum.</i> – Ezt kérem.<br><i lang="tr">Orayı görmek istiyorum.</i> – Azt a helyet szeretném látni.</p></article>
+      </div>
+    </aside>`;
     if (section.code === '4B') return `<aside class="lesson-companion passport-companion" aria-labelledby="passport-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali útlevele</p><h4 id="passport-companion-title">Nerelisin? Hangi dili konuşuyorsun?</h4><small>Honnan jöttél, milyen nemzetiségű vagy, és milyen nyelven beszélsz? Négy útvonalon látod ugyanazt a mintát, aztán már csak az országneveket kell cserélned.</small></div></header>
       <div class="passport-grid" aria-label="Négy ország, nemzetiség és nyelv">
