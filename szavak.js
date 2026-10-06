@@ -63,7 +63,9 @@
     else { const section = lessonSections.find(item => item.code === activeSection); grid.innerHTML = section && rows.length ? sectionMarkup(section, rows) : ''; }
     empty.hidden = rows.length > 0;
     const section = lessonSections.find(item => item.code === activeSection);
-    resultsTitle.textContent = query ? `Találatok erre: „${search.value.trim()}”` : activeSection === 'all' ? 'Ali A1-es szókincse' : `${section?.title || 'Ez a lecke'}: szavak és kifejezések`;
+    if (query) resultsTitle.textContent = `Találatok erre: „${search.value.trim()}”`;
+    else if (activeSection === 'all') resultsTitle.innerHTML = 'Ali <span class="a1-accent">A1</span>-es szókincse';
+    else resultsTitle.textContent = `${section?.title || 'Ez a lecke'}: szavak és kifejezések`;
     resultsKicker.textContent = query ? 'Ali mind a 17 leckében körülnézett' : activeSection === 'all' ? 'Szóról szóra, a saját tempódban' : `Ali ${lessonNumberByCode.get(activeSection)}. leckéje`;
     const context = activeSection === 'all' || query ? `${allUnique.length} egyedi szó és kifejezés · 17 Ali-lecke` : `${rows.length} tétel ebben a leckében`;
     count.textContent = rows.length ? (query ? `${rows.length} találat a teljes A1-szókincsben` : context) : 'Nincs találat';

@@ -28,8 +28,9 @@ footer .footer-brand strong { color:#fffaf0; font-family:"Playfair Display",seri
 footer .footer-brand small { color:rgba(255,250,240,.58); font-size:.54rem; font-weight:700; letter-spacing:.18em; line-height:1.2; text-transform:uppercase; }
 footer.story-footer { display:flex; align-items:center; justify-content:space-between; gap:2rem; text-align:left; }
 .site-navigation { min-width:0; flex:1; display:flex; align-items:center; justify-content:flex-end; gap:.2rem; }
-.nav-item,.nav-group-trigger,.nav-journal { min-height:40px; display:inline-flex; align-items:center; gap:.35rem; border:0; border-radius:999px; padding:.55rem .72rem; color:#294a46; background:transparent; font-size:.76rem; font-weight:700; text-decoration:none; white-space:nowrap; cursor:pointer; }
-.nav-item:hover,.nav-group-trigger:hover,.nav-journal:hover,.nav-item.active,.nav-group.active > .nav-group-trigger { color:#8f3d2b; background:rgba(255,250,240,.66); }
+.nav-item,.nav-group-trigger,.nav-journal { min-height:40px; display:inline-flex; align-items:center; gap:.35rem; border:0; border-radius:999px; padding:.55rem .72rem; color:#294a46; background:transparent; font-size:.76rem; font-weight:700; text-decoration:none; white-space:nowrap; cursor:pointer; transition:color .18s ease,background .18s ease,box-shadow .18s ease,transform .18s ease; }
+.nav-item:hover,.nav-group-trigger:hover,.nav-journal:hover,.nav-item.active,.nav-group.active > .nav-group-trigger { color:#8f3d2b; background:rgba(255,250,240,.78); box-shadow:0 5px 16px rgba(37,78,73,.09); transform:translateY(-1px); }
+.nav-item:focus-visible,.nav-group-trigger:focus-visible,.nav-journal:focus-visible,.nav-popover a:focus-visible { outline:3px solid rgba(184,79,50,.3); outline-offset:3px; }
 .nav-item.active,.nav-group.active > .nav-group-trigger { box-shadow:inset 0 -2px #b84f32; }
 .nav-group { position:relative; }
 .nav-group-trigger > span { font-size:.9rem; transition:transform .2s ease; }
@@ -40,11 +41,15 @@ footer.story-footer { display:flex; align-items:center; justify-content:space-be
 .nav-popover > p { display:grid; gap:.18rem; margin:0 0 .35rem; padding:.7rem .8rem .85rem; border-bottom:1px solid rgba(31,102,95,.1); }
 .nav-popover > p strong { color:#254e49; font:600 1.05rem 'Playfair Display',serif; }
 .nav-popover > p small,.nav-popover a small,.nav-coming small { color:#747d78; font-size:.68rem; line-height:1.35; }
-.nav-popover a,.nav-coming { position:relative; display:grid; gap:.12rem; padding:.62rem .75rem; border-radius:10px; text-decoration:none; }
-.nav-popover a { color:#1c514c; }
-.nav-popover a:hover,.nav-popover a.current { background:#eaf3ec; }
-.nav-popover a.current::after { content:'Most itt'; position:absolute; right:.7rem; top:.7rem; color:#a64c35; font-size:.56rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-.nav-popover a > span,.nav-coming > span { padding-right:3.3rem; font-size:.78rem; font-weight:700; }
+.nav-popover a,.nav-coming { position:relative; display:grid; gap:.12rem; padding:.68rem 3rem .68rem .78rem; border-radius:12px; text-decoration:none; }
+.nav-popover a { border:1px solid rgba(31,102,95,.09); color:#1c514c; background:rgba(255,255,255,.28); cursor:pointer; transition:background .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease; }
+.nav-popover a + a { margin-top:.24rem; }
+.nav-popover a:hover,.nav-popover a:focus-visible { border-color:rgba(31,102,95,.2); background:#eaf3ec; box-shadow:0 7px 18px rgba(31,77,71,.1); transform:translateX(3px); }
+.nav-popover a.current { padding-right:5.7rem; border-color:rgba(31,102,95,.14); background:#eaf3ec; }
+.nav-popover a:not(.current)::after { content:'→'; position:absolute; right:.72rem; top:50%; width:1.65rem; height:1.65rem; display:grid; place-items:center; border:1px solid rgba(31,102,95,.15); border-radius:50%; color:#25645e; background:#fffaf0; font-size:.82rem; font-weight:800; transform:translateY(-50%); transition:color .18s ease,background .18s ease,transform .18s ease; }
+.nav-popover a:not(.current):hover::after,.nav-popover a:not(.current):focus-visible::after { color:#fffaf0; background:#25645e; transform:translate(2px,-50%); }
+.nav-popover a.current::after { content:'Most itt · →'; position:absolute; right:.72rem; top:50%; color:#a64c35; font-size:.54rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; transform:translateY(-50%); }
+.nav-popover a > span,.nav-coming > span { font-size:.78rem; font-weight:700; }
 .nav-coming { color:#68736e; }
 .nav-coming::after { content:'Hamarosan'; position:absolute; right:.7rem; top:.68rem; color:#a05b47; font-size:.52rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
 .nav-coming.compact { padding-block:.5rem; }

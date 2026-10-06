@@ -71,7 +71,8 @@
 
     nodes.forEach((element) => {
       if (element.dataset.pronunciationPreview === 'true' && element.querySelector(':scope > .pronunciation-coming')) return;
-      if (element.closest('[aria-hidden="true"], option, template, button, a')) return;
+      if (element.closest('[aria-hidden="true"], option, template, button, a, h1, h2, h3, h4, h5, h6')) return;
+      if (element.textContent.trim().length <= 1) return;
       element.dataset.pronunciationPreview = 'true';
       element.append(makePronunciationMarker());
     });
