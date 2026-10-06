@@ -199,6 +199,7 @@ blockquote p { margin:.3rem 0 0; font:italic 600 1.35rem var(--serif); }
   .printing-pocket .print-card-brand em { color:#173b37; font:600 3.8mm/1 var(--serif); }
   .printing-pocket .print-card-brand small { color:#173b37; font:700 1.35mm/1 Arial,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
   .printing-pocket .print-card-qr { box-sizing:border-box; width:11.5mm; height:11.5mm; display:block; border:.3mm solid #fffaf1; image-rendering:pixelated; }
+  .printing-pocket .print-card-id { display:flex; align-items:center; gap:2mm; }
   .printing-pocket .print-learning-card footer b { color:#b84f32; font:700 2.5mm/1 Arial,sans-serif; letter-spacing:.1em; }
 }
 

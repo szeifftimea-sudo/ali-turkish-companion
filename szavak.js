@@ -378,17 +378,29 @@
     showToast(nowKnown ? `Szép munka: „${entry.tr}” már megy.` : `„${entry.tr}” visszakerült a gyakorláshoz.`);
   }
   function printCardSizeClass(text) { return text.length > 82 ? 'is-very-long' : text.length > 46 ? 'is-long' : ''; }
+  function printableHungarian(entry) {
+    const translation = String(entry.hu || '').trim();
+    if (!translation || !/[.!?…]$/.test(String(entry.tr || '').trim())) return translation;
+    const ending = /\?$/.test(String(entry.tr || '').trim()) ? '?' : '.';
+    return translation.split(/\s*\/\s*/).map(part => {
+      const trimmed = part.trim();
+      if (!trimmed) return '';
+      const capitalized = `${trimmed.charAt(0).toLocaleUpperCase('hu-HU')}${trimmed.slice(1)}`;
+      return /[.!?…]$/.test(capitalized) ? capitalized : `${capitalized}${ending}`;
+    }).filter(Boolean).join(' / ');
+  }
   function printableCardMarkup(card, side) {
     if (!card) return '<div class="print-learning-card is-blank" aria-hidden="true"></div>';
-    const trFirst = direction.value === 'tr-hu'; const front = side === 'front'; const showTurkish = front ? trFirst : !trFirst; const text = showTurkish ? card.item.tr : card.item.hu;
+    const trFirst = direction.value === 'tr-hu'; const front = side === 'front'; const showTurkish = front ? trFirst : !trFirst; const text = showTurkish ? card.item.tr : printableHungarian(card.item);
     const cardLessons = (card.item.sections || [card.item.section]).filter(Boolean).map(lessonLabel).join('·');
+    const cardNumber = String(card.number).padStart(2, '0');
     const footerMark = front
-      ? '<img class="print-card-qr" src="assets/ali-site-qr.png" alt="Ali weboldala QR-kód" />'
-      : `<b>${escapeHtml(cardLessons)}</b>`;
-    return `<article class="print-learning-card ${front ? 'is-front' : 'is-back'} ${printCardSizeClass(text)}"><div class="print-card-ali"><span class="print-card-portrait"><img src="assets/ali.png" alt="Ali" /></span></div><div class="print-card-copy"><small>${showTurkish ? 'TÜRKÇE' : 'MAGYARUL'}</small><strong${showTurkish ? ' lang="tr"' : ''}>${escapeHtml(text)}</strong></div><footer><span class="print-card-brand"><svg viewBox="-4 -4 56 56" aria-hidden="true"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18"/><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11"/></svg><span class="print-card-brand-copy"><em>Ali</em><small>A török útitárs</small></span></span>${footerMark}</footer></article>`;
+      ? `<span class="print-card-id"><b>${cardNumber}</b><img class="print-card-qr" src="assets/ali-site-qr.png" alt="Ali weboldala QR-kód" /></span>`
+      : `<span class="print-card-id"><b>${cardNumber}</b><small>${escapeHtml(cardLessons)}</small></span>`;
+    return `<article class="print-learning-card ${front ? 'is-front' : 'is-back'} ${printCardSizeClass(text)}" data-card-number="${cardNumber}" data-card-side="${front ? 'front' : 'back'}"><div class="print-card-ali"><span class="print-card-portrait"><img src="assets/ali.png" alt="Ali" /></span></div><div class="print-card-copy"><small>${showTurkish ? 'TÜRKÇE' : 'MAGYARUL'}</small><strong${showTurkish ? ' lang="tr"' : ''}>${escapeHtml(text)}</strong></div><footer><span class="print-card-brand"><svg viewBox="-4 -4 56 56" aria-hidden="true"><path class="mark-arch" d="M8 41V23C8 12.5 15.2 5 24 5s16 7.5 16 18v18"/><path class="mark-a" d="M14.5 39 24 15.5 33.5 39M18.5 29.5h11"/></svg><span class="print-card-brand-copy"><em>Ali</em><small>A török útitárs</small></span></span>${footerMark}</footer></article>`;
   }
   function buildPrintableDeck(items) {
-    document.querySelector('[data-print-card-deck]')?.remove(); const deck = document.createElement('div'); deck.className = 'print-card-deck'; deck.dataset.printCardDeck = ''; const cards = items.map(item => ({ item }));
+    document.querySelector('[data-print-card-deck]')?.remove(); const deck = document.createElement('div'); deck.className = 'print-card-deck'; deck.dataset.printCardDeck = ''; const cards = items.map((item, index) => ({ item, number:index + 1 }));
     for (let offset = 0; offset < cards.length; offset += 4) { const batch = cards.slice(offset, offset + 4); while (batch.length < 4) batch.push(null); const backs = [batch[1], batch[0], batch[3], batch[2]]; deck.insertAdjacentHTML('beforeend', `<section class="print-card-page">${batch.map(card => printableCardMarkup(card, 'front')).join('')}</section><section class="print-card-page">${backs.map(card => printableCardMarkup(card, 'back')).join('')}</section>`); }
     document.body.append(deck); return deck;
   }

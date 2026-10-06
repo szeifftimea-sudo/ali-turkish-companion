@@ -59,12 +59,38 @@
     ['İspanyolum.', 'Spanyol vagyok.'], ['Portekizliyim.', 'Portugál vagyok.'], ['Hollandalıyım.', 'Holland vagyok.'], ['İngilizim.', 'Brit vagyok.']
   ].map(([turkish, hungarian]) => [phraseKey(turkish), hungarian]));
 
+  const sourceTranslations = new Map();
+  const sourceTranslationPairs = [
+    ...(window.ALI_A1_VOCABULARY?.sections || []).flatMap((section) =>
+      (section.entries || []).map((entry) => [entry.tr, entry.hu])
+    ),
+    ...Object.values(window.ALI_ADVENTURE_KNOWLEDGE || {}).flatMap((adventure) => adventure.pocket || [])
+  ];
+  sourceTranslationPairs.forEach(([turkish, hungarian]) => {
+    const key = phraseKey(turkish);
+    if (key && hungarian && !sourceTranslations.has(key)) sourceTranslations.set(key, hungarian);
+  });
+
+  function naturalHungarian(turkish, hungarian) {
+    const source = String(turkish || '').trim();
+    const translation = String(hungarian || '').trim();
+    if (!translation || !/[.!?…]$/.test(source)) return translation;
+    const ending = /\?$/.test(source) ? '?' : '.';
+    return translation.split(/\s*\/\s*/).map((part) => {
+      const trimmed = part.trim();
+      if (!trimmed) return '';
+      const capitalized = `${trimmed.charAt(0).toLocaleUpperCase('hu-HU')}${trimmed.slice(1)}`;
+      return /[.!?…]$/.test(capitalized) ? capitalized : `${capitalized}${ending}`;
+    }).filter(Boolean).join(' / ');
+  }
+
   function translatedPhrase(item) {
-    if (item.translation) return item.translation;
     const phrase = String(item.phrase || '');
+    if (String(item.translation || '').trim()) return naturalHungarian(phrase, item.translation);
     const named = phrase.match(/^Benim adım\s+(.+)\.$/i);
     if (named) return `A nevem ${named[1]}.`;
-    return phraseTranslations.get(phraseKey(phrase)) || 'Ezt a mondatot az út során tetted el.';
+    const translation = phraseTranslations.get(phraseKey(phrase)) || sourceTranslations.get(phraseKey(phrase)) || '';
+    return naturalHungarian(phrase, translation);
   }
 
   function phraseSource(item) {
@@ -126,6 +152,8 @@
   const worldSources = new Set(['torok-konyha', 'isztambul-helyei', 'kadikoy-moda', 'bazaar-harbor', 'old-golden-horn', 'tower-park', 'machines-view', 'island-day']);
   const worldPhrases = phrases
     .filter((item) => [...(item.sources || []), item.source].some((source) => worldSources.has(source)))
+    .map((item) => ({ ...item, translation: translatedPhrase(item) }))
+    .filter((item) => item.translation)
     .sort((a, b) => String(b.updatedAt || '').localeCompare(String(a.updatedAt || '')));
   const visibleWorldPhrases = fromIslandDay
     ? worldPhrases.filter((item) => (item.sources || []).includes('island-day') || item.source === 'island-day')
@@ -180,7 +208,7 @@
         : hasTowerParkPhrases
         ? 'A bejárattól a pihenőig minden mondatnak megvan a helye. Akkor vedd elő, amikor irányt keresel vagy megállnál.'
         : 'A török mondat marad elöl, a jelentése ott van mellette. Akkor vedd elő, amikor szükséged lesz rá.');
-      savedPhraseList.innerHTML = visibleWorldPhrases.map((item) => `<article class="saved-world-card"><span>${escapeHTML(item.sourceLabel || 'Ali városa')}</span><strong lang="tr">${escapeHTML(item.phrase)}</strong><small>${escapeHTML(item.translation || 'A magyar jelentést a történetben találod.')}</small></article>`).join('');
+      savedPhraseList.innerHTML = visibleWorldPhrases.map((item) => `<article class="saved-world-card"><span>${escapeHTML(item.sourceLabel || 'Ali városa')}</span><strong lang="tr">${escapeHTML(item.phrase)}</strong><small>${escapeHTML(item.translation)}</small></article>`).join('');
     } else {
       setText('[data-saved-phrases-title]', 'Még semmit sem kell eltenned.');
       setText('[data-saved-phrases-copy]', fromMachinesView
@@ -309,7 +337,7 @@
     ...item,
     translation: translatedPhrase(item),
     learningState: item.learningState || (item.status === 'familiar' ? 'known' : 'practicing')
-  }));
+  })).filter((item) => item.translation);
   let activeLearningFilter = 'all';
   let studyItems = [];
   let studyIndex = 0;
@@ -353,10 +381,11 @@
       button.disabled = visible.length === 0;
       button.setAttribute('aria-disabled', String(visible.length === 0));
     });
-    learningList.innerHTML = visible.length ? visible.map((item, index) => {
+    learningList.innerHTML = visible.length ? visible.map((item) => {
       const knownItem = item.learningState === 'known';
+      const cardNumber = learningItems.indexOf(item) + 1;
       return `<article class="learning-item ${knownItem ? 'is-known' : ''}" data-learning-id="${escapeHTML(item.id)}">
-        <header class="learning-card-header"><span class="learning-source">${escapeHTML(phraseSource(item))}</span><b class="learning-card-number" aria-label="Kártya ${index + 1}">${String(index + 1).padStart(2, '0')}</b></header>
+        <header class="learning-card-header"><span class="learning-source">${escapeHTML(phraseSource(item))}</span><b class="learning-card-number" aria-label="Kártya ${cardNumber}">${String(cardNumber).padStart(2, '0')}</b></header>
         <strong lang="tr">${escapeHTML(item.phrase)}</strong>
         <p>${escapeHTML(item.translation)}</p>
         <span class="learning-card-signature" aria-hidden="true">Ali · A török útitárs</span>
@@ -402,10 +431,11 @@
     if (!card) return '<div class="print-learning-card is-blank" aria-hidden="true"></div>';
     const front = side === 'front';
     const text = front ? card.item.phrase : card.item.translation;
+    const cardNumber = String(card.number).padStart(2, '0');
     const footerMark = front
-      ? '<img class="print-card-qr" src="assets/ali-site-qr.png" alt="Ali weboldala QR-kód" />'
-      : `<b>${String(card.number).padStart(2, '0')}</b>`;
-    return `<article class="print-learning-card ${front ? 'is-front' : 'is-back'} ${printCardSizeClass(text)}">
+      ? `<span class="print-card-id"><b>${cardNumber}</b><img class="print-card-qr" src="assets/ali-site-qr.png" alt="Ali weboldala QR-kód" /></span>`
+      : `<span class="print-card-id"><b>${cardNumber}</b></span>`;
+    return `<article class="print-learning-card ${front ? 'is-front' : 'is-back'} ${printCardSizeClass(text)}" data-card-number="${cardNumber}" data-card-side="${front ? 'front' : 'back'}">
       <div class="print-card-ali"><span class="print-card-portrait"><img src="assets/ali.png" alt="Ali" /></span></div>
       <div class="print-card-copy">
         <small>${front ? 'TÜRKÇE' : 'MAGYARUL'}</small>
