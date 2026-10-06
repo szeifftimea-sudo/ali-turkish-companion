@@ -42,12 +42,14 @@ Türkiye feel familiar enough that speaking Turkish begins naturally.
 - A canonical visual system for Ali, Mırmır, expressions, locations, and
   recurring Istanbul motifs.
 - Local progress persistence through `localStorage`.
+- A daily-updated Turkish lira–Hungarian forint travel converter with cached
+  offline fallback.
 - Visible pronunciation affordances marking the planned production voice
   layer; synthetic Turkish audio itself is intentionally not claimed as
   complete in this MVP.
 
-Planned extensions—including the AI Turkish–Hungarian dictionary, Turkish
-history, and live lira converter—are deliberately outside the submitted MVP.
+Planned extensions—including the AI Turkish–Hungarian dictionary and Turkish
+history—are deliberately outside the submitted MVP.
 
 ## Run locally
 
@@ -102,6 +104,7 @@ https://szeifftimea-sudo.github.io/ali-turkish-companion/
 | Situation knowledge map | `helyzetek.html`, `helyzetek-data.js` |
 | Vocabulary view | `szavak.html` |
 | Ali's Pocket and learning cards | `zseb.html` |
+| Turkish lira–Hungarian forint converter | `arfolyam.html` |
 | Turkish cuisine | `torok-konyha.html` |
 | Istanbul places and interactive map | `isztambul-helyei.html` |
 | Seven connected place stories | `kadikoy-moda.html`, `bazartol-kikotoig.html`, `regi-utcak.html`, `toronytol-parkig.html`, `gepektol-kilatasig.html`, `egy-nap-a-szigeten.html`, plus the Sultanahmet story inside the map experience |
