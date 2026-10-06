@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '6A') return `<aside class="lesson-companion neighborhood-companion" aria-labelledby="neighborhood-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali isztambuli városnegyede</p><h4 id="neighborhood-companion-title">Burası Ali'nin mahallesi – Mi mihez tartozik?</h4><small>Két főnév együtt új, pontosabb jelentést ad. Néha konkrétan megmondjuk, kié vagy mié valami; máskor csak a hely vagy tárgy típusát nevezzük meg.</small></div></header>
+      <div class="neighborhood-grid" aria-label="Négy isztambuli hely és török szókapcsolat">
+        <article><span class="neighborhood-scene is-street" aria-hidden="true"><i></i></span><strong lang="tr">İstanbul'un sokakları kalabalık.</strong><small>Isztambul utcái zsúfoltak.</small><b>konkrét kapcsolat</b></article>
+        <article><span class="neighborhood-scene is-tower" aria-hidden="true"><i></i></span><strong lang="tr">Galata Kulesi çok eski.</strong><small>A Galata-torony nagyon régi.</small><b>helynév</b></article>
+        <article><span class="neighborhood-scene is-stop" aria-hidden="true"><i></i></span><strong lang="tr">Otobüs durağında bekliyorum.</strong><small>A buszmegállóban várok.</small><b>típus + helyrag</b></article>
+        <article><span class="neighborhood-scene is-shop" aria-hidden="true"><i></i></span><strong lang="tr">Mahallenin dükkânı köşede.</strong><small>A környék boltja a sarkon van.</small><b>kié? mié?</b></article>
+      </div>
+      <p class="neighborhood-note"><span aria-hidden="true">⌖</span><strong>Ali eligazít:</strong> <i lang="tr">Kulenin yanında küçük bir kafe var.</i> – A torony mellett van egy kis kávézó. <b lang="tr">Durağın önünde bir kedi var.</b> – A megálló előtt van egy macska.</p>
+      <div class="companion-notes neighborhood-notes">
+        <article class="is-word-story"><span>Az a bizonyos valakié</span><h5><strong lang="tr">-(n)ın / -(n)in + -(s)ı / -(s)i</strong></h5><p><i lang="tr">İstanbul'un sokakları</i> – Isztambul utcái<br><i lang="tr">mahallenin dükkânı</i> – a környék boltja<br>Mindkét főnév végén látszik a kapcsolat.</p></article>
+        <article class="is-tip"><span>Egy fajta vagy egy név</span><h5><strong lang="tr">első főnév + birtokos végű második főnév</strong></h5><p><i lang="tr">otobüs durağı</i> – buszmegálló<br><i lang="tr">Galata Kulesi</i> – Galata-torony<br><i lang="tr">İstiklal Caddesi</i> – İstiklal sugárút</p></article>
+        <article class="is-native"><span>Az egészhez jön a rag</span><h5><strong lang="tr">kapcsoló -n- + helyrag</strong></h5><p><i lang="tr">İstiklal Caddesi'ne</i> – az İstiklal sugárútra<br><i lang="tr">otobüs durağında</i> – a buszmegállóban<br><i lang="tr">sebze çorbasında</i> – a zöldséglevesben</p></article>
+      </div>
+    </aside>`;
     if (section.code === '5C') return `<aside class="lesson-companion goals-companion" aria-labelledby="goals-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali célfala</p><h4 id="goals-companion-title">Ne zamandır? – Mióta tart?</h4><small>Az időtartam azt mondja meg, mennyi ideje csinálsz valamit; a kezdőpont pedig azt, hogy pontosan mikor indult. Ali négy kis célon mutatja meg a különbséget.</small></div></header>
       <div class="goals-grid" aria-label="Négy cél és időtartam törökül">

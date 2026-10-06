@@ -4473,12 +4473,12 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "ilçe",
-          "hu": "járás / megye",
+          "hu": "kerület / járás",
           "en": "county"
         },
         {
           "tr": "mahalle",
-          "hu": "környék",
+          "hu": "városnegyed / környék",
           "en": "neighbourhood"
         },
         {
@@ -4493,7 +4493,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "bina/apartman",
-          "hu": "épület",
+          "hu": "épület / társasház",
           "en": "building"
         },
         {
@@ -4578,7 +4578,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "ücret",
-          "hu": "ár",
+          "hu": "díj / költség",
           "en": "price"
         },
         {
