@@ -73,6 +73,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '1B') return `<aside class="lesson-companion home-companion" aria-labelledby="home-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali körbevezet</p><h4 id="home-companion-title">Ali'nin evi – lépj be, és nevezd nevén.</h4><small>Egy isztambuli otthon négy kis állomása: előbb felismered a helyet, aztán már mondatba is teszed.</small></div></header>
+      <div class="home-tour" aria-label="Ali otthonának helyiségei">
+        <article><span class="room-scene is-kitchen" aria-hidden="true"><i></i></span><strong lang="tr">mutfak</strong><small>konyha</small></article>
+        <article><span class="room-scene is-living" aria-hidden="true"><i></i></span><strong lang="tr">oturma odası</strong><small>nappali</small></article>
+        <article><span class="room-scene is-bedroom" aria-hidden="true"><i></i></span><strong lang="tr">yatak odası</strong><small>hálószoba</small></article>
+        <article><span class="room-scene is-garden" aria-hidden="true"><i></i></span><strong lang="tr">bahçe</strong><small>kert</small></article>
+      </div>
+      <p class="home-note"><span aria-hidden="true">⌂</span><strong>Ali súg:</strong> török otthonokban a bejáratnál gyakran lekerül a cipő, és előkerül a <i lang="tr">terlik</i>, vagyis a házipapucs.</p>
+      <div class="companion-notes home-notes">
+        <article class="is-word-story"><span>Szóboncoló</span><h5><i lang="tr">buz</i> + <i lang="tr">dolap</i> → <strong lang="tr">buzdolabı</strong></h5><p>A <i lang="tr">buz</i> „jég”, a <i lang="tr">dolap</i> „szekrény”. Együtt hűtőszekrény; a szó végén a <i lang="tr">p</i> hang <i lang="tr">b</i>-vé lágyul.</p></article>
+        <article class="is-tip"><span>Mini nyelvtan · hol?</span><h5><strong lang="tr">-de/-da</strong>, néha <strong lang="tr">-te/-ta</strong></h5><p><i lang="tr">Evdeyim.</i> – Otthon vagyok.<br><i lang="tr">Mutfakta.</i> – A konyhában.<br>A toldalék szépen hozzásimul a szó hangjaihoz.</p></article>
+        <article class="is-native"><span>Mondd ki rögtön</span><h5>Két mondat, ami már él.</h5><p><i lang="tr">Mutfak nerede?</i><br>Hol van a konyha?<br><i lang="tr">Ev çok güzel.</i><br>Nagyon szép a ház.</p></article>
+      </div>
+    </aside>`;
     if (section.code !== '1A') return '';
     return `<aside class="lesson-companion" aria-labelledby="greeting-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali súg</p><h4 id="greeting-companion-title">Nemcsak azt számít, mit mondasz – az is, mikor és kinek.</h4><small>A török köszönések mögött napszak, szóalkotás és egy kis udvariassági koreográfia bújik meg.</small></div></header>
