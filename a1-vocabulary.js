@@ -2467,12 +2467,12 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "karı",
-          "hu": "felesége",
+          "hu": "feleség",
           "en": "wife"
         },
         {
           "tr": "kız",
-          "hu": "lánya",
+          "hu": "lány, lánya",
           "en": "daughter"
         },
         {
@@ -2497,7 +2497,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "oğul",
-          "hu": "fia",
+          "hu": "fiú, fia",
           "en": "son"
         },
         {

@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '4A') return `<aside class="lesson-companion family-companion" aria-labelledby="family-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali családi albuma</p><h4 id="family-companion-title">Kim kimin nesi? – Ki kicsoda a családban?</h4><small>A török rokonságnevek azt is elárulják, hogy valaki az anya vagy az apa családjához tartozik. Nézd végig a két ágat, aztán mondd el, neked kik vannak a családodban.</small></div></header>
+      <div class="family-tree" aria-label="Az anyai és az apai családi ág török elnevezései">
+        <article><span class="family-branch is-maternal" aria-hidden="true"><i></i></span><strong lang="tr">anneannem</strong><small>anyai nagymamám</small><b>anne → anneanne</b></article>
+        <article><span class="family-branch is-paternal" aria-hidden="true"><i></i></span><strong lang="tr">babaannem</strong><small>apai nagymamám</small><b>baba → babaanne</b></article>
+        <article><span class="family-branch is-maternal-siblings" aria-hidden="true"><i></i></span><strong><span lang="tr">dayım</span> · <span lang="tr">teyzem</span></strong><small>anyai nagybácsim · nagynéném</small><b>anne tarafı</b></article>
+        <article><span class="family-branch is-paternal-siblings" aria-hidden="true"><i></i></span><strong><span lang="tr">amcam</span> · <span lang="tr">halam</span></strong><small>apai nagybácsim · nagynéném</small><b>baba tarafı</b></article>
+      </div>
+      <p class="family-note"><span aria-hidden="true">✦</span><strong>Ali mutatja a képeket:</strong> <i lang="tr">Bu benim annem.</i> – Ő az anyukám. <b lang="tr">Şu amcamın kızı.</b> – Ő az apai nagybátyám lánya. <i lang="tr">O benim kuzenim.</i> – Ő az unokatestvérem.</p>
+      <div class="companion-notes family-notes">
+        <article class="is-word-story"><span>Kié?</span><h5><strong lang="tr">birtokos + -(n)ın · birtok + -(s)ı</strong></h5><p><i lang="tr">Ayşe'nin evi</i> – Ayşe háza<br><i lang="tr">Can'ın telefonu</i> – Can telefonja<br>Mindkét szó megmutatja az összetartozást.</p></article>
+        <article class="is-tip"><span>Az én családom</span><h5><strong lang="tr">benim annem · bizim ailemiz</strong></h5><p><i lang="tr">senin baban</i> – a te apukád<br><i lang="tr">onun kardeşi</i> – az ő testvére<br>Ha egyértelmű, a <b lang="tr">benim, senin, onun</b> el is maradhat.</p></article>
+        <article class="is-native"><span>Van vagy nincs?</span><h5><strong lang="tr">var · yok</strong></h5><p><i lang="tr">Benim bir dayım var.</i><br>Van egy anyai nagybátyám.<br><i lang="tr">Benim halam yok.</i><br>Nincs apai nagynéném.</p></article>
+      </div>
+    </aside>`;
     if (section.code === '3C') return `<aside class="lesson-companion restaurant-companion" aria-labelledby="restaurant-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali asztalánál</p><h4 id="restaurant-companion-title">Ne yemek istiyorsun? – Mit szeretnél enni?</h4><small>Egy török éttermi rendelés négy kis jelenetben: mondd el, mit szeretnél, mit nem kérsz, majd kérj engedélyt vagy segítséget udvariasan.</small></div></header>
       <div class="restaurant-table" aria-label="Négy török fogás és négy hasznos mondat">
