@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '5B') return `<aside class="lesson-companion travel-companion" aria-labelledby="travel-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali veled indul Isztambulba</p><h4 id="travel-companion-title">Yolculuk planı – Mi történik előtte és utána?</h4><small>Az utazás egymást követő apró lépésekből áll. A törökben az ige vége mutatja meg, hogy valami egy másik esemény előtt vagy után történik.</small></div></header>
+      <div class="travel-route" aria-label="Négy állomás Budapesttől Isztambulig">
+        <article><span class="travel-scene is-passport" aria-hidden="true"><i></i></span><strong lang="tr">Yola çıkmadan önce pasaportumu kontrol ediyorum.</strong><small>Indulás előtt ellenőrzöm az útlevelemet.</small><b>1 · hazırlan</b></article>
+        <article><span class="travel-scene is-suitcase" aria-hidden="true"><i></i></span><strong lang="tr">Havaalanına vardıktan sonra valizimi veriyorum.</strong><small>A reptérre érkezés után feladom a bőröndömet.</small><b>2 · havaalanı</b></article>
+        <article><span class="travel-scene is-plane" aria-hidden="true"><i></i></span><strong lang="tr">Uçağa binmeden önce biletimi gösteriyorum.</strong><small>Beszállás előtt megmutatom a jegyemet.</small><b>3 · uçağa bin</b></article>
+        <article><span class="travel-scene is-istanbul" aria-hidden="true"><i></i></span><strong lang="tr">Uçaktan indikten sonra İstanbul gezisi başlıyor.</strong><small>Leszállás után kezdődik az isztambuli kaland.</small><b>4 · İstanbul</b></article>
+      </div>
+      <p class="travel-note"><span aria-hidden="true">✈</span><strong>Ali mini útiterve:</strong> <i lang="tr">Önce valizimi hazırlıyorum.</i> – Először összekészítem a bőröndömet. <b lang="tr">Sonra yola çıkıyorum.</b> – Aztán útnak indulok. <i lang="tr">Uçağa bindikten sonra günlük yazıyorum.</i> – Beszállás után naplót írok.</p>
+      <div class="companion-notes travel-notes">
+        <article class="is-word-story"><span>Mielőtt valamit teszel</span><h5><strong lang="tr">ige + -madan / -meden önce</strong></h5><p><i lang="tr">çıkmadan önce</i> – indulás előtt<br><i lang="tr">binmeden önce</i> – beszállás előtt<br>A magánhangzó-harmónia választ a két alak közül.</p></article>
+        <article class="is-tip"><span>Miután megtörtént</span><h5><strong lang="tr">ige + -dıktan / -dikten / -duktan / -dükten sonra</strong></h5><p><i lang="tr">vardıktan sonra</i> – megérkezés után<br><i lang="tr">indikten sonra</i> – leszállás után<br>Zöngétlen hang után <b>d → t</b>: <i lang="tr">çıktıktan sonra</i>.</p></article>
+        <article class="is-native"><span>Főnévvel rövidebb</span><h5><strong lang="tr">főnév + -dan / -den önce · sonra</strong></h5><p><i lang="tr">kahvaltıdan sonra</i> – reggeli után<br><i lang="tr">tiyatrodan önce</i> – színház előtt<br><i lang="tr">tatilden sonra</i> – a nyaralás után</p></article>
+      </div>
+    </aside>`;
     if (section.code === '5A') return `<aside class="lesson-companion time-companion" aria-labelledby="time-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali isztambuli órája</p><h4 id="time-companion-title">Saat kaç? – Mennyi az idő?</h4><small>A török óra logikája képen egyszerűbb: egészkor csak kimondod az órát, félkor hozzáteszed a <i lang="tr">buçuk</i> szót, negyedkor pedig az óramutató iránya dönti el, hogy „múlt” vagy „lesz”.</small></div></header>
       <div class="clock-grid" aria-label="Négy óra törökül">

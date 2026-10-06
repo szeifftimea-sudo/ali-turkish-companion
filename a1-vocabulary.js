@@ -4121,7 +4121,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "hazırlamak",
-          "hu": "felkészülni",
+          "hu": "előkészíteni / elkészíteni",
           "en": "to prepare"
         },
         {
@@ -4181,7 +4181,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "gezi",
-          "hu": "utazás",
+          "hu": "kirándulás / városnézés",
           "en": "trip"
         },
         {
@@ -4236,7 +4236,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "tatil",
-          "hu": "ünnep",
+          "hu": "nyaralás / szabadság",
           "en": "holiday"
         },
         {
