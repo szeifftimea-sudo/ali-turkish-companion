@@ -73,6 +73,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '2B') return `<aside class="lesson-companion shopping-companion" aria-labelledby="shopping-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali bevásárol</p><h4 id="shopping-companion-title">Ali'yle pazarda – számolj úgy, ahogy a kosár telik.</h4><small>Négy hétköznapi mennyiség segít összekötni a számokat azzal, amit Isztambulban valóban kérni fogsz.</small></div></header>
+      <div class="shopping-tour" aria-label="Négy bevásárlási mennyiség Ali kosarából">
+        <article><span class="shopping-scene is-potato" aria-hidden="true"><i></i></span><strong lang="tr">üç kilo patates</strong><small>három kiló burgonya</small></article>
+        <article><span class="shopping-scene is-milk" aria-hidden="true"><i></i></span><strong lang="tr">dört şişe süt</strong><small>négy üveg tej</small></article>
+        <article><span class="shopping-scene is-soap" aria-hidden="true"><i></i></span><strong lang="tr">on iki tane sabun</strong><small>tizenkét darab szappan</small></article>
+        <article><span class="shopping-scene is-price" aria-hidden="true"><i></i></span><strong lang="tr">iki yüz lira</strong><small>kétszáz líra</small></article>
+      </div>
+      <p class="shopping-note"><span aria-hidden="true">₺</span><strong>Ali számol:</strong> száznál és ezernél nem mondunk külön <i lang="tr">bir</i>-t: <i lang="tr">yüz</i> és <i lang="tr">bin</i> a helyes, nem <s lang="tr">bir yüz</s> vagy <s lang="tr">bir bin</s>.</p>
+      <div class="companion-notes shopping-notes">
+        <article class="is-word-story"><span>Mini nyelvtan · mennyi?</span><h5><strong lang="tr">Kaç?</strong> vagy <strong lang="tr">Ne kadar?</strong></h5><p><i lang="tr">Kaç şişe süt?</i> – Hány üveg tej?<br><i lang="tr">Bir kilo domates ne kadar?</i><br>Mennyibe kerül egy kiló paradicsom?</p></article>
+        <article class="is-tip"><span>Számépítő</span><h5>A nagyobb szám is kis darabokból áll.</h5><p><i lang="tr">yirmi yedi</i> = 20 + 7<br><i lang="tr">üç yüz kırk</i> = 300 + 40<br><i lang="tr">bin elli iki</i> = 1000 + 50 + 2</p></article>
+        <article class="is-native"><span>Hányadik?</span><h5><strong lang="tr">-ıncı/-inci/-uncu/-üncü</strong></h5><p><i lang="tr">birinci</i> – első<br><i lang="tr">ikinci ürün</i> – második termék<br><i lang="tr">Yedinci sokakta.</i> – A hetedik utcában.</p></article>
+      </div>
+    </aside>`;
     if (section.code === '2A') return `<aside class="lesson-companion city-companion" aria-labelledby="city-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali megmutatja a környéket</p><h4 id="city-companion-title">Ali'yle şehirde – négy megálló, egy új nyelvi térkép.</h4><small>Ismerd fel a helyet, mondd meg, hol van, aztán kérdezd meg, mi található ott.</small></div></header>
       <div class="city-tour" aria-label="Négy városi hely Ali környékén">
