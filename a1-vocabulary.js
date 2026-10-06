@@ -2156,7 +2156,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "bıçak",
-          "hu": "kést",
+          "hu": "kés",
           "en": "knife"
         },
         {
@@ -2176,12 +2176,12 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "hamburger",
-          "hu": "hamburgert",
+          "hu": "hamburger",
           "en": "hamburger"
         },
         {
           "tr": "hesap",
-          "hu": "ellenőrizze",
+          "hu": "számla",
           "en": "check"
         },
         {
@@ -2201,7 +2201,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "kaşık",
-          "hu": "kanállal",
+          "hu": "kanál",
           "en": "spoon"
         },
         {
@@ -2211,7 +2211,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "kola",
-          "hu": "koksz",
+          "hu": "kóla",
           "en": "coke"
         },
         {
@@ -2251,7 +2251,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "mantı",
-          "hu": "gombóc",
+          "hu": "török töltött tésztabatyu",
           "en": "dumpling"
         },
         {
@@ -2261,7 +2261,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "menü",
-          "hu": "menüt",
+          "hu": "menü",
           "en": "menu"
         },
         {
@@ -2276,7 +2276,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "pilav",
-          "hu": "rizst",
+          "hu": "piláf, fűszeres rizs",
           "en": "rice"
         },
         {
@@ -2306,7 +2306,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "sipariş",
-          "hu": "rendelni",
+          "hu": "rendelés",
           "en": "order"
         },
         {

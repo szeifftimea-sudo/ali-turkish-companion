@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '3C') return `<aside class="lesson-companion restaurant-companion" aria-labelledby="restaurant-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali asztalánál</p><h4 id="restaurant-companion-title">Ne yemek istiyorsun? – Mit szeretnél enni?</h4><small>Egy török éttermi rendelés négy kis jelenetben: mondd el, mit szeretnél, mit nem kérsz, majd kérj engedélyt vagy segítséget udvariasan.</small></div></header>
+      <div class="restaurant-table" aria-label="Négy török fogás és négy hasznos mondat">
+        <article><span class="food-scene is-lahmacun" aria-hidden="true"><i></i></span><strong lang="tr">Lahmacun yemek istiyorum.</strong><small>Lahmacunt szeretnék enni.</small></article>
+        <article><span class="food-scene is-manti" aria-hidden="true"><i></i></span><strong lang="tr">Mantı yemek istemiyorum.</strong><small>Nem szeretnék mantıt enni.</small></article>
+        <article><span class="food-scene is-ayran" aria-hidden="true"><i></i></span><strong lang="tr">Ayran alabilir miyim?</strong><small>Kaphatok ayrant?</small></article>
+        <article><span class="food-scene is-baklava" aria-hidden="true"><i></i></span><strong lang="tr">Baklava getirebilir misiniz?</strong><small>Hozna baklavát?</small></article>
+      </div>
+      <p class="restaurant-note"><span aria-hidden="true">☾</span><strong>Ali rendelése:</strong> <i lang="tr">Bakabilir misiniz?</i> – Elnézést! <b lang="tr">Sipariş verebilir miyiz?</b> – Rendelhetünk? <i lang="tr">Acısız, lütfen.</i> – Csípős nélkül, kérem.</p>
+      <div class="companion-notes restaurant-notes">
+        <article class="is-word-story"><span>Mit szeretnél?</span><h5><strong lang="tr">ige + -mak/-mek + istemek</strong></h5><p><i lang="tr">Balık yemek istiyorum.</i><br>Halat szeretnék enni.<br><i lang="tr">Kahve içmek istemiyorum.</i><br>Nem szeretnék kávét inni.</p></article>
+        <article class="is-tip"><span>Kérj engedélyt</span><h5><strong lang="tr">-(y)abilir miyim?</strong></h5><p><i lang="tr">Bir şişe su alabilir miyim?</i><br>Kaphatok egy üveg vizet?<br>A magánhangzóra végződő ige után a <b>y</b> kapcsol: <i lang="tr">öde + y + ebilir miyim? → ödeyebilir miyim?</i></p></article>
+        <article class="is-native"><span>Kérj udvariasan</span><h5><strong lang="tr">-(y)abilir misiniz?</strong></h5><p><i lang="tr">Ekstra peynir koyabilir misiniz?</i><br>Tenne rá extra sajtot?<br><i lang="tr">Hesabı getirebilir misiniz, lütfen?</i><br>Kihozná a számlát, kérem?</p></article>
+      </div>
+    </aside>`;
     if (section.code === '3B') return `<aside class="lesson-companion hobby-companion" aria-labelledby="hobby-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali mozgó térképe</p><h4 id="hobby-companion-title">Nereden nereye? – Honnan, hová?</h4><small>A törökben az irány nem külön szó: a hely nevének végére költözik. Ali egyik programból a másikba visz, hogy lásd a két irányt működés közben.</small></div></header>
       <div class="hobby-route" aria-label="Négy program két irányraggal">
