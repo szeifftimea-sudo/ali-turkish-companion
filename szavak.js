@@ -74,6 +74,21 @@
     return `<div class="word-actions"><button class="known-action${known ? ' is-active' : ''}" type="button" data-known-entry="${escapeHtml(key)}" aria-pressed="${known}"><span aria-hidden="true">${known ? '✓' : '○'}</span>${known ? 'Már tudom' : 'Tanulom'}</button>${pocketAction}</div>`;
   }
   function lessonCompanionMarkup(section) {
+    if (section.code === '5A') return `<aside class="lesson-companion time-companion" aria-labelledby="time-companion-title">
+      <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali isztambuli órája</p><h4 id="time-companion-title">Saat kaç? – Mennyi az idő?</h4><small>A török óra logikája képen egyszerűbb: egészkor csak kimondod az órát, félkor hozzáteszed a <i lang="tr">buçuk</i> szót, negyedkor pedig az óramutató iránya dönti el, hogy „múlt” vagy „lesz”.</small></div></header>
+      <div class="clock-grid" aria-label="Négy óra törökül">
+        <article><span class="clock-face is-eight" aria-hidden="true"><i></i></span><strong lang="tr">Saat sekiz.</strong><small>08:00 · Nyolc óra.</small></article>
+        <article><span class="clock-face is-eight-thirty" aria-hidden="true"><i></i></span><strong lang="tr">Saat sekiz buçuk.</strong><small>08:30 · Fél kilenc.</small></article>
+        <article><span class="clock-face is-nine-fifteen" aria-hidden="true"><i></i></span><strong lang="tr">Saat dokuzu çeyrek geçiyor.</strong><small>09:15 · Negyed tíz.</small></article>
+        <article><span class="clock-face is-nine-fortyfive" aria-hidden="true"><i></i></span><strong lang="tr">Saat ona çeyrek var.</strong><small>09:45 · Háromnegyed tíz.</small></article>
+      </div>
+      <p class="schedule-note"><span aria-hidden="true">✦</span><strong>Ali napja:</strong> <i lang="tr">Kahvaltı saat sekizde.</i> – A reggeli nyolckor van. <b lang="tr">Vapur dokuzu çeyrek geçe kalkıyor.</b> – A komp negyed tízkor indul. <i lang="tr">Dokuzdan beşe kadar geziyorum.</i> – Kilenctől ötig sétálok.</p>
+      <div class="companion-notes time-notes">
+        <article class="is-word-story"><span>Egész és fél</span><h5><strong lang="tr">saat sekiz · saat sekiz buçuk</strong></h5><p>Egész óránál csak az óraszám kell.<br>A <i lang="tr">buçuk</i> jelentése „fél”, és mindig az előző órához kapcsolódik.</p></article>
+        <article class="is-tip"><span>Múlt vagy lesz?</span><h5><strong lang="tr">geçiyor · var</strong></h5><p><i lang="tr">dokuzu çeyrek geçiyor</i> – negyed tíz<br><i lang="tr">ona çeyrek var</i> – háromnegyed tíz<br>„Múlt”: tárgyrag. „Lesz”: részes rag.</p></article>
+        <article class="is-native"><span>Mikor és meddig?</span><h5><strong lang="tr">-de/-da · geçe/kala · -dan…-a kadar</strong></h5><p><i lang="tr">sekizde</i> – nyolckor<br><i lang="tr">ona çeyrek kala</i> – háromnegyed tízkor<br><i lang="tr">pazartesiden cumaya kadar</i> – hétfőtől péntekig</p></article>
+      </div>
+    </aside>`;
     if (section.code === '4C') return `<aside class="lesson-companion action-companion" aria-labelledby="action-companion-title">
       <header><span class="companion-ali"><img src="assets/ali.png" alt="" /></span><div><p>Ali cselekvés közben</p><h4 id="action-companion-title">Neyi yapıyorsun? – Mit csinálsz vele?</h4><small>Ha egy konkrét, már ismert dolgot olvasol, nyitsz ki vagy keresel, a török megjelöli a tárgyat. A cselekvés ugyanaz, de a szó vége elárulja: pontosan arról a dologról beszélünk.</small></div></header>
       <div class="action-grid" aria-label="Négy cselekvés határozott tárggyal">

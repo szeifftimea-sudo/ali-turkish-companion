@@ -4095,7 +4095,7 @@ window.ALI_A1_VOCABULARY = {
         },
         {
           "tr": "yaklaşık",
-          "hu": "hozzávetőlegesen",
+          "hu": "körülbelül",
           "en": "approximately"
         },
         {
