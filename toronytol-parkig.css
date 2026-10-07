@@ -349,7 +349,8 @@ figcaption strong { font-family: var(--display); font-size: 1.02rem; font-weight
   .direction-seal { top: 25px; right: 24px; width: 112px; }
   .story-route ol { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
   .story-route li { flex: 0 0 auto; }
-  .story-route a { min-width: 105px; }
+  .story-route a { min-width: 105px; min-height:44px; }
+  .back-to-map { min-height:44px; display:inline-flex; align-items:center; }
   .entry-section { padding-block: 80px; }
   .practical-note { padding: 28px; }
   .panorama-scene, .palace-scene, .park-closing figure { min-height: 520px; }

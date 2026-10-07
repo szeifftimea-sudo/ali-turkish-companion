@@ -265,6 +265,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
   .entry-grid { grid-template-columns: 1fr; }
   .entry-card { grid-template-columns: 1fr; gap: .45rem; }
   .entry-pocket-action { grid-column:1; justify-self:stretch; justify-content:center; margin-top:.4rem; }
+  .kind-filters button, .clear-search, .entry-pocket-action { min-height:44px; }
   .entry-pair { grid-template-columns: 1fr; gap: .35rem; }
   .pair-divider { width: 1.55rem; transform: rotate(90deg); }
   .library-toolbar { align-items: flex-start; flex-direction: column; }

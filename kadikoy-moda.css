@@ -194,7 +194,8 @@ button:focus-visible,a:focus-visible { outline:3px solid #e49a4f; outline-offset
   .afternoon-route { position:relative; top:auto; display:block; padding:1rem; overflow:hidden; }
   .afternoon-route > p { margin-bottom:.8rem; }
   .afternoon-route ol { width:100%; gap:.35rem; overflow-x:auto; padding-bottom:.3rem; scrollbar-width:thin; }
-  .afternoon-route a { min-width:max-content; padding:.35rem .45rem; border:1px solid var(--line); border-radius:999px; }
+  .afternoon-route a { min-width:max-content; min-height:44px; padding:.35rem .65rem; border:1px solid var(--line); border-radius:999px; }
+  .back-to-map { min-height:44px; display:inline-flex; align-items:center; }
   .afternoon-route a::after { display:none; }
   .story-section,.market-choice,.afternoon-keepsake { padding-inline:1.2rem; }
   .story-section { padding-block:4.7rem; }

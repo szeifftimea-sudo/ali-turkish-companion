@@ -740,12 +740,16 @@ a:focus-visible { outline: 3px solid #f1b84e; outline-offset: 4px; }
   .place-card { min-height: 260px; }
   .place-card:nth-child(n) { transform: none; }
   .place-card:nth-child(n):hover { transform: translateY(-3px); }
+  .sultanahmet-pilot { width: 100%; min-width: 0; grid-template-columns: minmax(0, 1fr); overflow: hidden; }
+  .sultanahmet-scene, .sultanahmet-opening { width: 100%; min-width: 0; }
   .sultanahmet-scene { min-height: 620px; height: 620px; }
   .sultanahmet-scene img { object-position: 30% center; }
   .sultanahmet-scene figcaption { right: 24px; bottom: 31px; }
   .scene-stamp { top: 28px; right: 18px; bottom: auto; width: 108px; height: 108px; }
   .sultanahmet-opening { padding: 70px 22px; }
   .sultanahmet-opening h2 { font-size: 4rem; }
+  .sultanahmet-start { width: 100%; max-width: 100%; min-height: 48px; justify-content: center; text-align: center; }
+  .map-pin::after { position: absolute; inset: -9px; content: ""; }
   .door-grid, .respect-grid { grid-template-columns: 1fr; }
   .door-grid article { min-height: 290px; border-right: 0; }
   .sultanahmet-chapters { padding: 76px 18px; gap: 82px; }
@@ -770,6 +774,11 @@ a:focus-visible { outline: 3px solid #f1b84e; outline-offset: 4px; }
   .places-footer { grid-template-columns: 1fr; text-align: center; }
   .places-footer .brand { justify-self: center; }
   .places-footer > a:last-child { justify-self: center; }
+  .places-footer > a:last-child { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+@media (max-width: 380px) {
+  .sultanahmet-opening h2, .sultanahmet-closing h2 { font-size: 3.25rem; overflow-wrap: anywhere; }
 }
 
 @media (prefers-reduced-motion: reduce) {

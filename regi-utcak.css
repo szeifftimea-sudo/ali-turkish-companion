@@ -181,6 +181,7 @@ figure figcaption strong { font: 600 clamp(19px,2vw,28px)/1.15 var(--serif); tex
   .postal-seal { top: 24px; right: 18px; width: 126px; }
   .story-route { grid-template-columns: 1fr; gap: 16px; padding: 22px 20px; }
   .story-route ol { overflow-x: auto; grid-template-columns: repeat(4,minmax(145px,1fr)); padding-bottom: 5px; }
+  .story-route a, .back-to-map { min-height:44px; align-items:center; }
   .threshold-section { grid-template-columns: 1fr; padding: 74px 24px; }
   .practical-note { max-width: 620px; transform: none; }
   .kariye-detail, .balat-section, .fener-closing { grid-template-columns: 1fr; }

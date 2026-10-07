@@ -308,6 +308,7 @@ p { line-height:1.7; }
   .table-route { padding:1rem; }
   .table-route > p { text-align:left; }
   .table-route ol { overflow-x:auto; grid-template-columns:repeat(5,78px); justify-content:start; padding-bottom:.4rem; scrollbar-width:thin; }
+  .table-route a { min-height:44px; align-content:center; }
   .table-route ol::before { left:38px; right:auto; width:325px; }
   .morning { gap:2rem; }
   .morning h2,.market-heading h2,.restaurant-heading h2,.phrase-heading h2,.coffee-copy h2 { font-size:2.85rem; }

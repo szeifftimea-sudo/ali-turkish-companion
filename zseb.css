@@ -204,6 +204,10 @@ blockquote p { margin:.3rem 0 0; font:italic 600 1.35rem var(--serif); }
 }
 
 .choice-section { position:relative; overflow:hidden; padding:clamp(5rem,8vw,8rem) clamp(1.2rem,6vw,7rem) clamp(6rem,9vw,9rem); background-color:var(--paper); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'%3E%3Cg fill='none' stroke='%23226b64' stroke-width='1.2' opacity='.075'%3E%3Cpath d='M95 26c14 18 18 34 0 54-18-20-14-36 0-54Z'/%3E%3Cpath d='M95 80c-18-8-31-4-41 10 18 3 31-1 41-10Zm0 0c18-8 31-4 41 10-18 3-31-1-41-10Z'/%3E%3Cpath d='M95 79v52'/%3E%3C/g%3E%3C/svg%3E"); }
+
+@media (max-width:620px) {
+  .learning-state button, .learning-toolbar button, [data-print-cards] { min-height:44px; }
+}
 .choice-heading { max-width:1460px; display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.45fr); gap:3rem; align-items:end; margin:0 auto 3.2rem; }
 .choice-heading h2 { max-width:12ch; margin-bottom:0; font-size:clamp(3rem,5vw,5.6rem); line-height:.98; }
 .choice-heading > p { margin:0; color:var(--muted); font-size:1.02rem; line-height:1.7; }
