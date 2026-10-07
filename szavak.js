@@ -17,6 +17,9 @@
   const printLessonChoices = document.querySelector('[data-print-lessons]');
   const printSummary = document.querySelector('[data-print-summary]');
   const printPreview = document.querySelector('[data-print-preview]');
+  const printReview = document.querySelector('.print-plan-review');
+  const printPreviewWrap = document.querySelector('.print-preview-wrap');
+  const printActions = document.querySelector('.print-plan-actions');
   const printStart = document.querySelector('[data-print-start]');
   const currentPrintCount = document.querySelector('[data-current-print-count]');
   const bulkPocketButton = document.querySelector('[data-pocket-visible]');
@@ -459,6 +462,7 @@
   }
   function renderPrintPlanner() {
     const items = selectedPrintItems();
+    const hasItems = items.length > 0;
     const sheets = Math.ceil(items.length / 4);
     const overLimit = items.length > MAX_PRINT_CARDS;
     const currentItems = uniqueEntries(visibleRows());
@@ -476,9 +480,11 @@
       const sourceLabel = printMode === 'flight' ? 'Repülős válogatás' : printMode === 'current' ? 'Mostani találatok' : `${selectedPrintSections.size} kijelölt lecke`;
       printSummary.innerHTML = `<span>${escapeHtml(sourceLabel)}</span><strong>${items.length} kártya · ${sheets} kétoldalas A4-es lap</strong><p>Előlap és hátlap párokban, hosszú él mentén fordítva.</p>`;
     }
+    printReview?.classList.toggle('is-empty', !hasItems);
+    if (printPreviewWrap) printPreviewWrap.hidden = !hasItems;
+    if (printActions) printActions.hidden = !hasItems;
     const previewItems = items.slice(0, 4);
-    while (previewItems.length < 4) previewItems.push(null);
-    printPreview.innerHTML = previewItems.map(printPreviewMarkup).join('');
+    printPreview.innerHTML = hasItems ? previewItems.map(printPreviewMarkup).join('') : '';
     printStart.disabled = !items.length || overLimit;
     printStart.textContent = items.length && !overLimit ? `${items.length} kártya · nyomtatható lapok` : 'Megnézem a nyomtatható lapokat';
   }

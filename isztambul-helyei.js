@@ -51,7 +51,7 @@
     },
     {
       id: 'grand-bazaar', layer: 'first', journey: 'bazaarHarbor', journeyStep: 1, x: 43, y: 69, zone: 'Beyazıt · óváros',
-      name: 'Nagy Bazár', turkish: 'Kapalıçarşı', storyHref: 'bazartol-kikotoig.html', storyCta: 'Kijutunk a bazárból a vízig',
+      name: 'Nagy Bazár', turkish: 'Kapalıçarşı', storyHref: 'bazartol-kikotoig.html#bazaar', storyCta: 'Kijutunk a bazárból a vízig',
       invitation: '„Előbb csak figyeld, hogyan köszönnek. Az alku ráér.”',
       summary: 'Fedett utcák, műhelyek és boltok egész városa; itt a hangok is mutatják az irányt.'
     },
@@ -71,7 +71,7 @@
     {
       id: 'galata', layer: 'first', journey: 'towerPark', journeyStep: 1, x: 49, y: 44, zone: 'Galata · Beyoğlu',
       name: 'Galata-torony', turkish: 'Galata Kulesi',
-      storyHref: 'toronytol-parkig.html', storyCta: 'Fentről megkeressük a vizet',
+      storyHref: 'toronytol-parkig.html#galata', storyCta: 'Fentről megkeressük a vizet',
       invitation: '„Ha felmegyünk, előbb keresd meg a vizet. Onnan áll össze a város.”',
       summary: 'A torony körüli utcák és a fentről kirajzolódó partvonal együtt adják meg a hely értelmét.'
     },
@@ -89,7 +89,7 @@
     },
     {
       id: 'kadikoy-moda', layer: 'walk', journey: 'acrossWater', journeyStep: 2, x: 75, y: 69, zone: 'Ázsiai oldal · Kadıköy',
-      name: 'Kadıköy és Moda', turkish: 'Kadıköy ve Moda', storyHref: 'kadikoy-moda.html', storyCta: 'Legyen egy saját délutánunk',
+      name: 'Kadıköy és Moda', turkish: 'Kadıköy ve Moda', storyHref: 'kadikoy-moda.html#erkezes', storyCta: 'Legyen egy saját délutánunk',
       invitation: '„Vegyünk valamit a piacon, aztán vigyük le a partra.”',
       summary: 'Piaci nyüzsgésből tengerparti sétába forduló környék, ahol könnyű együtt maradni a várossal.'
     },
@@ -109,20 +109,20 @@
     },
     {
       id: 'ferry', layer: 'walk', journey: 'acrossWater', journeyStep: 1, x: 67, y: 52, zone: 'Európa és Ázsia között',
-      name: 'Boszporusz-komp', turkish: 'Boğaz vapuru', storyHref: 'kadikoy-moda.html', storyCta: 'Átkelünk Kadıköybe',
+      name: 'Boszporusz-komp', turkish: 'Boğaz vapuru', storyHref: 'kadikoy-moda.html#erkezes', storyCta: 'Átkelünk Kadıköybe',
       invitation: '„Ez nem kerülő. Isztambul egyik rendes utcája, csak vízből van.”',
       summary: 'A komp nem csupán panoráma: a város hétköznapi közlekedése és az egyik legjobb hely az irányok megértéséhez.'
     },
     {
       id: 'kariye', layer: 'afternoon', journey: 'oldGoldenHorn', journeyStep: 1, x: 27, y: 50, zone: 'Edirnekapı · Fatih',
-      name: 'Kariye', turkish: 'Kariye Camii', storyHref: 'regi-utcak.html', storyCta: 'Belépünk a régi utcák történetébe',
+      name: 'Kariye', turkish: 'Kariye Camii', storyHref: 'regi-utcak.html#kariye', storyCta: 'Belépünk a régi utcák történetébe',
       invitation: '„Ehhez a helyhez közel kell menni. A történet az apró részletekben maradt meg.”',
       summary: 'Bizánci mozaikjairól ismert történelmi épület, amely ma mecsetként működik; látogatás előtt ellenőrizzük a rendjét.'
     },
     {
       id: 'rahmi-koc', layer: 'afternoon', journey: 'machinesView', journeyStep: 1, x: 26, y: 38, zone: 'Hasköy · Aranyszarv-öböl',
       name: 'Rahmi M. Koç Múzeum', turkish: 'Rahmi M. Koç Müzesi',
-      storyHref: 'gepektol-kilatasig.html', storyCta: 'Megnézzük, mitől mozdul',
+      storyHref: 'gepektol-kilatasig.html#haskoy', storyCta: 'Megnézzük, mitől mozdul',
       invitation: '„Ha szereted tudni, hogyan mozdul meg valami, itt könnyű elveszni néhány órára.”',
       summary: 'Közlekedés, ipar és hétköznapi tárgyak története egy régi ipari környezetben.'
     },
@@ -135,7 +135,7 @@
     {
       id: 'buyukada', layer: 'afternoon', journey: 'islandDay', journeyStep: 1, x: 87, y: 87, zone: 'Herceg-szigetek · Márvány-tenger',
       name: 'Büyükada', turkish: 'Büyükada',
-      storyHref: 'egy-nap-a-szigeten.html', storyCta: 'Hagyunk időt az egész útra',
+      storyHref: 'egy-nap-a-szigeten.html#indulas', storyCta: 'Hagyunk időt az egész útra',
       invitation: '„Ehhez már egy egész fél napot adjunk. A hajóút is a történet része.”',
       summary: 'Szigeti ritmus, régi villák és hosszabb séta; nem két program közé szorított kitérő.'
     }
