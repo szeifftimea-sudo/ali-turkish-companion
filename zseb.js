@@ -96,7 +96,7 @@
   function phraseSource(item) {
     if (item.sourceLabel) return item.sourceLabel;
     const adventureNumber = Number(item.lastAdventure || (item.contexts || []).find((value) => Number.isInteger(value)));
-    return adventureNumber >= 1 && adventureNumber <= route.length ? `${String(adventureNumber).padStart(2, '0')} · ${route[adventureNumber - 1]}` : 'Ali útinaplója';
+    return adventureNumber >= 1 && adventureNumber <= route.length ? `${String(adventureNumber).padStart(2, '0')} · ${route[adventureNumber - 1]}` : 'Ali zsebéből';
   }
 
   const journal = readStored(JOURNAL_KEY, []).filter((entry) => entry && Number.isInteger(entry.id));
@@ -137,7 +137,7 @@
   const lastEntry = [...journal].sort((a, b) => b.id - a.id)[0];
   if (visitedCount === 10) {
     setText('[data-keepsake-title]', 'Tíz hely már visszavár.');
-    setText('[data-keepsake-copy]', 'Az első közös utatok bekerült az útinaplóba. Most már te döntöd el, hová tértek vissza.');
+    setText('[data-keepsake-copy]', 'Az első közös utatok emlékei már veled vannak. Most már te döntöd el, hová tértek vissza.');
   } else if (visitedCount > 0) {
     setText('[data-keepsake-title]', `${visitedCount} hely már ismerős.`);
     setText('[data-keepsake-copy]', lastEntry?.place ? `Legutóbb itt jártatok: ${lastEntry.place}. Ali megjegyezte.` : 'Ali megjegyezte, merre jártatok.');
@@ -280,7 +280,7 @@
     setText('[data-card-journey-cta]', 'Folytassuk →');
     setJourneyLink('index.html?start=1');
   } else if (visitedCount === 10) {
-    setText('[data-journey-kicker]', 'Az első közös utatok már az útinaplóban van');
+    setText('[data-journey-kicker]', 'Az első közös utatok már ismerős');
     setText('[data-journey-title]', 'Visszasétálok egy ismerős helyre');
     setText('[data-journey-copy]', 'Mind a tíz állomás nyitva áll előtted.');
     setText('[data-card-journey-kicker]', 'A város már ismerős');

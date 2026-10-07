@@ -19,6 +19,10 @@
   const printPreview = document.querySelector('[data-print-preview]');
   const printStart = document.querySelector('[data-print-start]');
   const currentPrintCount = document.querySelector('[data-current-print-count]');
+  const bulkPocketButton = document.querySelector('[data-pocket-visible]');
+  const bulkPocketLink = document.querySelector('[data-pocket-visible-link]');
+  const bulkPocketTitle = document.querySelector('[data-bulk-pocket-title]');
+  const bulkPocketCopy = document.querySelector('[data-bulk-pocket-copy]');
   const PHRASE_KEY = 'ali-phrase-progress-v2';
   const KNOWN_KEY = 'ali-a1-known-v1';
   const MAX_PRINT_CARDS = 80;
@@ -350,6 +354,16 @@
     const learned = knownCount(allUnique); const percentage = allUnique.length ? Math.round((learned / allUnique.length) * 100) : 0;
     knownSummary.textContent = learned ? `${learned} szót már biztosnak jelöltél a ${allUnique.length}-ből.` : 'Még egy szó sincs megjelölve – az első pipa is haladás.';
     knownTrack.style.width = `${percentage}%`;
+    const pocketRows = uniqueEntries(rows);
+    const unsavedCount = pocketRows.filter(entry => !isPocketed(entry)).length;
+    const bulkContext = query ? `${pocketRows.length} keresési találat` : activeSection === 'all' ? `mind a ${pocketRows.length} látható szó` : `${section?.title || 'A lecke'} · ${pocketRows.length} kártya`;
+    if (bulkPocketTitle) bulkPocketTitle.textContent = bulkContext;
+    if (bulkPocketCopy) bulkPocketCopy.textContent = unsavedCount ? `${unsavedCount} kártya még nincs Ali zsebében.` : 'Ez a teljes válogatás már Ali zsebében van.';
+    if (bulkPocketButton) {
+      bulkPocketButton.disabled = !pocketRows.length || !unsavedCount;
+      bulkPocketButton.textContent = unsavedCount ? `Mind a ${pocketRows.length} kártyát elteszem` : '✓ Már mind Ali zsebében van';
+    }
+    if (bulkPocketLink) bulkPocketLink.hidden = Boolean(unsavedCount);
     renderFilters();
     if (!printPlanner.hidden) renderPrintPlanner();
   }
@@ -363,12 +377,19 @@
     const code = entry.section || entry.sections?.[0];
     return lessonSections.find(section => section.code === code) || lessonSections[0];
   }
+  function saveEntriesToPocket(entries, message) {
+    const now = new Date().toISOString();
+    uniqueEntries(entries).forEach(entry => {
+      const id = entryId(entry.tr); const section = sectionForEntry(entry);
+      const old = pocketItems.find(item => item.id === id) || { id, phrase:entry.tr, encounters:0, contexts:[], sources:[] };
+      const saved = { ...old, phrase:entry.tr, translation:entry.hu, status:'saved', learningState:isKnown(entry) ? 'known' : (old.learningState || 'practicing'), contexts:[...new Set([...(old.contexts || []), `a1-${section.code}`])], sources:[...new Set([...(old.sources || []), 'a1-szokincs'])], source:'a1-szokincs', sourceLabel:`A1 szókincs · ${section.title}`, sourceHref:'szavak.html#szotar', encounters:Math.max(1, old.encounters || 0), updatedAt:now };
+      const index = pocketItems.findIndex(item => item.id === id); index < 0 ? pocketItems.push(saved) : pocketItems[index] = saved;
+    });
+    writeStored(PHRASE_KEY, pocketItems);
+    showToast(message);
+  }
   function saveEntryToPocket(entry) {
-    const id = entryId(entry.tr); const section = sectionForEntry(entry); const now = new Date().toISOString();
-    const old = pocketItems.find(item => item.id === id) || { id, phrase:entry.tr, encounters:0, contexts:[], sources:[] };
-    const saved = { ...old, phrase:entry.tr, translation:entry.hu, status:'saved', learningState:isKnown(entry) ? 'known' : (old.learningState || 'practicing'), contexts:[...new Set([...(old.contexts || []), `a1-${section.code}`])], sources:[...new Set([...(old.sources || []), 'a1-szokincs'])], source:'a1-szokincs', sourceLabel:`A1 szókincs · ${section.title}`, sourceHref:'szavak.html#szotar', encounters:Math.max(1, old.encounters || 0), updatedAt:now };
-    const index = pocketItems.findIndex(item => item.id === id); index < 0 ? pocketItems.push(saved) : pocketItems[index] = saved;
-    writeStored(PHRASE_KEY, pocketItems); showToast(`„${entry.tr}” már Ali zsebében van.`);
+    saveEntriesToPocket([entry], `„${entry.tr}” már Ali zsebében van.`);
   }
   function toggleKnown(entry) {
     const id = entryId(entry.tr); const nowKnown = !knownWords.has(id);
@@ -422,12 +443,13 @@
     if (printMode === 'lessons') return uniqueEntries(allRows.filter(entry => selectedPrintSections.has(entry.section)));
     return [];
   }
-  function printPreviewMarkup(entry) {
+  function printPreviewMarkup(entry, index) {
     if (!entry) return '<div class="print-preview-card is-empty" aria-hidden="true"><span>+</span></div>';
     const showTurkish = direction.value === 'tr-hu';
     const term = showTurkish ? entry.tr : entry.hu;
-    const answer = showTurkish ? 'Törökül' : 'Magyarul';
-    return `<article class="print-preview-card"><div class="print-preview-ali"><img src="assets/ali.png" alt="" /></div><small>${answer}</small><strong${showTurkish ? ' lang="tr"' : ''}>${escapeHtml(term)}</strong><i aria-hidden="true">✦</i></article>`;
+    const side = showTurkish ? 'Törökül' : 'Magyarul';
+    const section = sectionForEntry(entry);
+    return `<article class="print-preview-card"><header><b>${String(index + 1).padStart(2, '0')}</b><small>${escapeHtml(section.title)}</small></header><strong${showTurkish ? ' lang="tr"' : ''}>${escapeHtml(term)}</strong><footer>${side}</footer></article>`;
   }
   function renderPrintLessons() {
     printLessonChoices.innerHTML = lessonSections.map((section, index) => {
@@ -458,10 +480,11 @@
     while (previewItems.length < 4) previewItems.push(null);
     printPreview.innerHTML = previewItems.map(printPreviewMarkup).join('');
     printStart.disabled = !items.length || overLimit;
-    printStart.textContent = items.length && !overLimit ? `⌁ ${items.length} kártya nyomtatási előnézete` : '⌁ Nyomtatási előnézet';
+    printStart.textContent = items.length && !overLimit ? `${items.length} kártya · nyomtatható lapok` : 'Megnézem a nyomtatható lapokat';
   }
   function openPrintPlanner() {
-    if (!printMode) printMode = 'flight';
+    if (!printMode && search.value.trim()) printMode = 'current';
+    else if (!printMode && activeSection !== 'all') { printMode = 'lessons'; selectedPrintSections.add(activeSection); }
     printPlanner.hidden = false;
     printPlanner.closest('.dictionary-tools')?.classList.add('has-open-planner');
     printPlannerToggle.setAttribute('aria-expanded', 'true');
@@ -490,6 +513,13 @@
     const id = knownButton?.dataset.knownEntry || pocketButton?.dataset.pocketEntry; if (!id) return;
     const entry = entryById(id); if (!entry) return;
     if (knownButton) toggleKnown(entry); else if (pocketButton && !pocketButton.disabled) saveEntryToPocket(entry);
+    render();
+  });
+  bulkPocketButton?.addEventListener('click', () => {
+    const rows = uniqueEntries(visibleRows());
+    const unsaved = rows.filter(entry => !isPocketed(entry));
+    if (!unsaved.length) return;
+    saveEntriesToPocket(unsaved, `${unsaved.length} új kártya bekerült Ali zsebébe.`);
     render();
   });
   printPlannerToggle.addEventListener('click', () => printPlanner.hidden ? openPrintPlanner() : closePrintPlanner());
